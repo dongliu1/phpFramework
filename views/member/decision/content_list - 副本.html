@@ -1,0 +1,94 @@
+{template header}
+<style>
+.table-query-zone .button-wh{width:128px;height:18px;}
+.table-query-zone .button.easyui-combotree{width:108px;}
+.table-function-zone{padding:0;}
+
+.flex-col{display:flex;flex-direction:column;flex-wrap:wrap;height:100%}
+.flex-row{display:flex;flex-direction:row;flex-wrap:wrap;height:100%}
+.flex-item{padding:0;border:0;flex:1}
+
+.box{margin:5px;border:1px dotted #0c4e99;}
+
+</style>
+<script src="{JLIB_PATH}/highstock/highstock.js"></script>
+<script src="{JLIB_PATH}highcharts/highcharts-more.js"></script>
+<!-- <script type="text/javascript" src="{JLIB_PATH}highcharts/highcharts.js"></script> -->
+<body class="skin-blue tabs-body" style="overflow-x:hidden">
+<div class="flex-col" style="text-align:center">
+	<div class="flex-item flex-row">
+		<div class="flex-item box" id="chart-1"></div>
+		<div class="flex-item box"></div>
+	</div>
+	
+	<div class="flex-item flex-row">
+		<div class="flex-item box"></div>
+		<div class="flex-item box"></div>
+		<div class="flex-item box"></div>
+	</div>
+
+</div>
+<!--Wrapper End-->
+<script language="javascript">
+
+$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=large-dataset.json&callback=?', function (data) {
+		console.log(data);
+		});
+
+	var chart = new Highcharts.Chart('chart-1', {
+		title: {
+			text: '撮合实时图',
+			x: -20
+		},
+		xAxis: {
+			categories: ['2.20', '2.22', '2.24', '2.26', '2.28', '2.30', '2.32', '2.34', '2.36', '2.38', '2.40', '2.42']
+		},
+		yAxis: {
+			title: {
+				text: '电量（KW.h）'
+			},
+			lineWidth:1,
+			lineColor:'#ccc',
+			plotLines: [{
+				value: 0,
+				width: 1,
+				color: '#808080'
+			}]
+		},
+		credits:{
+			enabled:false
+		},
+		exporting:{
+			enabled:false
+		},
+		tooltip: {
+			valueSuffix: ''
+		},
+		legend: {
+			layout: 'horizontal',
+			align: 'center',
+			verticalAlign: 'bottom',
+			borderWidth: 0
+		},
+		plotOptions:{
+			column:{
+				pointWidth:20
+			}
+		},
+		series: [{
+			name: '可售电量',
+			data: [1.6,2.2,3.8,10.6,15.4,18.3,22.8, 24.3, 19.6, 12.2, 8.6, 3.8]
+		},{
+			name: '需求电量',
+			data: [8.8,9.8,12.7,16.3,21.0,25.0, 16.8, 14.1, 12.1, 9.8, 6.6, 4.5]
+		},{
+			name: '成交电量',
+			type: 'column',
+			data: [1.2, 1.8, 2.7, 8.3, 12.0, 18.0, 16.8, 12.1, 11.1, 9.1, 6.6, 2.5]
+		}]
+	});
+
+
+</script>
+</body>
+{template footer}

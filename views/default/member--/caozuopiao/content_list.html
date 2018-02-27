@@ -1,0 +1,132 @@
+{template member/header}
+<style>
+.row>span{margin-right:1em;display:inline-block;width:80px}
+.row>input{height:12px;}
+.row>input,textarea{margin-right:1em;background:transparent;border:1px solid #ccc;color:#ccc;}
+.save,.back{display:inline-block;border-radius:5px;padding:5px 10px;cursor:pointer;}
+.save{background:#1BBC9B;margin-right:20px;}
+.back{background:#757577;}
+.row{padding:7px 40px;}
+.align-style{margin-left:300px;}
+.clear{display:block;clear:both;}
+select{margin-right:0.5em;}
+textarea{width:448px;}
+.table-function-zone>span{float:left;}
+.line-span{height:35px;line-height:35px;overflow:hidden;}
+
+.table-function-zone span{line-height:23px;}
+.datatable tr td .selectc{float:right;}
+.table-function-zone .button{margin-right:20px;}
+.table-function-zone{padding:0;}
+</style>
+<body class="skin-blue tabs-body" style="overflow-x:hidden">
+<div class="container">
+	<div class="table-above" >
+		<div class="table-function-zone">
+			<span>操作票步骤</span>
+			<input type="button" class="button" value="添加" name="button" onclick="dlg_addnew();" />
+		</div>
+	</div>
+	<div class="table-content" >
+	<table class="datatable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<td width="22" align="right"><input name="selectc" id="selectc" type="checkbox" onClick="setC()"></td>
+				{loop $fields $f}
+					{if $f['isshow']}<td>{$f['name']}</td>{/if}
+				{/loop}
+				<td>操作</td>
+			</tr>
+		</thead>
+		<tbody>
+			{loop $fields_text $t}
+			<tr>
+				<td><input name="ids[]" type="checkbox" class="selectc" value="{$t['id']}" /></td>
+				{loop $fields $f}
+					{if $f['isshow']}<td>{clearhtml($t[$f["field"]])}</td>{/if}
+				{/loop}
+				<td>
+				<a href="javascript:dlg_detail({$t['id']});">详情</a>
+				<a href="javascript:dlg_preview({$t['mobanid']});">预览</a>
+				{if $t['userid']==$memberinfo['id']}
+				<a href="javascript:dlg_edit({$t['id']});">修改</a>
+				<a href="javascript:;" onClick="dlg_delete({$t['id']})">删除</a>
+				{/if}
+				{if $t['status']==4}{if $group['allowreprint']}
+				<a href="{url('member/content/reprint/', array('id'=>$t['id']))}">转发</a>
+				{/if}{/if}
+				</td>
+			</tr>
+			{/loop}
+		</tbody>
+	</table>
+	</div>
+	
+	<div class="datatablepage">
+		<table width="100%" border="0">
+		  <tr>
+			<td align="right">{$pagelist}</td>
+		  </tr>
+		</table>
+	</div>
+   
+
+
+</div>
+<!--Wrapper End-->
+<script language="javascript">
+$(function(){
+	$("[name='timefrom'],[name='timeto']").datetimebox({
+		required: true,
+		showSeconds: false
+	});
+})
+function setC() {
+	if($("#selectc").attr('checked')) {
+		$(".selectc").attr("checked",true);
+	} else {
+		$(".selectc").attr("checked",false);
+	}
+}
+
+function dlg_detail(id){
+	var dlgid="content_detail_"+id;
+	var ddialog=$("body").append("<div id='"+dlgid+"'></div>");
+	$( "#"+dlgid ).load("{url('member/content/show')}&id="+id,function(){
+		$( "#"+dlgid ).dialog({"title":"详情 - {$catname}",width:400,height:500,modal: true,close: function(){ $(this).remove(); },onClose: function(){ $(this).remove(); }});
+	})
+}
+
+function dlg_addnew(){
+	var dlgid="content_add";
+	var ddialog=$("body").append("<div id='"+dlgid+"'><iframe src='{url('member/content/add', array('catid'=>$catid))}' style='border:none;width:100%;height:99%;overflow-x:hidden'></iframe></div>");
+	//$( "#"+dlgid ).load("{url('member/content/add', array('catid'=>$catid))}",function(){
+		$( "#"+dlgid ).dialog({"title":"添加 - {$catname}",width:700,height:500,modal: true,close: function(){ $(this).remove(); },onClose: function(){ $(this).remove(); } });
+	//})
+}
+
+function dlg_edit(id){
+	var dlgid="content_edit";
+	var ddialog=$("body").append("<div id='"+dlgid+"'><iframe src='{url('member/content/edit')}&id="+id+"'  style='border:none;width:100%;height:99%;overflow-x:hidden'></iframe></div>");
+	//$( "#"+dlgid ).load("{url('member/content/add', array('catid'=>$catid))}",function(){
+		$( "#"+dlgid ).dialog({"title":"编辑 - {$catname}",width:700,height:500,modal: true,close: function(){ $(this).remove(); },onClose: function(){ $(this).remove(); }});
+	//})
+}
+
+function dlg_delete(id){
+	if(confirm('确认删除吗？')){ window.location.href="{url('member/content/del')}&id="+id; }
+}
+
+
+function dlg_preview(id){
+	var dlgid="content_preview_"+id;
+	var ddialog=$("body").append("<div id='"+dlgid+"'></div>");
+	//$( "#dialog" ).dialog({
+	console.log()
+	$( "#"+dlgid ).load("{url('member/content/show')}&id="+id,function(){
+		$( "#"+dlgid ).dialog({"title":"详情 - {$catname}",width:700,height:400,modal: true,close: function(){ $(this).remove(); },onClose: function(){ $(this).remove(); }});
+	})
+}
+</script>
+</body>
+{template member/footer}

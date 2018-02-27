@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>RoxSys使用手册</title>
+<style type="text/css">
+*{word-break:break-all;font-family:arial,\5b8b\4f53,sans-serif;}
+body{color:#000000;font-size:14px;margin:0;overflow-x:hidden;}
+input,textarea,select,button,td{font-size:14px;}
+img{border:none;}
+a:link,a:visited,a:active{text-decoration:underline;color:#136EC2}
+a:hover{text-decoration:none;}
+.head {border-bottom:#CCCCCC 1px solid;text-align:center;padding:15px;margin:0 10px 0 10px;font-family:黑体;font-size:20px;}
+.text {padding:10px 20px 10px 20px;line-height:150%;}
+.foot {background:#FAFAFA;padding:15px;font-size:12px;}
+.dsn {display:none;}
+.f1 {color:#015D90;padding:0 5px 0 5px;}
+.f2 {color:#FF0000;}
+.code {font-family:Fixedsys,verdana;color:blue;font-size:12px;border:#CAD9EA 1px dotted;padding:5px 10px 5px 10px;background:#F9FCFF;}
+</style>
+</head>
+<body>
+<div class="head">数据读写分离配置</div>
+<div class="text">
+	<p>在v1.7.7版本 程序里面内置了读写分离的功能，方便了一些负载比较大的站点使用来降低一定的负载。</p>
+	<p><strong>配置方法</strong></p>
+	<p>配置文件：/config/database.slave.ini.php</p>
+  <p class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;/**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* 数据库读写分离配置<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* 支持多个从库，格式如：1=>array(), 2=>array() ... <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* 从库的数据库名、前缀、编码必须与主库保持一致<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br>
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;return array(<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'1'	=> array(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'host'     => '127.0.0.1',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'username' => 'root',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'password' => '',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'port'     => '3307'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+    </p>
+	<p class="code"><a href="javascript:if(confirm('http://bbs.roxsys.net/forum.php?mod=viewthread&tid=1213&extra=page%3D1  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://bbs.roxsys.net/forum.php?mod=viewthread&tid=1213&extra=page%3D1'" tppabs="http://bbs.roxsys.net/forum.php?mod=viewthread&tid=1213&extra=page%3D1" target=_blank>MySQL服务器的主从配置步骤</a></p>
+</div>
+<div class="foot"><span style="float:right;"><a href="main.html" tppabs="main.html">文档首页</a>&nbsp; | &nbsp;<a href="javascript:window.scrollTo(0,0);">返回顶部</a></span></div>
+<br />
+</body>
+</html>

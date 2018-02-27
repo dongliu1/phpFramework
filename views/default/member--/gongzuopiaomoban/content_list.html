@@ -1,0 +1,134 @@
+{template member/header}
+<style>
+.table-function-zone{padding:0;}
+.table-query-zone{padding:0;}
+.skin-blue input{float:right;}
+</style>
+<body class="skin-blue tabs-body" style="overflow-x:hidden">
+<div class="container">
+	<div class="table-above" >
+		<div class="table-function-zone">
+			<input type="button" class="button" value="添加" name="button" onclick="dlg_addnew();" />
+		</div>
+	</div>
+	<div class="table-content" >
+		<table class="datatable" border="0" cellpadding="0" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<td width="22" align="right"><input name="selectc" id="selectc" type="checkbox" onClick="setC()"></td>
+					{loop $fields $f}
+						{if $f['field']!='moban'}<td>{$f['name']}</td>{/if}
+					{/loop}
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				{loop $fields_text $t}
+				<tr>
+					<td><input name="ids[]" type="checkbox" class="selectc" value="{$t['id']}" /></td>
+					{loop $fields $f}
+						{if $f['field']!='moban'}<td>{clearhtml($t[$f["field"]])}</td>{/if}
+					{/loop}
+					<td>
+						<a href="javascript:dlg_detail({$t['id']});">打印</a>
+						{if $t['userid']==$memberinfo['id']}
+						<a href="javascript:dlg_edit({$t['id']});">修改</a>
+						<a href="javascript:;" onClick="dlg_delete({$t['id']})">删除</a>
+						{/if}
+						{if $t['status']==4}{if $group['allowreprint']}
+						<a href="{url('member/content/reprint/', array('id'=>$t['id']))}">转发</a>
+						{/if}{/if}
+					</td>
+				</tr>
+				{/loop}
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="datatablepage">
+		<table width="100%" border="0">
+		  <tr>
+			<td align="right">{$pagelist}</td>
+		  </tr>
+		</table>
+	</div>
+   
+
+
+</div>
+<!--Wrapper End-->
+<script language="javascript">
+$(function(){
+	$("[name='timefrom'],[name='timeto']").datetimebox({
+		required: true,
+		showSeconds: false
+	});
+})
+
+function treedata_convert(rows){
+    var nodes = [];
+	//生成根节点
+	$.each(rows,function(id,row){
+		if(!rows.hasOwnProperty(row.parentid)){
+			nodes.push({id:row.id,text:row.name});
+		}
+	})
+	
+    var toDo = new Array();
+    for(var i=0; i<nodes.length; i++){toDo.push(nodes[i]);}
+    while(toDo.length){
+        var node = toDo.shift(); 
+		$.each(rows,function(id,row){
+			if (row.parentid == node.id){
+                var child = {id:row.id,text:row.name};
+                if (node.children){
+                    node.children.push(child);
+                } else {
+                    node.children = [child];
+                }
+                toDo.push(child);
+            }
+		});
+    }
+    return nodes;
+}
+
+function setC() {
+	console.log($("#selectc").attr('checked'));
+	if($("#selectc").attr('checked')) {
+		$(".selectc").attr("checked",true);
+	} else {
+		$(".selectc").attr("checked",false);
+	}
+}
+
+function dlg_detail(id){
+	var dlgid="content_detail_"+id;
+	var ddialog=$("body").append("<div id='"+dlgid+"'></div>");
+	//$( "#dialog" ).dialog({
+	console.log()
+	$( "#"+dlgid ).load("{url('member/content/show')}&id="+id,function(){
+		$( "#"+dlgid ).dialog({"title":"详情 - {$catname}",width:800,height:400,modal: true,close: function(){ $(this).remove(); },onClose: function(){ $(this).remove(); }});
+	})
+}
+
+function dlg_addnew(){
+	var dlgid="content_add";
+	var ddialog=$("body").append("<div id='"+dlgid+"'><iframe src='{url('member/content/add', array('catid'=>$catid))}' height='500px' style='border:none;width:100%;overflow-x:hidden'></iframe></div>");
+	$( "#"+dlgid ).dialog({"title":"添加 - {$catname}",width:700,modal: true,close: function(){ $(this).remove(); },onClose: function(){ $(this).remove(); } });
+}
+
+function dlg_edit(id){
+	var dlgid="content_add";
+	var ddialog=$("body").append("<div id='"+dlgid+"'><iframe src='{url('member/content/edit')}&id="+id+"' height='400px' style='border:none;width:100%;overflow-x:hidden'></iframe></div>");
+	//$( "#"+dlgid ).load("{url('member/content/add', array('catid'=>$catid))}",function(){
+		$( "#"+dlgid ).dialog({"title":"编辑 - {$catname}",width:700,modal: true,close: function(){ $(this).remove(); },onClose: function(){ $(this).remove(); }});
+	//})
+}
+
+function dlg_delete(id){
+	if(confirm('确认删除吗？')){ window.location.href="{url('member/content/del')}&id="+id; }
+}
+</script>
+</body>
+{template member/footer}

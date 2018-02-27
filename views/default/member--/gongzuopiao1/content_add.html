@@ -1,0 +1,283 @@
+{template member/header}
+<style>
+.head-title{text-align:center;}
+.content{margin-left:80px;overflow:scroll;height:100%;}
+.row{line-height:22px;}
+.row-content{text-indent:0em;}
+span{margin-right:0.5em;font-size:12px;}
+input{margin-right:1.5em;width:75px;height:12px;border:1px solid #ccc;background:transparent;}
+.content-text{float:left;width:50%;}
+textarea{width:80%;height:50px;background:transparent;margin-left:1em;}
+.row span{min-width:120px;display:inline-block}
+.danwei{text-indent:0.9em;}
+.red{color:red;}
+.tab-button{position:absolute;bottom:10px;left:320px;}
+#prev,#next{display:inline-block;margin-right:30px;padding:5px 10px;border-radius:5px;background:#1BBC9B;cursor:pointer;color:#fff;}
+</style>
+<body class="skin-blue tabs-body" style="overflow-x:hidden;color:#333">
+<div class="content">
+
+	<div id="conten-num1">
+		<div class="head-title">
+			<h3>电气一种工作票</h3>
+		</div>
+		
+		<div class="row row-content"> 
+			<span class="rowtitle danwei">{$fields['danwei']['name']}</span>
+			<input type="text">
+			<span class="rowtitle">班组/作业小组</span>
+			<input type="text">
+		</div>
+		<div class="row">
+			<label></label>
+			<span  class="rowtitle">1.工作负责人</span>
+			<input type="text">
+		</div>
+		<div class="row row-content">
+			<span class="rowtitle danwei">工作成员</span>
+			<input type="text">
+			<span class="rowtitle">人员数量</span>
+			<input type="text">
+		</div>
+		<div class="row">
+			<span>2.工作任务 &nbsp; &nbsp;  &nbsp; </span>
+			<input type="text">
+		</div>
+		<div class="row">
+			<span>3.工作地点</span>
+			<input type="text">
+			<span>关联设备</span>
+			<input type="text">
+		</div>
+		<div class="row">
+			<span>4.计划工作时间</span>
+			<input type="text">
+			<span>至</span>
+			<input type="text">
+		</div>
+		<div class="row">
+			<span>5.安全技术措施</span>
+		</div>
+		<div class="row row-content">
+			<div class="content-text">
+				<div class="text-title">
+					<span class="danwei">应采取措施（工作人员填写）</span>
+				</div>
+				<textarea></textarea>
+				<div class="text-title">
+					<span class="danwei">应采取个人安全措施（工作人员填写）</span>
+				</div>
+				<textarea></textarea>
+			</div>
+			<div class="content-text">
+				<div class="text-title">
+					<span class="danwei">已采取安全技术措施（许可人填写）</span>
+				</div>
+				<textarea></textarea>
+				<div class="text-title">
+					<span class="danwei">已采取个人安全技术措施（许可人填写）</span>
+				</div>
+				<textarea></textarea>
+			</div>
+		</div>
+	</div>
+	<div id="conten-num2">
+		<div class="row row-content">
+			<div class="content-text">
+				<div class="text-title">
+					<span class="danwei">应装设接地线/投入接地刀闸/设置短路线</span>
+				</div>
+				<textarea></textarea>
+				<div class="text-title">
+					<span class="danwei">应设置安全警示标志票/安全遮拦/安全绳</span>
+				</div>
+				<textarea></textarea>
+				<div class="text-title">
+					<span class="danwei">重要危险点及预防措施（可附在三措中）</span>
+				</div>
+				<textarea></textarea>
+			</div>
+			<div class="content-text">
+				<div class="text-title">
+					<span class="danwei">应装设接地线/投入接地刀闸/设置短路线（含编号地址）</span>
+				</div>
+				<textarea></textarea>
+				<div class="text-title">
+					<span class="danwei">应设置安全警示标志票/安全遮拦/安全绳（含编号地址）</span>
+				</div>
+				<textarea></textarea>
+				<div class="text-title">
+					<span class="danwei">工作地点保留带电设备/带压设备/转动设备/注意事项</span>
+				</div>
+				<textarea></textarea>
+			</div>
+		</div>
+		<div class="row row-content">
+			<span class="danwei">工作票签发人</span>
+			<input type="text">
+		</div>
+		<div class="row">
+			<span>6.工作票提交时间</span>
+			<input type="text">
+			<span>工作票负责人</span>
+			<input type="text">
+		</div>
+		<div class="row row-content">
+			<span class="danwei">接收时间</span>
+			<input type="text">
+			<span>运行值班负责人</span>
+			<input type="text">
+		</div>
+		<div class="row">
+			<span>7.检修作业批准时间</span>
+			<input type="text">
+			<span>至</span>
+			<input type="text">
+		</div>
+		<div class="row row-content">
+			<span class="danwei">值班长</span>
+			<input type="text">
+		</div>
+	</div>
+	<div id="conten-num3">
+		<div class="row">
+			<span>8.上诉内容已确认，具备开工条件。工作许可开工时间</span>
+			<input type="text">
+		</div>
+		<div class="row row-content">
+			<span class="danwei">工作许可人</span>
+			<input type="text">
+			<span>工作负责人</span>
+			<input type="text">
+		</div>
+		<div class="row">
+			<span>9.工作负责人变动自</span>
+			<input type="text">
+			<span>原工作负责人离去，变更为</span>
+			<input type="text">
+			<span>担任工作负责人</span>
+		</div>
+		<div class="row row-content">
+			<span class="danwei">工作票签发人</span>
+			<input type="text">
+			<span>工作许可人</span>
+			<input type="text">
+		</div>
+		<div class="row">
+			<span>10.工作票终止与复工</span>
+		</div>
+		<div class="row row-content">
+			<span class="danwei">检修工作与</span>
+			<input type="text">
+			<span>中止，检修作业人员已全部撤离作业现场</span>
+		</div>
+		<div class="row row-content">
+			<span class="danwei">工作负责人</span>
+			<input type="text">
+			<span>工作许可人</span>
+			<input type="text">
+		</div>
+		<div class="row row-content">
+			<span class="danwei">检修作业已采取安全措施已复查，确认，满足工作复工条件。确认时间</span>
+			<input type="text">
+		</div>
+		<div class="row row-content">
+			<span class="danwei">工作许可人</span>
+			<input type="text">
+			<span>工作负责人</span>
+			<input type="text">
+		</div>
+		<div class="row">
+			<span>11.工作票延期 有效期延长到</span>
+			<input type="text">
+		</div>
+		<div class="row row-content">
+			<span class="danwei">值班长</span>
+			<input type="text">
+			<span>工作负责人</span>
+			<input type="text">
+		</div>
+		<div class="row">
+			<span>12.工作票终结</span>
+		</div>
+		<div class="row row-content">
+			<span class="danwei">检修作业已装设接地线/投入接地刀闸/设置短路线共</span>
+			<input type="text">
+			<span>组已拆除/拉开。已设置安全警示标识牌/遮拦/绳共</span>
+		</div>
+		<div class="row row-content">
+			<input type="text" style="margin-left:1em;">
+			<span>块/个/条已回收。检修作业已结束，检修人员已全部撤离作业现场，作业交代符合规定要求，作业现场已</span>
+		</div>
+		<div class="row row-content">
+			<span class="danwei">清理此检修作业工作票于</span>
+			<input type="text">
+			<span>办理作业结束手续</span>
+		</div>
+		<div class="row row-content">
+			<span class="danwei">工作许可人</span>
+			<input type="text">
+			<span>工作负责人</span>
+			<input type="text">
+		</div>
+	</div>
+	<div id="conten-num4">
+		<div class="row">
+			<span>13.备注：未拆除/拉开的接地线/投入接地刀闸设置短路线共</span>
+			<input type="text">
+			<span>组。未收回的安全警示标识牌/遮拦/绳共</span>
+		</div>
+		<div class="row row-content">
+			<input type="text" style="margin-left:1em;">
+			<span>块/个/条。</span>
+		</div>
+		<div class="row row-content">
+			<span class="danwei">设置地点及编号</span>
+			<input type="text">
+		</div>
+		<div class="row row-content">
+			<span class="danwei">原因</span>
+			<input type="text">
+		</div>
+	</div>
+	<div class="tab-button">
+		<div id="prev" class="tab-color">上页</div>
+		<div id="next" class="tab-color">下页</div>
+	</div>
+</div>
+<script>
+$(function(){
+	$("#conten-num2,#conten-num3,#conten-num4").hide();
+	var tab_num = 1;
+	$("#prev").click(function(){
+		if(tab_num > 1){
+			tab_num=tab_num-1;
+			tab_show(tab_num);
+			if(tab_num===3){
+				$("#next").text("下页");
+			}
+		}
+	});
+	$("#next").click(function(){
+		if(tab_num<4){
+			tab_num=tab_num+1;
+			tab_show(tab_num);
+			if(tab_num===4){
+				$(this).text("保存");
+			}
+		}else{
+			console.log("开始保存");
+		}
+		
+	});
+	
+})
+function tab_show(tab_num){
+	for(var i=1;i<5;i++){
+		$("#conten-num"+i).hide();
+	}
+	$("#conten-num"+tab_num).show();
+}
+</script>
+</body>
+{template member/footer}

@@ -1,0 +1,86 @@
+{template member/header}
+<style>
+.head-list{padding:10px 20px;}
+input{background:transparent;height:12px;border:1px solid #E6E6E6;color:#ccc;}
+select{background:transparent;height:17px;border:1px solid #E6E6E6;margin-top:1px;color:#ccc;}
+.list-static>span{margin-right:0.5em}
+.list-static>input,.list-static>select{margin-right:1.5em;width:100px;}
+.foot-static>input{width:40px;}
+.foot-static{float:right;}
+.div-button{padding:0.2em 1em;cursor:pointer;color:#1BBC9B;border:1px solid #1BBC9B;border-radius:.3em;}
+.div-button:hover{background:#666}
+.head-list>.div-button{background:#1BBC9B;color:#ccc;float:left;margin-left:1em}
+.clear{display:block;clear:both;}
+.list-static{float:left;}
+.table-list>.div-button{margin-right:1em;float:right}
+.foot-left{float:left;width:50%;}
+.foot-right{float:left;width:50%;}
+.foot-right>.div-button{margin-right:0.5em;float:right;background:rgba(25,25,25,0.8);color:#1BBC9B;padding:0 0.5em;}
+.blank-line{padding:0 20px;}
+.table-list,.table,.table-foot{padding:10px 20px}
+
+</style>
+<div class="defect-content">
+	<div class="head-list">
+		<div class="list-static">
+			<span>流程名称</span>
+			<input type="text">
+			<span>处理环节</span>
+			<input type="text">
+		</div>
+		<div class="div-button">查询</div>
+	</div>
+	<div class="clear"></div>
+	<div class="blank-line"><hr></div>
+	<div class="table-list">
+		<div class="div-button">审核</div>
+		<div class="div-button">删除</div>
+		<div class="div-button">修改</div>
+		<div class="div-button" onclick="add_new();">新增</div>
+	</div>
+	<div class="clear"></div>
+	<div class="table">
+		<table width="100%">
+			<tr>
+				<th><input type="checkbox"></th>
+				<th>年度</th>
+				<th>计划类型</th>
+				<th>备注</th>
+				<th>状态</th>
+				<th>查看</th>
+			</tr>
+		</table>
+	</div>
+	<div class="table-foot">
+		<div class="foot-left">
+			<span>每页显示：</span>
+			<select>
+				<option>15</option>
+			</select>
+			<span>没有相关记录</span>
+		</div>
+		<div class="foot-right">
+			<div class="foot-static">
+				<span>第一页/共一页 跳转到：</span>
+				<input type="text">
+				<span>页</span>
+			</div>
+			<div class="div-button">>|</div>
+			<div class="div-button">></div>
+			<span style="float:right;margin-right:0.5em;">1</span>
+			<div class="div-button"><</div>
+			<div class="div-button">|<</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<script language="javascript">
+	function add_new(){
+		var dlgid="content_add";
+		var ddialog=$("body").append("<div id='"+dlgid+"'><iframe src='{url('member/content/add', array('catid'=>$catid))}' height='400px' style='border:none;width:100%;overflow-x:hidden'></iframe></div>");
+		//$( "#"+dlgid ).load("{url('member/content/add', array('catid'=>$catid))}",function(){
+			$( "#"+dlgid ).dialog({"title":"添加- {$catname}",width:700,modal: true,close: function(){ $(this).remove(); }});
+		//})
+	}
+</script>
+{template member/footer}

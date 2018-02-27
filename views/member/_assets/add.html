@@ -1,0 +1,33 @@
+{template header}
+<div class="subnav">
+	<div class="content-menu ib-a blue line-x">
+		<a href="{url('member/assets/',array('catid'=>$catid))}"><em>{lang('a-ast-i')}</em></a><span>|</span>
+		<a href="{url('member/assets/add',array('catid'=>$catid))}" class="on"><em>{lang('a-add')}</em></a><span>|</span>
+		<a href="{url('member/assets/cache',array('catid'=>$catid))}"><em>{lang('a-cache')}</em></a>
+	</div>
+	<div class="bk10"></div>
+	<div class="table-list">
+		<form action="" method="post">
+		<input name="id" type="hidden" value="{$data['id']}">
+		<input name="keyid" type="hidden" value="{$keyid}">
+		<table width="100%" class="table_form">
+		<tr>
+			<th width="200">{lang('a-ast-13')}： </th>
+			<td><input class="input-text" type="text" name="name" value="{$data['name']}" size="20"/></td>
+		</tr>
+		<tr style="display:none">
+			<th>{lang('a-sit-24')}： </th>
+			<td><input type="radio" value="0" name="site" {if empty($data['site'])}checked{/if} /> {lang('a-sit-25')}&nbsp;&nbsp;
+				<input type="radio" value="1" name="site" {if $data['site']==1}checked{/if} /> {lang('a-sit-26')}
+				<div class="onShow">{lang('a-sit-27')}</div>
+			</td>
+		</tr>
+		<tr>
+			<th>&nbsp;</th>
+			<td><input class="button" type="submit" name="submit" value="{lang('a-submit')}" /></td>
+		</tr>
+		</table>
+		</form>
+	</div>
+</div>
+{template footer}

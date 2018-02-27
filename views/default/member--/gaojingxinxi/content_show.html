@@ -1,0 +1,165 @@
+{template member/header}
+<style>
+.contain{margin:0 40px;height:100%;}
+.equipment,.equipment-info{float:left;height:100%;}
+.equipment{width:20%;position:fixed;top:0;right:5px;background:rgba(0,0,0,0.5);}
+.equipment-info{width:80%;}
+.station,.equip-tree{min-height:90%;margin:10px 0;}
+.equip-head,.equip-state{padding:5px 10px;border-bottom:1px solid rgba(255,255,255,0.2);background:#444}
+select{background:transparent;color:#bbb;width:130px;}
+.active{color:rgb(22,145,121);}
+.equip-name>div{cursor:pointer;padding:10px 15px;border-bottom:1px solid #403C3C;border-radius:3px;}
+.station-head>span{display:inline-block;padding:5px 10px;background:#444;margin:10px 0;cursor:pointer;}
+.station-head,.station-info{margin:10px 20px;}
+.station-contain{margin:40px 20px;background:rgba(0,0,0,0.5);}
+.easyui-combotree{width:130px;}
+.clear{display:block;clear:both;}
+.panel{padding:10px 15px;border-bottom:1px dotted #ccc;cursor:pointer;}
+.panel:hover{background:rgba(117,158,139,0.3);}
+.panel-child .row{padding:5px 25px;cursor:pointer;}
+.panel-child .row:hover{background:rgba(117,158,139,0.1);}
+.panel-child{display:none;border-bottom:1px dotted #ccc;background:rgba(25,25,25,0.5);}
+.fa{float:right;margin-right:15px;font-size:15px;}
+</style>
+<body class="skin-blue tabs-body" style="overflow-x:hidden;">
+	<div class="contain">
+		<div class="equipment-info">
+			<div class="station">
+				<div class="station-contain">
+					<div class="station-head">
+						<span>清水河电站</span>
+					</div>
+					<div id="QSH-pv" class="station-info"></div>
+				</div>
+				<div class="station-contain">
+					<div class="station-head">
+						<span>枣庄电站</span>
+					</div>
+					<div id="ZZ-pv" class="station-info"></div>
+				</div>
+				<div class="station-contain">
+					<div class="station-head">
+						<span>淮安电站</span>
+					</div>
+					<div id="HA-pv" class="station-info"></div>
+				</div>
+			</div>
+		</div>
+		<div class="equipment">
+			<div class="equip-tree">
+				<div class="equip-head">设备名称</div>
+				<div class="device-tree">
+					<div name="panel-1" class="panel">上海分公司<i class="fa fa-angle-right"></i></div>
+					<div id="panel-1" class="panel-child">
+						<div class="row">麻城电站</div>
+						<div class="row">神农架电站</div>
+						<div class="row">枣庄电站</div>
+						<div class="row">宁波电站</div>
+					</div>
+					<div name="panel-2" class="panel">四川分公司<i class="fa fa-angle-right"></i></div>
+					<div id="panel-2" class="panel-child">
+						<div class="row">溪洛渡电站</div>
+						<div class="row">乌东德电站</div>
+					</div>
+					<div name="panel-3" class="panel">云南分公司<i class="fa fa-angle-right"></i></div>
+					<div id="panel-3" class="panel-child">
+						<div class="row">向家坝电站</div>
+						<div class="row">白鹤滩电站</div>
+						<div class="row">虎跳峡电站</div>
+					</div>
+					<!--<ul id="equip-tree" class="easyui-tree" data-options="url:'{url('api/linkagedata',array('id'=>1,'isAssets'=>1,'parent_id'=>0))}',method:'get',required:true,loadFilter:function(rows){return treedata_convert(rows);}" ></ul>
+				-->
+				</div>
+				<div class="equip-state">设备状态</div>
+				<div class="equip-name">
+					<div cpid="inverter" class="active">逆变器状态</div>
+					<div cpid="combiner">智能汇流箱状态</div>
+					<div cpid="box_change">箱变状态</div>
+					<div cpid="station_change">站变状态</div>
+					<div cpid="pv">pv过压</div>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</body>
+<script>
+$.ajaxSetup({
+	async: false
+});
+function init_panel(){
+	$(".panel").click(function(){
+		var name=$(this).attr("name");
+		var cur_icon=$(this).find("i");
+		var icon_class=cur_icon.attr("class");
+		if(icon_class=="fa fa-angle-right"){
+			cur_icon.removeClass(icon_class);
+			cur_icon.addClass("fa fa-angle-down");
+		}else{
+			cur_icon.removeClass(icon_class);
+			cur_icon.addClass("fa fa-angle-right");
+		}
+		$("#"+name).slideToggle("normal");
+	})
+}
+$(function(){
+	init_panel();
+	var url="{url('member/content',array('catid'=>114))}";
+	$(".station-info").load(url);
+	$(".equip-name>div").click(function(){
+		$(".equip-name>div").removeClass("active");
+		$(this).addClass("active");
+		var name=$(this).attr("cpid");
+		var url;
+		switch(name){
+			case "inverter":
+				url="{url('member/content',array('catid'=>114))}";
+				break;
+			case "combiner":
+				url='{url("member/content",array("catid"=>115))}';
+				break;
+			case "box_change":
+				url='{url("member/content",array("catid"=>116))}'; 
+				break;
+			case "station_change":
+				url='{url("member/content",array("catid"=>117))}';
+				break;
+			case "pv":
+				url='{url("member/content",array("catid"=>118))}'; 
+				break;
+			default:
+				break;
+		}
+		$(".station-info").load(url);
+	});
+	$.get("{url('api/linkagedata',array('id'=>1,'isAssets'=>1,'parent_id'=>0))}",function(data){
+		var tree_data=[];
+		tree_data.push(JSON.parse(data));
+		console.log(tree_data);
+		$.each(tree_data,function(dataid,data){
+			$.each(data,function(dvid,dvname){
+				
+			})
+			
+		})
+		show_tree(tree_data);
+	})
+})
+
+function show_tree(tree_data){
+	$(".node_1>i").on("click",function(){
+		var node_class=$(this).attr("class");
+		if(node_class=="fa fa-plus"){
+			$(this).removeClass("fa-plus");
+			$(this).addClass("fa-minus");
+			$(this).parent().append('<div class="node_1"><i class="fa fa-plus"></i><span>方阵一</span></div>');
+		}else{
+			$(this).removeClass("fa-minus");
+			$(this).addClass("fa-plus");
+			console.log($(this).parent().children(".node_1"));
+			$(this).parent().children(".node_1").remove();
+		}
+	})
+}
+</script>
+{template member/footer}

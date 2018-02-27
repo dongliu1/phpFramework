@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$meta_title}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+<link href="{MEMBER_THEME}_rsc/style.css" rel="stylesheet" type="text/css" />
+<link href="{MEMBER_THEME}_rsc/skins.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="{JLIB_PATH}jqueryui/light/jquery-ui.min.css" />
+<!--link href="{JLIB_PATH}dialog/dialog.css" rel="stylesheet" type="text/css" /-->
+<link href="{JLIB_PATH}fonts/shenku/css/sk.css" rel="stylesheet" type="text/css" />
+<!--[if IE 7]><link rel="stylesheet" href="{JLIB_PATH}fonts/shenku/sk-ie7.css"><![endif]-->
+<link href="{JLIB_PATH}fonts/awesome/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="{JLIB_PATH}fonts/ionicons/ionicons.min.css" rel="stylesheet" type="text/css" />
+<link href='{JLIB_PATH}fullcalendar/fullcalendar.min.css' rel='stylesheet' />
+<link href='{JLIB_PATH}fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+
+<script type="text/javascript" src="{JLIB_PATH}jquery/jquery.min.js"></script>
+<script type="text/javascript" src="{JLIB_PATH}momentjs/moment.min.js"></script>
+<script type="text/javascript" src="{JLIB_PATH}jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src='{JLIB_PATH}fullcalendar/fullcalendar.min.js'></script>
+<style>
+body{margin-top:20px;}
+#wrap{width:100%;margin:0 auto}
+#external-events{float:left;width:100px;padding:0 10px;border:1px solid #aaa;text-align:left;margin-left:10px;}
+#external-events h4{font-size:16px;margin-top:0;padding-top:1em;color:#666;}
+#external-events .fc-event{margin:5px 0;padding:5px;cursor:pointer;text-align:center;color:#444;}
+#external-events p{margin:1.5em 0;font-size:11px;color:#666}
+#external-events p input{margin:0;vertical-align:middle}
+#calendar{float:right;width:520px;margin-right:10px;}
+.form-footer{text-align:center;margin-top:20px;}
+</style>
+</head>
+<body class="skin-blue tabs-body" style="overflow-x:hidden;color:#333">
+	<div id='wrap'>
+		<div id='external-events'>
+			<h4 onclick="console.log($('#calendar').fullCalendar('clientEvents'));">值班人</h4>
+			<div userid="121" class='fc-event'>张三</div>
+			<div userid="122" class='fc-event'>李四</div>
+			<div userid="123" class='fc-event'>王五</div>
+			<div userid="124" class='fc-event'>刘七</div>
+			<div userid="125" class='fc-event'>徐八</div>
+		</div>
+		<div id='calendar'></div>
+		<div style='clear:both'></div>
+	</div>
+<script>
+	$.ajaxSetup({
+		async: false
+	});
+	var duty_info={},global_duration={days:10};
+	$(document).ready(function() {
+		init_events();
+		init_calendar();
+		{if $data['id']}
+			var gotoDate="{$_GET['cur_date']}";
+			gotoDate=moment.unix(gotoDate).format("YYYY-MM-DD");
+			$('#calendar').fullCalendar('gotoDate',gotoDate);
+		{/if}
+	});
+	
+	function init_events(){
+		$('#external-events .fc-event').each(function(){ 
+			/*var eventObject ={
+				title: $.trim($(this).text()), // use the element's text as the event title
+				userid: $.trim($(this).attr("userid")), // use the element's text as the event title
+				duration:{ days:10},
+				stick: true // maintain when user navigates (see docs on the renderEvent method)
+			};
+			$(this).data('eventObject',eventObject);*/
+			$(this).data('event', {
+				dataid:Math.floor(Math.random()*1000),
+				title: $.trim($(this).text()), // use the element's text as the event title
+				userid: $.trim($(this).attr("userid")), // use the element's text as the event title
+				duration:global_duration,
+				stick: true // maintain when user navigates (see docs on the renderEvent method)
+			});
+			$(this).draggable({
+				zIndex:1070,
+				revert:true,
+				revertDuration:0
+			});
+		})
+	}
+
+	function init_calendar(){
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month'
+			},
+			buttonText:{
+				today:'今日',
+				month:'每月'
+			},
+			ignoreTimezone:false,
+			firstDay:1,
+			monthNames:['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+			dayNamesShort:["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+			//selectable:true,
+			//选取多天
+			/*select:function(startDate,endDate,allDay,jsEvent,view ){
+				//duty_info.id=event.userid;
+				//duty_info.title=event.title;
+				duty_info.start=startDate.format();
+				duty_info.end=endDate.format();
+				console.log(duty_info);
+				add_record(duty_info);
+			},*/
+			eventClick:function(calEvent,jsEvent,view) {
+				var cur_dataid=calEvent.dataid;
+				del_record(cur_dataid);
+			},
+			editable:true,
+			droppable: true, // this allows things to be dropped onto the calendar
+			drop:function(date,allDay) {
+				//添加排班
+				var start_time=moment(date);
+				var objEvent =$(this).data('event');
+				duty_info['data[zhibanren]']=objEvent.title;
+				duty_info['data[zhibanrenid]']=objEvent.userid;
+				duty_info['data[starttime]']=start_time.unix();
+				duty_info['data[endtime]']=start_time.add(objEvent.duration).unix();
+				duty_info['submit']=1;
+				duty_info['data[duration]']=global_duration.days;
+				console.log(duty_info);
+				add_record(duty_info,objEvent.dataid);
+				if($('#drop-remove').is(':checked')){
+					$(this).remove();
+				}
+			},
+			//日历内拖动事件
+			eventDrop:function(event,dayDelta,minuteDelta,allDay,revertFunc) {
+				var start_time=moment(event.start.format());
+				var end_time=moment(event.end.format());
+				var dataid=event.dataid;
+				var cur_days=event.duration;
+				duty_info['data[title]']=event.title;
+				duty_info['data[zhibanrenid]']=event.userid;
+				duty_info['data[starttime]']=start_time.unix();
+				duty_info['data[endtime]']=end_time.unix();
+				duty_info['data[duration]']=cur_days;
+				duty_info['submit']=1;
+				duty_info['data[catid]']={$catid};
+				modify_record(duty_info,dataid);
+			},
+			//日历内缩放事件
+			eventResize: function(event,dayDelta,minuteDelta,revertFunc) {
+				var start_time=moment(event.start.format());
+				var end_time=moment(event.end.format());
+				var add_days=Number(dayDelta._days);
+				var cur_days=Number(event.duration);
+				var dataid=event.dataid;
+				duty_info['data[title]']=event.title;
+				duty_info['data[zhibanrenid]']=event.userid;
+				duty_info['data[starttime]']=start_time.unix();
+				duty_info['data[endtime]']=end_time.unix();
+				duty_info['data[duration]']=cur_days+add_days;
+				duty_info['submit']=1;
+				duty_info['data[catid]']={$catid};
+				modify_record(duty_info,dataid);
+			},
+			events:function(start,end,timezone,callback){
+				var timefrom=moment(start).unix();
+				var timeto=moment(end).unix();
+				var events=[];
+				$.post("{url('member/content/data')}&catid={$catid}",
+					{"submit":1,"data":{"starttime>=":timefrom,"endtime<=":timeto}},
+					function(data){	//返回多行数据
+						$.each(data,function(i,idata){
+							var start_num=moment.unix(idata.starttime).format("YYYY-MM-DD");
+							var end_num=moment.unix(idata.endtime).format("YYYY-MM-DD");
+							var cur_dataid=idata.id;
+							console.log(cur_dataid);
+							var data_arr=$('#calendar').fullCalendar('clientEvents');
+							if(data_arr.length>0){
+								$.each(data_arr,function(j,jdata){
+									console.log(jdata.dataid);
+									if(jdata.dataid!=cur_dataid){
+										events.push({dataid:cur_dataid,title:idata.zhibanren,start:start_num,end:end_num,duration:idata.duration});
+									}
+								})
+							}else{
+								events.push({dataid:cur_dataid,title:idata.zhibanren,start:start_num,end:end_num,duration:idata.duration});
+							}
+						})
+				},"json")
+				callback(events);
+			}
+		});
+	}
+	function add_record(param,objid){
+		var obj_id=objid;
+		$.post('{url("member/content/add",array("catid"=>$catid))}',param,
+			function(data){
+				var obj=eval('('+data+')');
+				$.each($('#calendar').fullCalendar('clientEvents'),function(i,data){
+					if(data.dataid==obj_id){
+						data.dataid=obj.id;
+						data.duration=global_duration.days;
+					}
+				})
+				
+			}
+		)
+	}
+	function modify_record(param,userid){
+		$.post('{url("member/content/edit")}&id='+userid,param,
+			function(data){
+				console.log('aaa:'+data);
+				//parent.location.reload();
+			}
+		)
+	}
+	function del_record(paramid){
+		var r=confirm("删除本次排班？");
+		if (r==true){
+			$.post('{url("member/content/del")}&id='+paramid,
+				function(data){
+					$('#calendar').fullCalendar('refetchEvents');
+					//console.log('aaa:'+data);
+				}
+			);
+		}
+	}
+	function get_record(){
+
+	}
+</script>
+<!--Wrapper End-->
+</body>
+{template member/footer}

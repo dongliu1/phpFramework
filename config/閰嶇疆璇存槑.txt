@@ -1,0 +1,6 @@
+site.ini.php
+'1'  => 'localhost',  //域名
+
+
+config.ini.php 
+'SYS_DOMAIN'              => '/fcms1',  //域名目录，针对虚拟主机用户

@@ -1,0 +1,137 @@
+{template member/header}
+<style>
+.table-title{margin:30px 20px 10px;text-align:right;}
+.equipment{height:100%;margin:10px 40px;}
+#equip-structure,#equip-info{float:left;height:90%;background:rgba(0,0,0,0.5);}
+#equip-structure{width:20%;}
+#equip-info{width:80%;}
+.clear{display:block;clear:both;}
+.head{background:rgba(255,255,255,0.3);padding:5px 10px;}
+.contain{width:100%;height:100%;border-left:1px solid #666;}
+select{margin-right:15px;background:transparent;color:#aaa;}
+#equip-tree{margin:10px 10px;}
+table{width:90%;margin:20px auto;}
+thead{background:rgba(0,0,0,0.7);}
+thead th{padding:10px 10px;text-align:center;}
+tbody tr{background:rgba(0,0,0,0.5);}
+tbody tr:hover{background:rgba(0,0,0,0.7);}
+tbody tr td{padding:10px 10px;text-align:center;}
+</style>
+<body class="skin-blue tabs-body" style="overflow-x:hidden;">
+	<div class="table-title">
+		<div class="table-select">
+			<span>报警级别</span>
+			<select>
+				<option>故障报警</option>
+			</select>
+			<span>状态</span>
+			<select>
+				<option>已确认</option>
+			</select>
+		</div>
+	</div>
+	<div class="equipment">
+		<div id="equip-info">
+			<table>
+				<thead>
+					<tr>
+						<th>故障码</th>
+						<th>故障类别</th>
+						<th>电站</th>
+						<th>故障等级</th>
+						<th>故障内容</th>
+						<th>时间</th>
+						<th>后续处理</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>00152</td>
+						<td>电网电压异常</td>
+						<td>清水河电站</td>
+						<td>轻度</td>
+						<td>逆变器1损坏</td>
+						<td>2016-03-15</td>
+						<td>已移交</td>
+					</tr>
+					<tr>
+						<td>00152</td>
+						<td>电网电压异常</td>
+						<td>清水河电站</td>
+						<td>轻度</td>
+						<td>逆变器1损坏</td>
+						<td>2016-03-15</td>
+						<td>已移交</td>
+					</tr>
+					<tr>
+						<td>00152</td>
+						<td>电网电压异常</td>
+						<td>清水河电站</td>
+						<td>轻度</td>
+						<td>逆变器1损坏</td>
+						<td>2016-03-15</td>
+						<td>已移交</td>
+					</tr>
+					<tr>
+						<td>00152</td>
+						<td>电网电压异常</td>
+						<td>清水河电站</td>
+						<td>轻度</td>
+						<td>逆变器1损坏</td>
+						<td>2016-03-15</td>
+						<td>已移交</td>
+					</tr>
+					<tr>
+						<td>00152</td>
+						<td>电网电压异常</td>
+						<td>清水河电站</td>
+						<td>轻度</td>
+						<td>逆变器1损坏</td>
+						<td>2016-03-15</td>
+						<td>已移交</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="equip-structure">
+			<div class="contain">
+				<div class="head">
+					<span>设备位置结构</span>
+				</div>
+				<div class="equip-tree">
+					<ul id="equip-tree" class="easyui-tree" data-options="url:'{url('api/linkagedata',array('id'=>1,'isAssets'=>1,'parent_id'=>0))}',method:'get',required:true,loadFilter:function(rows){return treedata_convert(rows);}" ></ul>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</body>
+<script type="text/javascript" src="{JLIB_PATH}highcharts/highcharts.js"></script>
+<script type="text/javascript" src="{JLIB_PATH}highcharts/exporting.js"></script>
+<script>
+	$(function(){
+		$.get("{url('api/linkagedata',array('id'=>1,'isAssets'=>1,'parent_id'=>0))}",function(data){
+			var tree_data=[];
+			tree_data.push(JSON.parse(data));
+			show_tree(tree_data);
+		})
+		
+	})
+	function show_tree(tree_data){
+		
+		$(".node_1>i").on("click",function(){
+			var node_class=$(this).attr("class");
+			if(node_class=="fa fa-plus"){
+				$(this).removeClass("fa-plus");
+				$(this).addClass("fa-minus");
+				$(this).parent().append('<div class="node_1"><i class="fa fa-plus"></i><span>方阵一</span></div>');
+			}else{
+				$(this).removeClass("fa-minus");
+				$(this).addClass("fa-plus");
+				console.log($(this).parent().children(".node_1"));
+				$(this).parent().children(".node_1").remove();
+			}
+		})
+	}
+</script>
+{template member/footer}

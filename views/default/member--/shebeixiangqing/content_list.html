@@ -1,0 +1,253 @@
+{template member/header}
+<style>
+.equipment{margin:40px 40px;height:100%}
+#equip-structure,#equip-info{float:left;height:90%;background:rgba(255,255,255,0.05);}
+#equip-structure{width:20%;}
+#equip-info{width:80%;}
+.clear{display:block;clear:both;}
+.head{background:rgba(255,255,255,0.3);padding:5px 10px;}
+.contain{width:100%;height:100%;border-left:1px solid #aaa;}
+.node_1{margin:10px 10px;}
+#equip-tree{margin:10px 10px;}
+#pie,#pie-info{float:left;}
+#pie{width:75%;}
+#pie-info{width:25%;}
+#square-info{background:rgba(255,255,255,0.3);margin:50px 20px;}
+.row{padding:10px 20px;border-bottom:1px solid #aaa;}
+.row-left{float:left;width:60%;}
+.row-right{float:right;width:40%;}
+</style>
+<body class="skin-blue tabs-body" style="overflow-x:hidden;">
+	<div class="equipment">
+		<div id="equip-info">
+			<div id="pie-chart">
+				<div id="pie"></div>
+				<div id="pie-info">
+					<div id="square-info">
+						<div class="row">方阵效率</div>
+						<div class="row">
+							<div class="row-left">方阵一</div>
+							<div class="row-right">9%</div>
+							<div class="clear"></div>
+						</div>
+						<div class="row">
+							<div class="row-left">方阵二</div>
+							<div class="row-right">5%</div>
+							<div class="clear"></div>
+						</div>
+						<div class="row">
+							<div class="row-left">方阵三</div>
+							<div class="row-right">8%</div>
+							<div class="clear"></div>
+						</div>
+						<div class="row">
+							<div class="row-left">方阵四</div>
+							<div class="row-right">7%</div>
+							<div class="clear"></div>
+						</div>
+						<div class="row">
+							<div class="row-left">方阵五</div>
+							<div class="row-right">9%</div>
+							<div class="clear"></div>
+						</div>
+						<div class="row">
+							<div class="row-left">方阵六</div>
+							<div class="row-right">3%</div>
+							<div class="clear"></div>
+						</div>
+						<div class="row">
+							<div class="row-left">方阵七</div>
+							<div class="row-right">5%</div>
+							<div class="clear"></div>
+						</div>
+						<div class="row">
+							<div class="row-left">方阵八</div>
+							<div class="row-right">6%</div>
+							<div class="clear"></div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div id="area-chart">
+				<div id="area" style="max-width:80%;height:270px;margin:auto"></div>
+			</div>
+		</div>
+		<div id="equip-structure">
+			<div class="contain">
+				<div class="head">
+					<span>设备位置结构</span>
+				</div>
+				<div class="equip-tree">
+					<ul id="equip-tree" class="easyui-tree" data-options="url:'{url('api/linkagedata',array('id'=>1,'isAssets'=>1,'parent_id'=>0))}',method:'get',required:true,loadFilter:function(rows){return treedata_convert(rows);}" ></ul>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</body>
+<script type="text/javascript" src="{JLIB_PATH}highcharts/highcharts.js"></script>
+<script type="text/javascript" src="{JLIB_PATH}highcharts/exporting.js"></script>
+<script>
+	$(function(){
+		$.get("{url('api/linkagedata',array('id'=>1,'isAssets'=>1,'parent_id'=>0))}",function(data){
+			var tree_data=[];
+			tree_data.push(JSON.parse(data));
+			show_tree(tree_data);
+		})
+		
+		/**$("#equip-tree").tree({
+			url:"{url('api/linkagedata',array('id'=>1,'isAssets'=>1,'parent_id'=>0))}"
+		})*/
+		
+		init_pie_chart();
+		init_area_chart();
+	})
+	
+	function init_area_chart(){
+		$('#area').highcharts({
+			chart: {
+				type: 'area',
+				backgroundColor: 'rgba(0,0,0,0)'
+			},
+			exporting:{
+				enabled:false
+			},
+			title: {
+				text: 'Historic and Estimated Worldwide Population Growth by Region'
+			},
+			
+			xAxis: {
+				categories: ['1750', '1800', '1850', '1900', '1950', '1999', '2050'],
+				tickmarkPlacement: 'on',
+				title: {
+					enabled: false
+				},
+				labels: {
+					style:{
+						color:'#aaa'
+					}
+				}
+			},
+			yAxis: {
+				title: null,
+				labels: {
+					style:{
+						color:'#aaa'
+					}
+				},
+				gridLineDashStyle:'dot'
+			},
+			legend:{
+				layout:'horizontal',
+				floating: false,
+				align: 'center',
+				verticalAlign: 'bottom',
+				x: 0,
+				y: 0,
+				itemStyle:{
+					color:'#aaa'
+				},
+				useHTML:true
+			},
+			tooltip: {
+				shared: true,
+				valueSuffix: ' millions'
+			},
+			plotOptions: {
+				area: {
+					stacking: 'normal',
+					lineColor: '#666666',
+					lineWidth: 1,
+					marker: {
+						lineWidth: 1,
+						lineColor: '#666666'
+					}
+				}
+			},
+			series: [{
+				name: 'Asia',
+				data: [5502, 2635, 1809, 3947, 5402, 3634, 2268]
+			}]
+		});
+	
+	}
+	
+	function init_pie_chart(){
+		$('#pie').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+				backgroundColor: 'rgba(0,0,0,0)'
+            },
+			exporting:{
+				enabled:false
+			},
+            title: {
+                text: '智能损失量化分析',
+				style:{
+					color:'#aaa'
+				}
+            },
+			legend:{
+				layout:'horizontal',
+				floating: false,
+				align: 'center',
+				verticalAlign: 'bottom',
+				x: 0,
+				y: 0,
+				itemStyle:{
+					color:'#aaa'
+				},
+				useHTML:true
+			},
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Browser share',
+                data: [
+                    ['K<sub>HS</sub>',45.0],
+                    ['K<sub>PS</sub>',26.8],
+                    {
+                        name: 'K<sub>PI</sub>',
+                        y: 12.8,
+                        sliced: true,
+                        selected: true
+                    },
+                    ['K<sub>PT</sub>',7.0],
+                    ['K<sub>PE</sub>',6.2],
+                    ['K<sub>PM</sub>',0.7],
+					['K<sub>C</sub>',1.5]
+                ]
+            }]
+        });
+	}
+	
+	function show_tree(tree_data){
+		
+		$(".node_1>i").on("click",function(){
+			var node_class=$(this).attr("class");
+			if(node_class=="fa fa-plus"){
+				$(this).removeClass("fa-plus");
+				$(this).addClass("fa-minus");
+				$(this).parent().append('<div class="node_1"><i class="fa fa-plus"></i><span>方阵一</span></div>');
+			}else{
+				$(this).removeClass("fa-minus");
+				$(this).addClass("fa-plus");
+				console.log($(this).parent().children(".node_1"));
+				$(this).parent().children(".node_1").remove();
+			}
+		})
+	}
+</script>
+{template member/footer}

@@ -1,0 +1,133 @@
+{template member/header}
+
+{php $catid_moban=129;$field_typename="optype";$field_mobanid="mobanid";$field_mobanname="mobanmingcheng";}
+<body class="skin-blue tabs-body" style="overflow-x:hidden;color:#333">
+
+<!--Wrapper-->
+<div id="wrapper">
+	<div >
+		<form action="" method="post" id="form_content_add">
+		<input type="hidden" value="{$catid}" name="data[catid]">
+		<table width="100%" class="table_form" border="0" cellpadding="0" cellspacing="0">
+		<tbody>
+		{if $data['status']==2}
+		<tr>
+			<th>退回理由：</th>
+			<td>{$data['verify']} </td>
+		</tr>
+		{/if}
+		{if $model['content']['title']['show']}
+		<tr>
+			<th><font color="red">*</font>&nbsp;{$model['content']['title']['name']}：</th>
+			<td><input type="text" class="input-text" size="50" id="title" value="{$data['title']}" name="data[title]"  required />
+			<div class="onShow" id="title_text"></div></td>
+		</tr>
+		{/if}
+		{if $model['content']['keywords']['show']}
+		<tr>
+			<th>{$model['content']['keywords']['name']}：</th>
+			<td><input type="text" class="input-text" size="50" id="keywords" value="{$data['keywords']}" name="data[keywords]">
+			<div class="onShow">{lang('a-con-44')}</div></td>
+		</tr>
+		{/if}
+		{if $model['content']['thumb']['show']}
+		<tr>
+			<th>{$model['content']['thumb']['name']}：</th>
+			<td><input type="text" class="input-text" size="50" value="{$data['thumb']}" name="data[thumb]" id="thumb">
+			<input type="button" style="width:66px;cursor:pointer;" class="button" onClick="preview('thumb')" value="{lang('a-mod-118')}">
+			<input type="button" style="width:66px;cursor:pointer;" class="button" onClick="uploadImage('thumb', 1)" value="{lang('a-mod-119')}">
+			<div id="urlTip" class="onShow">{lang('a-pic')}</div></td>
+		</tr>
+		{/if}
+		{if $model['content']['description']['show']}
+		<tr>
+			<th>{$model['content']['description']['name']}：</th>
+			<td><textarea style="width:490px;height:66px;" id="description" name="data[description]">{$data['description']}</textarea></td>
+		</tr>
+		{/if}
+		{loop $arr_fields $fieldid=>$field}
+			{if $field['field']===$field_mobanname}
+				<tr> 
+					<th width="100px">{$field['name']}</th>
+					<td class="rowtitle">
+						<input type="hidden" value="{$data[$field_mobanname]}" id="fc_{$field_mobanname}" name="data[{$field_mobanname}]" >
+						<select id="fc_{$field_mobanid}" name="data[{$field_mobanid}]"><option value="0"> -- </option></select>
+					</td>
+				</tr>
+			{else}
+				<tr> 
+					
+					<th width="100px">
+						{$field['name']}
+						{if $field['not_null']}<span><font color="red">*</font></span>{/if}
+					</th>
+					<td class="rowtitle">
+						{$field['content']}
+					</td>
+				</tr>
+			{/if}
+		{/loop}
+		<tr>
+			<th style="border:none">&nbsp;<input type="hidden" value="1" name="submit"></th>
+			<td style="border:none"><input type="submit" class="button" value="提 交" name="submit"></td>
+		</tr>
+		</tbody>
+		</table>
+		</form>
+	</div>
+        
+</div>
+<script>
+
+$(function(){
+	//加载设备型号 fc_shebeixinghao 
+	var modeltype=$("#fc_{$field_typename}").val();
+	ajax_modellist(modeltype,"{$data[$field_mobanid]}");
+	
+	//绑定设备类型变化
+	init_modeltype_change();
+	
+	//ajax方式提交form
+	init_ajaxform();
+})
+
+function init_ajaxform(){
+	$('#form_content_add').submit(function() {
+		$("#fc_{$field_mobanname}").val( $('#fc_{$field_mobanid} option:selected').text());
+		console.log($(this).serialize());
+		$.post(location.href,$(this).serialize(),function(result){
+			console.log(result);
+			window.parent.location.reload();
+		},"json");
+		return false; //阻止表单默认提交
+	});
+}
+
+//绑定设备类型变化的操作
+function init_modeltype_change(){
+	$(".rcms-select-{$field_typename}").on("change",function(){
+		ajax_modellist($(this).val(),0);
+	});
+	$('#fc_{$field_mobanid}').on("change",function(){
+		$("#fc_{$field_typename}").val( $('option:selected',this).text());
+	});
+}
+//动态加载设备型号
+function ajax_modellist(modeltype,typeid){
+	$.post(
+		"{url('member/content/data',array('catid'=>$catid_moban))}",
+		{"submit":1,"data":{"{$field_typename}=":modeltype}},
+		function(data){
+			$('#fc_{$field_mobanid}').html("");
+			$.each(data,function(i,idata){
+				if(typeid==0){typeid=idata.id; }
+				var isselected=(idata.id==typeid)?" selected ":"";
+				$('#fc_{$field_mobanid}').append("<option value='"+idata.id+"'"+isselected+">"+idata.{$field_mobanname}+"</option>");
+			})
+	},"json")
+
+}
+</script>
+<!--Wrapper End-->
+</body>
+{template member/footer}

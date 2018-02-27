@@ -1,0 +1,384 @@
+{template member/header}
+<style>
+.big-box{display:inline-block;width:80px;height:45px;line-height:18px;overflow:hidden;border:1px solid #403C3C;margin:5px 5px;border-radius:5px;}
+.big-box>div{margin:5px 10px;;text-align:center;}
+.device{text-align:center;}
+#device-name{font-size:30px;}
+#main-root{float:left}
+#device{float:right;}
+a{font-size:15px;padding:5px 10px;display:inline-block;margin:5px 5px;}
+.clear{display:block;clear:both;}
+.device-menu{border:1px solid #fff;border-radius:5px;margin:20px 20px;}
+.chart-info{margin:20px 20px;}
+.info{background:rgba(0,0,0,0.7);padding:10px 0;}
+.box-contain{border:1px solid #fff;margin:20px 20px;}
+.box-head{border-bottom:1px solid #fff;padding:5px 10px;}
+.box-head>span{font-size:15px;float:left;color:#aaa;}
+#box-content{text-align:left;margin:10px 10px;}
+.chart-contain,.device-info{float:left;}
+.chart-contain{width:75%;}
+.chart,.device-border{border:1px solid #fff;}
+.chart{margin-right:40px;}
+.device-info{width:25%;}
+.chart-head,.device-head{border-bottom:1px solid #fff;text-align:left;}
+.chart-head>span,.device-head>span{display:inline-block;margin:10px 10px;font-size:15px;color:#aaa;}
+.row-left{float:left;margin:5px 5px 5px 20px;}
+.row-right{float:right;margin:5px 20px 5px 5px;}
+#chart-content{margin:20px 40px;height:250px;}
+#device-content{height:290px;}
+.alarm-color{background:#b94a48;}
+.nomal-color{background:#468847;}
+</style>
+<div class="info">
+	<div class="device">
+		<span id="device-name">{$_GET['cpid']}{$_GET['cpdevice']}</span>
+	</div>
+	<div class="device-menu">
+		<div id="main-root">
+			<a href="{url('member/content',array('catid'=>119))}">主目录</a>
+		</div>
+		<div id="device"></div>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+	<div class="chart-info">
+		<div class="chart-contain">
+			<div class="chart">
+				<div class="chart-head">
+					<span>遥测量列表-变压器</span>
+				</div>
+				<div id="chart-content"></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="device-info">
+			<div class="device-border">
+				<div class="device-head">
+					<span>遥测量列表</span>
+				</div>
+				<div id="device-content"></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="clear"></div>
+	<div class="box-contain">
+		<div class="box-head">
+			<span>信号列表</span>
+			<div class="clear"></div>
+		</div>
+		
+		<div id="box-content"></div>
+	</div>
+</div>
+<script type="text/javascript" src="{JLIB_PATH}highcharts/highcharts.js"></script>
+<script type="text/javascript" src="{JLIB_PATH}highcharts/exporting.js"></script>
+<script>
+	//ajax同步
+	$.ajaxSetup({
+		async: false
+	});
+	//解析当前设备所在区域
+	var cpid_name=$("#device-name").text().split("cpid_device");
+	var cpids=[],cparry=[];
+	var area_num=cpid_name[0];
+	var device_num=cpid_name[1];
+	if(area_num<10){
+		area_num="0"+area_num;
+	}
+	switch(device_num){
+		case "1":
+			device_num="NB01";
+			break;
+		case "2":
+			device_num="NB02";
+			break;
+		case "3":
+			device_num="NB01";
+			break;
+		case "4":
+			device_num="NB02";
+			break;
+		default:
+			break;
+	}
+	//定义动态数据
+	var device_data={
+		"charts":{
+			"AN01NB010002":{"value":null},
+			"AN01NB010003":{"value":null},
+			"AN01NB010004":{"value":null},
+			"AN01NB010005":{"value":null},
+			"AN01NB010006":{"value":null},
+			"AN01NB010007":{"value":null},
+			"AN01NB010008":{"value":null},
+			"AN01NB010009":{"value":null},
+			"AN01NB010010":{"value":null},
+			"AN01NB010011":{"value":null},
+			"AN01NB010012":{"value":null},
+			"AN01NB010013":{"value":null}
+		},
+		"remote":{
+			"AN01NB010019":{"name":"直流电流","unit":"A","digits":"0","fault":"cpid-fault1,cpid-fault2","value":null},
+			"AN01NB010020":{"name":"直流电压","unit":"V","digits":"0","fault":"cpid-fault1,cpid-fault2","value":null},
+			"AN01NB010024":{"name":"电网频率","unit":"HZ","digits":"0","fault":"cpid-fault1,cpid-fault2","value":null},
+			"AN01NB010025":{"name":"输入功率","unit":"KW","digits":"2","fault":"cpid-fault1,cpid-fault2","value":null},
+			"AN01NB010026":{"name":"输出功率","unit":"KW","digits":"2","fault":"cpid-fault1,cpid-fault2","value":null},
+			"AN01NB010027":{"name":"环境温度","unit":"°C","digits":"0","fault":"cpid-fault1,cpid-fault2","value":null},
+			"AN01NB010028":{"name":"散热器1","unit":"°C","digits":"0","fault":"cpid-fault1,cpid-fault2","value":null},
+			"AN01NB010032":{"name":"当日发电量","unit":"KWh","digits":"2","fault":"cpid-fault1,cpid-fault2","value":null},
+			"AN01NB010033":{"name":"总发电量","unit":"KWh","digits":"2","fault":"cpid-fault1,cpid-fault2","value":null},
+			"AN01NB010034":{"name":"功率因数","unit":"","digits":"0","fault":"cpid-fault1,cpid-fault2","value":null},
+			"AN01NB010035":{"name":"无功功率","unit":"KVar","digits":"2","fault":"cpid-fault1,cpid-fault2","value":null}
+		},
+		"signal":{
+			"DN01NB010001":{"name":"散热器过热","value":"0"},
+			"DN01NB010002":{"name":"直流软过压","value":"0"},
+			"DN01NB010005":{"name":"电流硬件检测过流","value":"0"},
+			"DN01NB010006":{"name":"驱动过流","value":"0"},
+			"DN01NB010007":{"name":"软启动故障","value":"0"},
+			"DN01NB010008":{"name":"相位识别故障","value":"0"},
+			"DN01NB010009":{"name":"电网相序错误","value":"0"},
+			"DN01NB010010":{"name":"电网缺相","value":"0"},
+			"DN01NB010011":{"name":"电网频率错误","value":"0"},
+			"DN01NB010012":{"name":"电网幅值错误","value":"0"},
+			"DN01NB010013":{"name":"并网过流","value":"0"},
+			"DN01NB010014":{"name":"电网电压不平衡","value":"0"},
+			"DN01NB010015":{"name":"同步相位错误","value":"0"},
+			"DN01NB010016":{"name":"过流硬件中断","value":"0"},
+			"DN01NB010017":{"name":"温度传感器故障","value":"0"},
+			"DN01NB010018":{"name":"开关门故障","value":"0"},
+			"DN01NB010019":{"name":"电抗温度过高","value":"0"},
+			"DN01NB010021":{"name":"逆变电流采样故障","value":"0"},
+			"DN01NB010022":{"name":"直流电流采样故障","value":"0"},
+			"DN01NB010023":{"name":"电网电流采样故障","value":"0"},
+			"DN01NB010024":{"name":"逆变电压失效","value":"0"},
+			"DN01NB010027":{"name":"直流漏电故障","value":"0"},
+			"DN01NB010028":{"name":"逆变直流分量超限","value":"0"},
+			"DN01NB010029":{"name":"直流输入断路器2故障","value":"0"},
+			"DN01NB010030":{"name":"直流电流过流","value":"0"},
+			"DN01NB010031":{"name":"紧急停机","value":"0"},
+			"DN01NB010032":{"name":"网流过载","value":"0"},
+			"DN01NB010033":{"name":"网流不对称","value":"0"},
+			"DN01NB010037":{"name":"直流输入熔断器故障","value":"0"},
+			"DN01NB010038":{"name":"逆变熔断器故障","value":"0"},
+			"DN01NB010039":{"name":"主接触器故障","value":"0"},
+			"DN01NB010040":{"name":"辅接触器故障","value":"0"},
+			"DN01NB010041":{"name":"直流输入断路器1故障","value":"0"},
+			"DN01NB010042":{"name":"交流输出断路器故障","value":"0"},
+			"DN01NB010043":{"name":"直流防雷器故障","value":"0"},
+			"DN01NB010044":{"name":"交流防雷器故障","value":"0"},
+			"DN01NB010045":{"name":"散热器风机故障","value":"0"},
+			"DN01NB010046":{"name":"机箱散热故障","value":"0"},
+			"DN01NB010047":{"name":"辅助电源故障","value":"0"},
+			"DN01NB010048":{"name":"散热器温度开关故障","value":"0"},
+			"DN01NB010049":{"name":"启停状态","value":"0"},
+			"DN01NB010051":{"name":"工作模式","value":"0"}
+		}
+	};
+	//获取cpid
+	$.each(device_data,function(partname,part){
+		$.each(part,function(cpid,cdata){
+			var cpid_arr=cpid.split("N01NB01");
+			cpid=cpid_arr[0]+"N"+area_num+device_num+cpid_arr[1];
+			cpids.push(cpid);
+		});
+	})
+	//请求返回值
+	$.post("{url('member/proxy/jaction')}&cpids="+cpids,function(data){
+		$.each(data,function(dataid,dataval){
+			cparry.push(dataval.value);
+		});
+	})
+	var t=0;
+	//返回值存入device_data数组
+	$.each(device_data,function(partname,part){
+		$.each(part,function(cpid,cdata){
+			cdata.value=cparry[t];
+			t++;
+		});
+	})
+
+$(function(){
+	init();
+	init_chart();
+	init_data();
+	init_signal();
+	
+})
+function init(){
+	//初始化头部菜单
+	var device_arr=["#"+cpid_name[0]+"区逆变器1","#"+cpid_name[0]+"区逆变器2","#"+cpid_name[0]+"区箱变","#"+cpid_name[0]+"区汇流箱","发电系统拓扑图"];
+	for(var i=0;i<5;i++){
+		var num=i+1;
+		if(num==cpid_name[1]){
+			var name=device_arr[i];
+			$("#device-name").text(name);
+			device_arr.splice(i,1);
+			break;
+		}
+	}
+	for(var j=0;j<4;j++){
+		$("#device").append("<a href='javascript:void(0)' onclick='devece_link(this)'>"+device_arr[j]+"</a>");
+	}
+}
+function init_signal(){
+	//添加信号列表
+	$.each(device_data,function(partname,part){
+		if(partname=="signal"){
+			$.each(part,function(partid,partdata){
+				if(partdata.value==0){
+					$("#box-content").append(
+						"<div class='big-box nomal-color'>"+
+						"<div>"+partdata.name+"</div>"+
+						"</div>"
+					)
+				}else{
+					$("#box-content").append(
+						"<div class='big-box alarm-color'>"+
+						"<div>"+partdata.name+"</div>"+
+						"</div>"
+					)
+				}
+			})
+		}
+	})	
+	
+}
+function init_data(){
+	//添加遥测量列表
+	$.each(device_data,function(partname,part){
+		
+		if(partname=="remote"){
+			$.each(part,function(cpid,cpdata){
+				var cpnum=cpdata.digits;
+				var cpvalue=cpdata.value;
+				$("#device-content").append(
+					"<div class='row'><span class='row-left'>"+cpdata.name+
+					"</span><span class='row-right'>"+cpvalue.toFixed(cpnum)+cpdata.unit+
+					"</span></div><div class='clear'></div>"
+				);
+			});
+		}
+	})
+}
+//跳转
+function devece_link(obj){
+	var device_name=$(obj).html();
+	var url="{url('member/content',array('catid'=>120))}";
+	location.href=url;
+}
+
+function init_chart(){
+	//添加三相电压/电流数据
+	$('#chart-content').html("");
+	var data_arry=[];
+	var data_1=[];
+	var data_2=[];
+	var data_3=[];
+	var data_4=[];
+	$.each(device_data,function(partname,part){
+		
+		if(partname=="charts"){
+			$.each(part,function(cpid,cpdata){
+				data_arry.push(cpdata.value);
+			});
+		}
+	})
+	data_1.push(data_arry[0],data_arry[1],data_arry[2]);
+	data_2.push(data_arry[3],data_arry[4],data_arry[5]);
+	data_3.push(data_arry[6],data_arry[7],data_arry[8]);
+	data_4.push(data_arry[9],data_arry[10],data_arry[11]);
+		
+	var serie=[{
+		name: '电网电压',
+		data: data_1
+
+	}, {
+		name: '逆变电压',
+		data: data_2
+
+	}, {
+		name: '电网电流',
+		data: data_3
+
+	}, {
+		name: '逆变电流',
+		data: data_4
+
+	}];
+	//初始化图表
+	Highcharts.setOptions({
+			colors: ['rgb(43, 144, 143)', 'rgb(244, 91, 91)','rgb(144, 238, 126)','rgb(119, 152, 191)']
+		});
+	$('#chart-content').highcharts({
+		chart: {
+			type: 'column',
+			backgroundColor: 'rgba(0,0,0,0)',
+			marginTop:40
+		},
+		exporting:{enabled:false},
+		title: {
+			text: null
+		},
+		
+		xAxis: {
+			labels:{
+					style:{
+						color:'#aaa'
+					}
+				},
+			categories: [
+				'A相',
+				'B相',
+				'C相'
+			]
+		},
+		yAxis: {
+			title:null,
+			enable:false,
+			min: 0,
+			labels:{
+				style:{
+					color:'#aaa'
+				}
+			},
+			gridLineDashStyle:'dot'
+		},
+		legend:{
+				layout:'horizontal',
+				floating: true,
+				align: 'center',
+				verticalAlign: 'top',
+				x: 0,
+				y: 0,
+				itemStyle:{
+					color:'#aaa'
+				}
+			},
+		tooltip: {
+			backgroundColor:'rgba(0,0,0,0.9)',
+			 style: {
+                padding: 10,
+                fontWeight: 'bold',
+				color:'#ccc'
+            }
+		},
+		plotOptions: {
+			column: {
+				borderWidth: 0,
+				dataLabels:{
+					enabled:true,
+					style:{
+						color:'#aaa'
+					}
+				}
+			}
+		},
+		series: serie
+	});
+}
+
+</script>
+{template member/footer}

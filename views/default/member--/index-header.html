@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$meta_title}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+<link href="{MEMBER_THEME}_rsc/style.css" rel="stylesheet" type="text/css" />
+<link href="{MEMBER_THEME}_rsc/skins.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="{JLIB_PATH}jqueryui/light/jquery-ui.min.css" />
+
+<link href="{JLIB_PATH}fonts/shenku/css/sk.css" rel="stylesheet" type="text/css" />
+<!--[if IE 7]><link rel="stylesheet" href="{JLIB_PATH}fonts/shenku/css/sk-ie7.css"><![endif]-->
+<link href="{JLIB_PATH}fonts/awesome/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="{JLIB_PATH}fonts/ionicons/ionicons.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{JLIB_PATH}jeasyui/themes/rox/easyui.min.css">
+<script type="text/javascript" src="{JLIB_PATH}jquery/jquery.min.js"></script>
+<script type="text/javascript" src="{JLIB_PATH}jeasyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="{JLIB_PATH}jqueryui/jquery-ui.min.js"></script>
+<script>
+	$(function(){
+		
+	})
+	function succession(){
+		$("#handover").dialog({
+			title: '交接班管理',
+			width: 800,
+			height: 400,
+			closed: false,
+			cache: false,
+			href: '{MEMBER_THEME}duty_change.html',
+			modal: true
+		});
+	}
+</script>
+</head>
+<body class="index-body {$memberinfo['theme']}">
+<!--Header-->
+
+	<div id="header" class="header">
+    	<div id="top">
+		    <a class="logo" href="{url('member')}" ><cite>BernardRao</cite></a>
+			
+        	<div class="right-info">
+				<div class="menu-info" style="display:none">
+					<div class="info-item">
+						<span class="info-title">今日上网电量</span>
+						<span class="value">2935.72</span>
+						<span class="unit">kWh</span>
+					</div>
+					<div class="info-item">
+						<span class="info-title">累计上网电量</span>
+						<span class="value">283910</span>
+						<span class="unit">kWh</span>
+					</div>
+				</div>
+				<div class="menu-user">
+					<ul>
+					{if $memberinfo}
+					<li>欢迎您，<a href="{url('member/info/edit/')}">{if $memberinfo['nickname']}{$memberinfo['nickname']}{else}{$memberinfo['username']}{/if}</a></li>
+					<li><a href="javascript:void(0)" onclick="succession()"><i class="icon-guanli"></i><span>交班</span></a></li>
+					<li><a href="javascript:void(0)" onclick="succession()"><i class="icon-guanli"></i><span>接班</span></a></li>
+					<li><a href="{url('member/content/')}"><i class="icon-guanli"></i><span>管理</span></a></li>
+					<li><a href="{url('member/pms/inbox')}"><i class="icon-youjian"></i>消息</a></li>
+					<li><a href="{url('member/login/switch')}"><i class="icon-zhuxiao"></i>切换</a></li>
+					<li><a href="{url('member/login/out')}"><i class="icon-zhuxiao"></i>退出</a></li>
+					{else}
+					<li><a href="{url('member/register')}">注册</a></li>
+					<li><a href="{url('member/login')}">登录</a></li>
+					{/if}
+					</ul>
+				</div>
+            </div>
+        </div>
+		<div id="handover"></div>
+    </div>
+	
+<!--Header End-->

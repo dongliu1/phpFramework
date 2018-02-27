@@ -1,0 +1,47 @@
+{template header}
+<div class="subnav">
+	<div class="content-menu ib-a blue line-x">
+		<a href="{url('member/assets/',array('catid'=>$catid))}"><em>{lang('a-ast-i')}</em></a><span>|</span>
+		<a href="{url('member/assets/list', array('keyid'=>$keyid,'catid'=>$catid))}" class="on"><em>{lang('a-ast-0')}</em></a><span>|</span>
+		<a href="{url('member/assets/addson', array('keyid'=>$keyid,'catid'=>$catid))}"><em>{lang('a-add')}</em></a><span>|</span>
+		<a href="{url('member/assets/cache',array('catid'=>$catid))}"><em>{lang('a-cache')}</em></a>
+	</div>
+	<div class="bk10"></div>
+	<div class="table-list">
+		<form name="myform" action="" method="post">
+		<table width="100%" cellspacing="0">
+		<thead>
+		<tr>
+			<th width="50">{lang('a-order')}</th>
+			<th width="60" align="left">ID</th>
+			<th align="left">{lang('a-ast-13')}</th>
+			<th width="50%" align="left">{lang('a-option')}</th>
+		</tr>
+		</thead>
+		<tbody>
+		{$list}
+		<tr>
+			<td colspan="4"><input type="submit" class="button" name="submit" value="{lang('a-order')}" /><div class="onShow">{lang('a-ast-15')}</div>{$pagelist}</td>
+		</tr>
+		</tbody>
+		</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+function del(id){
+	if(confirm("{lang('a-ast-9')}")){
+		var url = "{url('member/assets/del/',array('keyid'=>$keyid,'catid'=>$catid))}&id="+id;
+		window.location.href=url;
+	}
+}
+
+function setC() {
+	if($("#deletec").attr('checked')) {
+		$(".deletec").attr("checked",true);
+	} else {
+		$(".deletec").attr("checked",false);
+	}
+}
+</script>
+{template footer}

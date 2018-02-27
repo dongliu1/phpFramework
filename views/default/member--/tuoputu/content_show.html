@@ -1,0 +1,106 @@
+{template member/header}
+<style>
+.contain{background:rgba(0,0,0,0.7);}
+#topology-init{width:800px;display:block;margin:0 auto;}
+.topology-head,.topology-content{margin:20px 0;}
+.topology-content{text-align:center;}
+.color{background:rgb(0,0,0);}
+.block{float:left;padding:10px 20px;margin-left:100px;border-radius:5px;cursor:pointer;}
+#config,#homeroot{font-size:15px;}
+#topology{font-size:20px;}
+.clear{display:block;clear:both;}
+.big-box{display:inline-block;width:136px;height:85px;border:1px solid #403C3C;margin:5px 5px;text-align:center}
+.box-title{padding:5px 0;text-align:center;}
+.box-group{padding:0 5px;}
+.small-box{display:inline-block;cursor:pointer;width:44px;padding:5px;margin:2px;border:0;background: rgb(0,0,0);border-radius: 3px;}
+.small-box:hover{background:#104A0D;}
+</style>
+<div class="contain">
+	<div id="topology-init">
+		<div class="topology-head">
+			<div id="config" class="color block" onclick="init_chart('123')">主接线图</div>
+			<div id="topology" class="color block">发电系统拓扑图</div>
+			<div id="homeroot" class="color block" onclick="init_chart('119')">主目录</div>
+			<div class="clear"></div>
+		</div>
+		<div class="topology-content"></div>
+	</div>
+</div>
+<script>
+$(function(){
+	init_data();
+})
+function init_data(){
+	var box_arr={
+		"cpid_1":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_2":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_3":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_4":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_5":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_6":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_7":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_8":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_9":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_10":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_11":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_12":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_13":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_14":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_15":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_16":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_17":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_18":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_19":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_20":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_21":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_22":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_23":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_24":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_25":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_26":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"},
+		"cpid_27":{"cpid_device1":"逆变器1","cpid_device2":"逆变器2","cpid_device3":"箱变","cpid_device4":"汇流箱"}
+	};
+	$.each(box_arr,function(cpid,box_data){
+		cpid=cpid.split("cpid_");
+		$(".topology-content").append(
+			"<div class='big-box'>"+
+				"<div class='box-title'><span>#"+cpid[1]+"区</span></div>"+
+				"<div class='box-group'>"+
+					"<div class='small-box'>"+
+						"<span onclick=\"init_click("+cpid[1]+",'cpid_device1')\">"+box_data.cpid_device1+"</span>"+
+					"</div>"+
+					"<div class='small-box'>"+
+						"<span onclick=\"init_click("+cpid[1]+",'cpid_device2')\">"+box_data.cpid_device2+"</span>"+
+					"</div><br>"+
+					"<div class='small-box'>"+
+						"<span onclick=\"init_click("+cpid[1]+",'cpid_device3')\">"+box_data.cpid_device3+"</span>"+
+					"</div>"+
+					"<div class='small-box'>"+
+						"<span onclick=\"init_click("+cpid[1]+",'cpid_device4')\">"+box_data.cpid_device4+"</span>"+
+					"</div>"+
+				"</div>"+
+			"</div>"
+			)
+	})
+}
+
+function init_chart(catid){
+	console.log(catid);
+	var url;
+	if(catid=="119"){
+		url="{url('member/content',array('catid'=>119))}";
+	}else{
+		url="{url('member/content',array('catid'=>123))}";
+	}
+	console.log(url);
+	location.href=url;
+}
+
+function init_click(cpid,cpdevice){
+	var url="{url('member/content',array('catid'=>121))}";
+	url=url+"&cpid="+cpid+"&cpdevice="+cpdevice;
+	console.log(url);
+	location.href=url;
+}
+</script>
+{template member/footer}

@@ -1,0 +1,140 @@
+{template member/header}
+<style>
+.table-query-zone .button-wh{width:128px;height:18px;}
+.table-query-zone .button.easyui-combotree{width:108px;}
+.table-function-zone{padding:0;}
+.table-function-zone .button{margin-right:20px;}
+.table-above{min-width:830px;}
+</style>
+<body class="skin-blue tabs-body" style="overflow-x:hidden">
+<div class="container">
+	<div class="table-above" >
+		<form action="" method="post">
+			<div class="table-query-zone">
+				查询年份：<!--<input type="text" class="button-wh" value="" name="data[time|>=]" /> 
+						-- <input type="text" class="button-wh" value="" name="data[time|>=]" />-->
+						<input type="text" class="button-wh" value="" name="timefrom" /> 
+				<input type="submit" class="button" value="查询" name="submit" />
+			</div>
+		</form>
+		
+	</div>
+	<div class="table-content" >
+		<div id="chart-content"></div>
+	</div>
+   
+
+
+</div>
+<!--Wrapper End-->
+<script type="text/javascript" src="{JLIB_PATH}highcharts/highcharts.js"></script>
+<!--<script type="text/javascript" src="{JLIB_PATH}highcharts/theme-rox-{$memberinfo['theme']}.js"></script>-->
+<script type="text/javascript" src="{JLIB_PATH}highcharts/exporting.js"></script>
+<script language="javascript">
+$(function(){
+	$("[name='timefrom']").datetimebox({
+		required: true,
+		showSeconds: false
+	});
+	init_chart();
+})
+
+function init_chart(){
+		
+	var serie=[{
+		name: '未完全消除的',
+		data: [5,10,10,7,6,12,5,13,7,15]
+
+	}, {
+		name: '已完全消除的',
+		data: [15,18,10,14,8,17,16,2,11,20]
+
+	}, {
+		name: '不处理',
+		data: [1,2,3,1,2,3,1,2,3,1]
+
+	}];
+	//初始化图表
+	Highcharts.setOptions({
+			<!--colors: ['rgb(43, 144, 143)', 'rgb(252, 100, 18)','rgb(144, 238, 126)']-->
+			colors: ['rgb(10, 137, 129)', 'rgb(252, 78, 18)','rgb(212, 28, 63)']
+		});
+	$('#chart-content').highcharts({
+		chart: {
+			type: 'column',
+			backgroundColor: 'rgba(0,0,0,0.2)',
+			marginTop:80
+		},
+		exporting:{enabled:false},
+		title: {
+			text: null
+		},
+		
+		xAxis: {
+			labels:{
+					style:{
+						color:'#ccc'
+					}
+				},
+			categories: [
+				'3-11',
+				'3-12',
+				'3-13',
+				'3-14',
+				'3-15',
+				'3-16',
+				'3-17',
+				'3-18',
+				'3-19',
+				'3-20'
+			]
+		},
+		yAxis: {
+			title:null,
+			enable:false,
+			min: 0,
+			labels:{
+				style:{
+					color:'#ccc'
+				}
+			},
+			gridLineDashStyle:'dot',
+			gridLineColor:'#666'
+		},
+		legend:{
+				layout:'horizontal',
+				floating: true,
+				align: 'center',
+				verticalAlign: 'top',
+				x: 0,
+				y: 0,
+				itemStyle:{
+					color:'#ccc'
+				},
+			},
+		tooltip: {
+			backgroundColor:'rgba(0,0,0,0.9)',
+			 style: {
+                padding: 10,
+                fontWeight: 'bold',
+				color:'#ccc'
+            }
+		},
+		plotOptions: {
+			column: {
+				borderWidth: 0,
+				dataLabels:{
+					enabled:true,
+					style:{
+						color:'#ddd'
+					}
+				}
+			}
+		},
+		series: serie
+	});
+}
+
+</script>
+</body>
+{template member/footer}

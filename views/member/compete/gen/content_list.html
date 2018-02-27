@@ -1,0 +1,51 @@
+{template header}
+{php $companycode=$_GET['code']?$_GET['code']:'11010001';}
+<style>
+
+</style>
+<script src="{JLIB_PATH}highcharts/highcharts.min.js"></script>
+<script src="{JLIB_PATH}highcharts/highcharts-more.js"></script>
+<!-- <script type="text/javascript" src="{JLIB_PATH}highcharts/highcharts.js"></script> -->
+<body class="skin-blue tabs-body" style="overflow-x:hidden">
+	<div class="flex-row page-header" >  
+			<div class="flex-item box">电场生产分析</div>
+			<div class="flex-item box">
+			<select id="plant-select" >
+			{list table=content_1_companyinfo isdependent=1 order=code_ASC}
+			<option value="{$t['code']}" {if $t['code']==$companycode}selected{/if}>{$t['companyname']}</option>
+			{/list}
+			</select>
+			<script>
+				$("#plant-select").on("change",function(){
+					location.href="{url('member/content',array('catid'=>$catid))}&code="+$(this).val();
+				})
+			</script>
+			</div>
+	</div> 
+	<div class="flex-col page-main" style="">
+
+		
+		<div class="flex-item flex-row" >
+			
+			{list table=content_1_companygen LIKEcompanycode=$companycode order=month_ASC}{/list}
+			<script>var data_companygen={json_encode($return,256)};console.log(data_companygen)</script>
+			{template blocks/companygen/0}
+			{template blocks/companygen/1}
+			{template blocks/companygen/2}
+			<!-- <div class="flex-item box" id="chart-companygen0"></div> -->
+			<!-- <div class="flex-item box" id="chart-companygen1"></div> -->
+			<!-- <div class="flex-item box" id="chart-companygen2"></div> -->
+		</div>
+		<div class="flex-item flex-row" > 
+			{template blocks/gridflow/rate}
+			{template blocks/gridflow/trends}
+		</div>
+	</div>
+
+
+
+
+<!--Wrapper End-->
+
+</body>
+{template footer}

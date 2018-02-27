@@ -1,0 +1,131 @@
+{template member/header}
+<style>
+.row>span{margin-right:1em;color:black;}
+.save,.back{display:inline-block;border-radius:5px;padding:5px 10px;cursor:pointer;}
+.save{background:#1BBC9B;margin-right:20px;}
+.back{background:#757577;}
+.row{padding:10px 40px;}
+.text-center{text-align:center;}
+.clear{display:block;clear:both;}
+.indent-num1{text-indent:1em;}
+.indent-num2{text-indent:2em;}
+select{margin-right:0.5em;width:171px;}
+th,td{color:black;border-width:1px 1px 0 0;border-style:solid;border-color:#D9D9D9;text-align:center;}
+th,td:first-child{background:#E4E4E4;}
+table{border-width:0 0 1px 1px;border-style:solid;border-color:#D9D9D9;}
+textarea{width:169px;}
+</style>
+<div class="content-detail">
+	<div class="text-center">
+		<h4>新增计划</h4>
+	</div>
+	<div class="row indent-num2">
+		<span>年度</span>
+		<input type="text">
+		<span>(*必填)</span>
+	</div>
+	<div class="row">
+		<span>计划类型</span>
+		<select>
+			<option>电量计划</option>
+		</select>
+		<span>(*必填)</span>
+	</div>
+	<div class="row indent-num2">
+		<span>备注</span>
+		<textarea></textarea>
+	</div>
+	<div class="row">
+		<span>电量计划明细</span>
+	</div>
+	<div class="row">
+		<table width="100%" cellspacing="0">
+			<tr>
+				<th>计划项目</th>
+				<th>全年</th>
+				<th>一月</th>
+				<th>二月</th>
+				<th>三月</th>
+				<th>四月</th>
+				<th>五月</th>
+				<th>六月</th>
+				<th>七月</th>
+				<th>八月</th>
+				<th>九月</th>
+				<th>十月</th>
+				<th>十一月</th>
+				<th>十二月</th>
+			</tr>
+			<tr>
+				<td>计划发电量（KW.h）</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>计划上网电量（KW.h）</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>计划厂用电量（KW.h）</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>计划购网电量（KW.h）</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	<div class="row text-center" style="margin:0 auto;">
+		<div class="save">保存</div>
+		<div class="back">返回</div>
+	</div>
+	<div class="clear"></div>
+</div>
+{template member/footer}

@@ -1,0 +1,13 @@
+.skin-blue    .calendar-title{text-align:center;height:22px;color:#fff;} 
+.skin-blue .calendar-header{background:#012138;}
+.skin-blue .datebox-button a{font-size:12px;font-weight:300;text-decoration:none;opacity:1;filter:alpha(opacity=60)}
+.skin-blue .calendar-nav-hover:not(.calendar-today){background-color:#68a2ff;color:#fff;}
+.skin-blue .combo-panel{background-color:#fff;color:#000}
+.skin-blue input{color:#999;border: 1px solid #ccc;}
+.skin-blue .datatable tbody td{border-bottom:none;}/*去tr下划线*/
+.skin-blue .datebox-button{background-color:#f1f1f1}
+.skin-blue .calendar-other-month{/*opacity:.3;*/opacity:.7;filter:alpha(opacity=30)}
+.skin-blue .panel-body,.skin-blue .panel-header{border:1px solid #fff}
+
+.skin-blue .tree-node-selected{background:#68a2ff;color:#fff;}
+.tree-node-hover{background:#68a2ff;color:#fff}

@@ -1,0 +1,100 @@
+{template header}
+
+<script type="text/javascript">
+function adduser() {
+	$('#err_username').html("");
+	art.dialog({ 
+		id:'adduser',
+		title:'添加用户',
+		fixed:true,
+		lock:false,
+		content: '<div style="text-align:center">请输入联系人：<input type="text" class="input-text" id="username" /><br><br><input type="button" class="button" value="添加" onclick="ajaxadd();"></div>' 
+	});	
+}
+function ajaxadd(){
+	var username=$('#username').val();
+	window.top.art.dialog({id:'adduser'}).close();
+	$.get('{SITE_PATH}{ENTRY_SCRIPT_NAME}?s=member&c=roster&a=ajaxadd', { username:username}, function(data){ 	    
+		if(data['succeed']){
+			window.location.reload();
+		}else{
+			art.dialog({ id:'adduser',title:'添加用户',fixed:true,lock:false,content:data['text']});
+		}
+	},"json");
+}
+</script>
+<!--Wrapper-->
+<div id="wrapper">
+	<div class="top"></div>
+	<div class="center">
+	    <div class="center_left">
+	        <h3>通讯录</h3>
+			<div class="menu_left">
+			<ul>
+			{php $a="roster";}
+            {loop $navigation $n=>$t}
+                <li {if $n==$a} class="on"{/if}><a href="{$t['url']}">{$t['name']}{if $n=='inbox' && $inbox}({$inbox}){/if}</a></li>
+            {/loop}
+			</ul>
+			</div>
+        </div>
+		<div class="center_right">
+            <div class="title_right1"></div>
+			<div class="content_info">
+                <form action="" method="post">
+                <table class="datatable" border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <td width="22"><input name="selectc" id="selectc" type="checkbox" onClick="setC()"></td>
+                            <td>名称</td>
+                            <td width="100">电话</td>
+                            <td width="120">邮件</td>
+                            <td width="130">地址</td>
+                            <td width="100">单位</td>
+							<td width="80">更新时间</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                     {loop $data $t}
+                      <tr>
+                        <td><input name="ids" type="checkbox" class="selectc" value="{$t['id']}"></td>
+                        <td><a href="{url("member/roster/edit/", array("id"=>$t['id']))}" title="阅读">{$t['nickname']}</a></td>
+                        <td>{$t['tel']}</td>
+                        <td>{$t['email']}</td>
+						<td>{$t['address']}</td>
+						<td>{$t['company']}</td>
+                        <td>{date("Y-m-d", $t['updatetime'])}</td>
+                      </tr>
+                      {/loop}
+                    </tbody>
+                </table>
+                <div class="datatablepage">
+                <table width="100%" border="0">
+                  <tr>
+                    <td width="400">
+						<input type="submit" class="button" value="删除选择用户" name="submit">
+						<input type="button" class="button" value="添加" onclick="adduser();">
+						</td>
+                    <td align="right">{$pagelist}</td>
+                  </tr>
+                </table>
+                </div>
+                <div class="datatablepage">
+                </div>
+               </form>
+		    </div>
+        </div>
+	</div>
+    <div class="bottom"></div>
+</div>
+<!--Wrapper End-->
+<script language="javascript">
+function setC() {
+	if($("#selectc").attr('checked')==true) {
+		$(".selectc").attr("checked",true);
+	} else {
+		$(".selectc").attr("checked",false);
+	}
+}
+</script>
+{template footer}

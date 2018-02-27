@@ -1,0 +1,224 @@
+{template member/header}
+<style>
+.contain{margin:20px 40px;}
+.nav-button{cursor:pointer;display:inline-block;padding:5px 20px;font-size:15px;border-radius:5px;background:transparent;border:1px solid #fff;color:#fff;margin-right:20px;}
+.nav-title{border-bottom:3px solid #fff;border-left:5px solid #feb847;margin:25px 0;padding:5px 0;}
+.nav-title>span{margin:0 10px;font-size:20px;color:#fff;}
+.nav-menu{border:1px solid #333;background:rgba(0,0,0,0.8)}
+.nav-bottom{border-bottom:1px dotted #222;}
+.limit-text{display:inline-block;width:60px;margin:10px 5px;text-align:right;font-size:15px;}
+.limit-select{display:inline-block;text-align:left;margin:10px 5px;}
+.limit-select>select{width:70px;background:#000;border:1px solid #666;color:#ccc;}
+.limit-select>select option{margin:auto;}
+.radios-button{padding:2px 0;cursor:pointer;display:inline-block;width:70px;text-align:center;border:1px solid #666;margin-right:10px;}
+.limit-time{display:inline-block;margin-left:10px;}
+.limit-time>span,.limit-time>input{margin-right:5px;}
+.limit-time>input{width:85px;background:transparent;border:1px solid #666;}
+.chart-zone{margin:15px 0;background:rgba(0,0,0,0.5);border:1px solid #333;}
+#highChart{margin:20px 10px;}
+.active-color{background:#fff;color:#000}
+</style>
+<body class="skin-blue tabs-body" style="overflow-x:hidden">
+	<div class="contain">
+		<div class="nav-bar">
+			<div class="nav-button active-color">分时对比</div>
+			<div class="nav-button">方阵对比</div>
+			<div class="nav-button">参数对比</div>
+		</div>
+		<div class="nav-title">
+			<span>分时对比</span>
+		</div>
+		<div class="nav-menu">
+			<div class="nav-limit nav-bottom">
+				<div class="limit-text">
+					<span>方阵</span>
+				</div>
+				<div class="limit-select">
+					<select>
+						<option>方阵一</option>
+						<option>方阵二</option>
+						<option>方阵三</option>
+						<option>方阵四</option>
+						<option>方阵五</option>
+					</select>
+				</div>
+			</div>
+			<div class="nav-limit nav-bottom">
+				<div class="limit-text">
+					<span>参数</span>
+				</div>
+				<div class="limit-select">
+					<div class="radios-button">负荷</div>
+					<div class="radios-button active-color">发电量</div>
+					<div class="radios-button">上网电量</div>
+					<div class="radios-button">辐照度</div>
+					<div class="radios-button">辐射量</div>
+					<div class="radios-button">PR值</div>
+				</div>
+			</div>
+			<div class="nav-limit">
+				<div class="limit-text">
+					<span>周期</span>
+				</div>
+				<div class="limit-select">
+					<select id="select-period" onchange="init_period()">
+						<option value="0" selected="selected">年</option>
+						<option value="1">月</option>
+					</select>
+					<div class="limit-time">
+						<span>起始时间</span>
+						<input id="starttime" class="calender" type="text">
+						<span>--</span>
+						<span>结束时间</span>
+						<input id="endtime" class="calender" type="text">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="chart-zone">
+			<div id="highChart"></div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="{JLIB_PATH}highcharts/highcharts.js"></script>
+<script type="text/javascript" src="{JLIB_PATH}highcharts/exporting.js"></script>
+<script>
+$(function(){
+	init_click();
+	//$('#select option:selected').val("1");
+	init_highChart();
+	init_period();
+})
+function init_period(){
+	var time_val=$('#select-period option:selected').val();
+	console.log(time_val);
+	if(time_val=="0"){
+		$('.calender').datebox({
+			height:16,
+			onShowPanel: function () {//显示日趋选择对象后再触发弹出月份层的事件，初始化时没有生成月份层
+                span.trigger('click'); //触发click事件弹出月份层
+				console.log(p+'--'+$(this))
+                if (!tds) setTimeout(function () {//延时触发获取月份对象，因为上面的事件触发和对象生成有时间间隔
+                    tds = p.find('div.calendar-menu-month-inner td');
+                    tds.click(function (e) {
+                        e.stopPropagation(); //禁止冒泡执行easyui给月份绑定的事件
+                        var year = /\d{4}/.exec(span.html())[0]//得到年份
+                        , month = parseInt($(this).attr('abbr'), 10); //月份，这里不需要+1
+                        $('#db').datebox('hidePanel')//隐藏日期对象
+                        .datebox('setValue', year + '-' + month); //设置日期的值
+                    });
+                }, 0)
+            },
+            parser: function (s) {
+                if (!s) return new Date();
+                var arr = s.split('-');
+                return new Date(parseInt(arr[0], 10), parseInt(arr[1], 10) - 1, 1);
+            },
+            formatter: function (d) { return d.getFullYear() + '-' + (d.getMonth()+1);/*getMonth返回的是0开始的，忘记了。。已修正*/ }
+        });
+        var p = $('#endtime').datebox('panel'), //日期选择对象
+		tds = false, //日期选择对象中月份
+		span = p.find('span.calendar-text'); //显示月份层的触发控件
+	}else{
+		$(".calender").datebox({
+			required: true,
+			showSeconds: false,
+			height:16
+		});
+	}
+}
+function init_click(){
+	$(".radios-button").on('click',function(){
+		$(".radios-button").removeClass('active-color');
+		$(this).addClass('active-color');
+	});
+	$(".nav-button").on('click',function(){
+		$(".nav-button").removeClass('active-color');
+		$(this).addClass('active-color');
+	});
+}
+function init_highChart(){
+	var cur_color="#feb847";
+	console.log(Highcharts.getOptions().colors[0]);
+	$('#highChart').highcharts({
+		chart: {
+			type: 'area',
+			backgroundColor: 'rgba(0,0,0,0)'
+		},
+		colors:[cur_color],
+		exporting:{
+			enabled:false
+		},
+		title: {
+			text: null
+		},
+		
+		xAxis: {
+			categories: ['1', '2', '3', '4', '5', '6', '7','8','9','10','11','12'],
+			tickmarkPlacement: 'on',
+			title: {
+				enabled: false
+			},
+			labels: {
+				style:{
+					color:'#aaa'
+				}
+			}
+		},
+		yAxis: {
+			title: null,
+			labels: {
+				style:{
+					color:'#aaa'
+				}
+			},
+			gridLineDashStyle:'dot'
+		},
+		legend:{
+			layout:'horizontal',
+			floating: false,
+			align: 'center',
+			verticalAlign: 'bottom',
+			x: 0,
+			y: 0,
+			itemStyle:{
+				color:'#aaa'
+			},
+			useHTML:true
+		},
+		tooltip: {
+			shared: true,
+			valueSuffix: ' millions'
+		},
+		plotOptions: {
+			area: {
+				stacking: 'normal',
+				lineColor: '#666666',
+				lineWidth: 1,
+				marker: {
+					lineWidth: 1,
+					lineColor: '#666666'
+				},
+				fillColor: {
+					linearGradient: {
+						x1: 0,
+						y1: 0,
+						x2: 0,
+						y2: 1
+					},
+					stops: [
+						[0, Highcharts.Color(cur_color).setOpacity(0.3).get('rgba')],
+						[1, Highcharts.Color(cur_color).setOpacity(0).get('rgba')]
+					]
+				}
+			}
+		},
+		series: [{
+			name: 'Asia',
+			data: [2502, 2835, 3209, 3947, 4402, 3634, 3268, 3809, 3347, 5000, 5834, 5268]
+		}]
+	});
+}
+	
+</script>
+{template member/footer}

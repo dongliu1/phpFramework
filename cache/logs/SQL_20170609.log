@@ -1,0 +1,570 @@
+[2017-06-09 16:00:09] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:00:09] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:00:09] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:00:09] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:00:09] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:00:09] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:00:09] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:00:09] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`id`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:00:09] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:02:09] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:02:09] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:02:09] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:02:09] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:02:09] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:02:09] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:02:09] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:02:09] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:02:09] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:02:09] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`id`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:02:09] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:03:52] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:03:52] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:03:52] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:03:52] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:03:52] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:03:52] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:03:52] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:03:52] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`id`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:03:52] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:04:24] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:04:24] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:04:24] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:04:24] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:04:24] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:04:24] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:04:24] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:04:24] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`id`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:04:24] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:04:37] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:04:37] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:04:37] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_clientinfo AS e ON c.id=e.id WHERE c.catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 20
+[2017-06-09 16:04:37] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:04:37] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:24] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:24] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:24] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_gridflow AS e ON c.id=e.id WHERE c.catid=117 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:10:24] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=117 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:24] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:25] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:25] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:25] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_gridflow AS e ON c.id=e.id WHERE c.catid=119 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:10:25] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=119 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:25] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:26] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:26] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:26] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_gridflow AS e ON c.id=e.id WHERE c.catid=118 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:10:26] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=118 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:26] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:27] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:27] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:27] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=115 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:10:27] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=115 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:27] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:27] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "11010001" ORDER BY `fn_content_1_companygen`.`month` ASC
+[2017-06-09 16:10:27] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:10:27] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:10:29] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:29] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:29] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companygen AS e ON c.id=e.id WHERE c.catid=114 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:10:29] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=114 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:29] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:29] Normal: [member][content][index]:SELECT * FROM fn_content_1_companyinfo WHERE `fn_content_1_companyinfo`.`isdependent`=1 ORDER BY `fn_content_1_companyinfo`.`code` ASC
+[2017-06-09 16:10:29] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "11010001" ORDER BY `fn_content_1_companygen`.`month` ASC
+[2017-06-09 16:10:29] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:10:29] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:10:31] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:31] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:31] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_clientflow AS e ON c.id=e.id WHERE c.catid=110 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:10:31] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=110 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:31] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:32] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:32] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:32] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_clientinfo AS e ON c.id=e.id WHERE c.catid=111 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:10:32] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=111 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:10:32] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:17:00] Normal: [admin][theme][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:17:00] Normal: [admin][theme][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:17:00] Normal: [admin][theme][index]:SELECT * FROM  fn_user AS a, fn_role AS b WHERE a.roleid=b.roleid AND a.userid=1 ORDER BY NULL LIMIT 1
+[2017-06-09 16:17:02] Normal: [admin][model][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:17:02] Normal: [admin][model][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:17:02] Normal: [admin][model][index]:SELECT * FROM  fn_user AS a, fn_role AS b WHERE a.roleid=b.roleid AND a.userid=1 ORDER BY NULL LIMIT 1
+[2017-06-09 16:17:02] Normal: [admin][model][index]:SELECT * FROM fn_model WHERE site=1 AND typeid=1 ORDER BY listorder
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM  fn_user AS a, fn_role AS b WHERE a.roleid=b.roleid AND a.userid=1 ORDER BY NULL LIMIT 1
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model WHERE site=1 AND typeid=1 ORDER BY listorder
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=29 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=72 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=78 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=73 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=82 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=81 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=83 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=84 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=86 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=85 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=57 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=64 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=66 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=67 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=68 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=53 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=51 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=52 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=46 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=47 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model WHERE typeid=2 ORDER BY listorder
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=87 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=88 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model WHERE site=1 AND typeid=3 ORDER BY listorder
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=40 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=41 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model WHERE site=1 AND typeid=4 ORDER BY listorder
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=34 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=35 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model_field WHERE modelid=36 AND disabled=0 ORDER BY listorder ASC
+[2017-06-09 16:32:20] Normal: [admin][model][cache]:SELECT * FROM fn_model WHERE site=1 AND typeid=3 ORDER BY listorder
+[2017-06-09 16:32:21] Normal: [admin][model][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:32:21] Normal: [admin][model][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:32:21] Normal: [admin][model][index]:SELECT * FROM  fn_user AS a, fn_role AS b WHERE a.roleid=b.roleid AND a.userid=1 ORDER BY NULL LIMIT 1
+[2017-06-09 16:32:21] Normal: [admin][model][index]:SELECT * FROM fn_model WHERE site=1 AND typeid=1 ORDER BY listorder
+[2017-06-09 16:32:25] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:32:25] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:32:25] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_clientinfo AS e ON c.id=e.id WHERE c.catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 20
+[2017-06-09 16:32:25] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:32:25] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:32:33] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:32:33] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:32:33] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:32:33] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:32:33] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:32:33] Normal: [member][content][index]:SHOW FIELDS FROM fn_content_1_gridflow
+[2017-06-09 16:32:33] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:32:33] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:32:33] Normal: [member][content][index]:SHOW FIELDS FROM fn_content_1_clientflow
+[2017-06-09 16:32:33] Normal: [member][content][index]:SHOW FIELDS FROM fn_content_1_clientinfo
+[2017-06-09 16:32:33] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`id`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:32:33] Normal: [member][content][index]:SHOW FIELDS FROM fn_content_1_companygen
+[2017-06-09 16:32:33] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:33:58] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:33:58] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:33:58] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:33:58] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:33:58] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:33:58] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:33:58] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:33:58] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:33:58] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:34:04] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:04] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:04] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_clientinfo AS e ON c.id=e.id WHERE c.catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 20
+[2017-06-09 16:34:04] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:04] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:05] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:05] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:05] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_clientinfo AS e ON c.id=e.id WHERE c.catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 20
+[2017-06-09 16:34:05] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:05] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:06] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:06] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:06] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_clientinfo AS e ON c.id=e.id WHERE c.catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 20
+[2017-06-09 16:34:06] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:06] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:06] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:06] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:06] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_clientinfo AS e ON c.id=e.id WHERE c.catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 20
+[2017-06-09 16:34:06] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:06] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:06] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:06] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:06] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_clientinfo AS e ON c.id=e.id WHERE c.catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 20
+[2017-06-09 16:34:06] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:06] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:07] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:07] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:07] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_clientinfo AS e ON c.id=e.id WHERE c.catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 20
+[2017-06-09 16:34:07] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:07] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:07] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:07] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:07] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_clientinfo AS e ON c.id=e.id WHERE c.catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 20
+[2017-06-09 16:34:07] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:07] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:12] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:12] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:12] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:34:12] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:12] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:12] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:34:12] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:34:12] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:34:12] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:34:18] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:18] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:18] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_clientinfo AS e ON c.id=e.id WHERE c.catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 20
+[2017-06-09 16:34:18] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:18] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:19] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:19] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:19] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_clientinfo AS e ON c.id=e.id WHERE c.catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 20
+[2017-06-09 16:34:19] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:19] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:39] Normal: [member][content][data]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:39] Normal: [member][content][data]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:39] Normal: [member][content][data]:SELECT * FROM fn_content_1_clientflow WHERE 1=1  AND clientcode ='5301_0001' ORDER BY NULL
+[2017-06-09 16:34:39] Normal: [member][content][data]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=110 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:40] Normal: [member][content][data]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:40] Normal: [member][content][data]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:40] Normal: [member][content][data]:SELECT * FROM fn_content_1_clientflow WHERE 1=1  AND clientcode ='5301_0002' ORDER BY NULL
+[2017-06-09 16:34:40] Normal: [member][content][data]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=110 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:41] Normal: [member][content][data]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:41] Normal: [member][content][data]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:41] Normal: [member][content][data]:SELECT * FROM fn_content_1_clientflow WHERE 1=1  AND clientcode ='5301_0004' ORDER BY NULL
+[2017-06-09 16:34:41] Normal: [member][content][data]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=110 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:43] Normal: [member][content][data]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:43] Normal: [member][content][data]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:43] Normal: [member][content][data]:SELECT * FROM fn_content_1_clientflow WHERE 1=1  AND clientcode ='5325_0001' ORDER BY NULL
+[2017-06-09 16:34:43] Normal: [member][content][data]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=110 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:44] Normal: [member][content][data]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:44] Normal: [member][content][data]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:44] Normal: [member][content][data]:SELECT * FROM fn_content_1_clientflow WHERE 1=1  AND clientcode ='5325_0002' ORDER BY NULL
+[2017-06-09 16:34:44] Normal: [member][content][data]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=110 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:44] Normal: [member][content][data]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:44] Normal: [member][content][data]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:34:44] Normal: [member][content][data]:SELECT * FROM fn_content_1_clientflow WHERE 1=1  AND clientcode ='5325_0003' ORDER BY NULL
+[2017-06-09 16:34:44] Normal: [member][content][data]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=110 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:36:55] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:36:55] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:36:55] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:36:55] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:36:55] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:36:55] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:36:55] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:36:55] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:36:55] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:36:55] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:36:55] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:36:58] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:36:58] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:36:58] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:36:58] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:36:58] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:36:58] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:36:58] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:36:58] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:36:58] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:36:58] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:36:58] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:37:59] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:37:59] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:37:59] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:37:59] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:37:59] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:37:59] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:37:59] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:37:59] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:37:59] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:37:59] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:37:59] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:39:03] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:39:03] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:39:03] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:39:03] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:39:03] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:39:03] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:39:03] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:39:03] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:39:03] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:39:03] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:39:03] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:39:25] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:39:25] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:39:25] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:39:25] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:39:25] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:39:25] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:39:25] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:39:25] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:39:25] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:39:25] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:39:25] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:40:38] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:40:38] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:40:38] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:40:38] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:40:38] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:40:38] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:40:38] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:40:38] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:40:38] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:40:38] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:40:38] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:42:09] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:09] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:09] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:09] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:09] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:42:09] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:09] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:09] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:42:09] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:42:09] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:42:09] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:42:34] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:34] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:34] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:34] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:34] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:42:34] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:34] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:34] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:42:34] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:42:34] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:42:34] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:42:57] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:57] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:57] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:57] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:57] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:42:57] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:57] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:42:57] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:42:57] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:42:57] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:42:57] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:44:42] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:44:42] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:44:42] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:44:42] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:44:42] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:44:42] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:44:42] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:44:42] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:44:42] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:44:42] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:44:42] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:46:18] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:46:18] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:46:18] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:46:18] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:46:18] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:46:18] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:46:18] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:46:18] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:46:18] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:46:18] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:46:18] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:47:59] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:47:59] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:47:59] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=115 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:47:59] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=115 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:47:59] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:47:59] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "11010001" ORDER BY `fn_content_1_companygen`.`month` ASC
+[2017-06-09 16:47:59] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:47:59] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:48:00] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:48:00] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:48:00] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companygen AS e ON c.id=e.id WHERE c.catid=114 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:48:00] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=114 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:48:00] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:48:00] Normal: [member][content][index]:SHOW FIELDS FROM fn_content_1_companyinfo
+[2017-06-09 16:48:00] Normal: [member][content][index]:SELECT * FROM fn_content_1_companyinfo WHERE `fn_content_1_companyinfo`.`isdependent`=1 ORDER BY `fn_content_1_companyinfo`.`code` ASC
+[2017-06-09 16:48:00] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "11010001" ORDER BY `fn_content_1_companygen`.`month` ASC
+[2017-06-09 16:48:00] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:48:00] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:48:02] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:48:02] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:48:02] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_gridflow AS e ON c.id=e.id WHERE c.catid=119 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:48:02] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=119 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:48:02] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:31] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:31] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:31] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_gridflow AS e ON c.id=e.id WHERE c.catid=119 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:49:31] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=119 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:31] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:34] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:34] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:34] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:34] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:34] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:49:34] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:34] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:34] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:49:34] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:49:34] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:49:34] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:49:38] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:38] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:38] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=115 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:49:38] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=115 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:38] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:38] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "11010001" ORDER BY `fn_content_1_companygen`.`month` ASC
+[2017-06-09 16:49:38] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:49:38] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:49:39] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:39] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:39] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companygen AS e ON c.id=e.id WHERE c.catid=114 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:49:39] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=114 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:39] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:49:39] Normal: [member][content][index]:SELECT * FROM fn_content_1_companyinfo WHERE `fn_content_1_companyinfo`.`isdependent`=1 ORDER BY `fn_content_1_companyinfo`.`code` ASC
+[2017-06-09 16:49:39] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "11010001" ORDER BY `fn_content_1_companygen`.`month` ASC
+[2017-06-09 16:49:39] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:49:39] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:50:24] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:50:24] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:50:24] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:50:24] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:50:24] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:50:24] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:50:24] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:50:24] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:50:24] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:50:24] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:50:24] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:50:38] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:50:38] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:50:38] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:50:38] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:50:38] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:50:38] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:50:38] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:50:38] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:50:38] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:50:38] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:50:38] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:50:41] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:50:41] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:50:41] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=115 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:50:41] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=115 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:50:41] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:50:41] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "11010001" ORDER BY `fn_content_1_companygen`.`month` ASC
+[2017-06-09 16:50:41] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:50:41] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:51:46] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:51:46] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:51:46] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:51:46] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:51:46] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:51:46] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:51:46] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:51:46] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:51:46] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:51:46] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:51:46] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:51:48] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:51:48] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:51:48] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=115 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:51:48] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=115 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:51:48] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:51:48] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "11010001" ORDER BY `fn_content_1_companygen`.`month` ASC
+[2017-06-09 16:51:48] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:51:48] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:51:50] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:51:50] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:51:50] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companygen AS e ON c.id=e.id WHERE c.catid=114 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:51:50] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=114 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:51:50] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:51:50] Normal: [member][content][index]:SELECT * FROM fn_content_1_companyinfo WHERE `fn_content_1_companyinfo`.`isdependent`=1 ORDER BY `fn_content_1_companyinfo`.`code` ASC
+[2017-06-09 16:51:50] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "11010001" ORDER BY `fn_content_1_companygen`.`month` ASC
+[2017-06-09 16:51:50] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:51:50] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:53:36] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:36] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:36] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:36] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:36] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:53:36] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:36] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:36] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:53:36] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:53:36] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:53:36] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:53:39] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:39] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:39] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=115 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:53:39] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=115 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:39] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:39] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "11010001" ORDER BY `fn_content_1_companygen`.`month` ASC
+[2017-06-09 16:53:39] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:53:39] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:53:41] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:41] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:41] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companygen AS e ON c.id=e.id WHERE c.catid=114 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:53:41] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=114 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:41] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:41] Normal: [member][content][index]:SELECT * FROM fn_content_1_companyinfo WHERE `fn_content_1_companyinfo`.`isdependent`=1 ORDER BY `fn_content_1_companyinfo`.`code` ASC
+[2017-06-09 16:53:41] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "11010001" ORDER BY `fn_content_1_companygen`.`month` ASC
+[2017-06-09 16:53:41] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:53:41] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:53:55] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:55] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:55] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:55] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:55] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:53:55] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:55] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:55] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:53:55] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:53:55] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:53:55] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:53:58] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:58] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:58] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=115 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:53:58] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=115 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:58] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:58] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "11010001" ORDER BY `fn_content_1_companygen`.`month` ASC
+[2017-06-09 16:53:58] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:53:58] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:53:59] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:59] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:59] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companygen AS e ON c.id=e.id WHERE c.catid=114 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:53:59] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=114 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:59] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:53:59] Normal: [member][content][index]:SELECT * FROM fn_content_1_companyinfo WHERE `fn_content_1_companyinfo`.`isdependent`=1 ORDER BY `fn_content_1_companyinfo`.`code` ASC
+[2017-06-09 16:53:59] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "11010001" ORDER BY `fn_content_1_companygen`.`month` ASC
+[2017-06-09 16:53:59] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:53:59] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:54:53] Normal: [member][index][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:54:53] Normal: [member][index][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:54:53] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:54:53] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:54:53] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:54:53] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=116 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:54:53] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:54:53] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:54:53] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:54:53] Normal: [member][content][index]:SELECT * FROM fn_content_1_clientflow LEFT JOIN fn_content_1_clientinfo ON `fn_content_1_clientinfo`.`clientcode`=`fn_content_1_clientflow`.`clientcode` WHERE `fn_content_1_clientflow`.`usagetime`=2012 ORDER BY `fn_content_1_clientflow`.`cost` DESC LIMIT 10
+[2017-06-09 16:54:53] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "YN_%" ORDER BY `fn_content_1_companygen`.`month` DESC
+[2017-06-09 16:54:56] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:54:56] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:54:56] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companyflow AS e ON c.id=e.id WHERE c.catid=115 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:54:56] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=115 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:54:56] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:54:56] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "11010001" ORDER BY `fn_content_1_companygen`.`month` ASC
+[2017-06-09 16:54:56] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:54:56] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:54:57] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:54:57] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:54:57] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_companygen AS e ON c.id=e.id WHERE c.catid=114 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:54:57] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=114 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:54:57] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:54:57] Normal: [member][content][index]:SELECT * FROM fn_content_1_companyinfo WHERE `fn_content_1_companyinfo`.`isdependent`=1 ORDER BY `fn_content_1_companyinfo`.`code` ASC
+[2017-06-09 16:54:57] Normal: [member][content][index]:SELECT * FROM fn_content_1_companygen WHERE `fn_content_1_companygen`.`companycode` LIKE "11010001" ORDER BY `fn_content_1_companygen`.`month` ASC
+[2017-06-09 16:54:57] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:54:57] Normal: [member][content][index]:SELECT * FROM fn_content_1_gridflow
+[2017-06-09 16:55:00] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:55:00] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:55:00] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_clientinfo AS e ON c.id=e.id WHERE c.catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 20
+[2017-06-09 16:55:00] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=120 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:55:00] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:55:01] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:55:01] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:55:01] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_clientflow AS e ON c.id=e.id WHERE c.catid=110 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:55:01] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=110 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:55:01] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:55:10] Normal: [member][content][index]:SELECT * FROM fn_member WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:55:10] Normal: [member][content][index]:SELECT * FROM fn_member_professor WHERE id=8 ORDER BY NULL LIMIT 1
+[2017-06-09 16:55:10] Normal: [member][content][index]:SELECT * FROM  fn_content_1 AS c LEFT JOIN fn_content_1_clientinfo AS e ON c.id=e.id WHERE c.catid=111 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY updatetime DESC LIMIT 0, 2
+[2017-06-09 16:55:10] Normal: [member][content][index]:SELECT count(*) AS total_num FROM fn_content_1 WHERE catid=111 AND ((userid=8 AND `status`>0) OR `status`=1 OR `status`=4) AND (`status`=1 OR `status`=4 OR userid=8 ) ORDER BY NULL LIMIT 1
+[2017-06-09 16:55:10] Normal: [member][content][index]:SELECT * FROM fn_member_count WHERE id=8 ORDER BY NULL LIMIT 1

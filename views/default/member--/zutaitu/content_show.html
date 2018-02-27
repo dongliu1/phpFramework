@@ -1,0 +1,42 @@
+{template member/header}
+<style>
+#contain{text-align:center;background:rgb(0,0,0);}
+#topology{font-size:16px;width:120px;padding:5px 10px;margin-bottom:20px;border:1px solid #ccc;color:rgb(0,136,204);float:right;cursor:pointer;margin-right:100px;}
+.clear{display:block;clear:both;}
+.config-title{text-align:center;}
+h1{font-size:20px;}
+</style>
+<div id="contain">
+	<div class="config-title">
+		<h1>35kv清水河光伏主接线图</h1>
+		<div id="topology">发电系统拓扑图</div>
+		<div class="clear"></div>
+	</div>
+	<div class="content"></div>
+</div>
+
+
+<script>
+$(function(){
+	init_svg();
+})
+function init_svg(){
+	$(".content").load("{SITE_THEME}/svg/config.svg",null,function(){
+		init_light();
+	});
+	$("#topology").click(function(){
+		var url="{url('member/content',array('catid'=>120))}";
+		location.href=url;
+	})
+	
+}
+function init_light(){
+	$("#acdc-1").css("fill","#A34B0A");
+	$("#acdc-1").fadeOut("slow",function(){
+		$("#acdc-1").fadeIn("slow",function(){
+			init_light();
+		})
+	})
+}
+</script>
+{template member/footer}

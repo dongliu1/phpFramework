@@ -1,0 +1,63 @@
+{template header}
+<div class="subnav">
+	<div class="content-menu ib-a blue line-x">
+		<a href="{url('member/assets/',array('catid'=>$catid))}" class="on"><em>{lang('a-ast-i')}</em></a><span>|</span>
+		<a href="{url('member/assets/add',array('catid'=>$catid))}"><em>{lang('a-add')}</em></a><span>|</span>
+		<a href="{url('member/assets/cache')}"><em>{lang('a-cache')}</em></a>
+	</div>
+	<div class="bk10"></div>
+	<div class="table-list">
+		<form action="" method="post" name="myform">
+		<table width="100%">
+		<thead>
+		<tr>
+			<th width="20" align="right"><input name="deletec" id="deletec" type="checkbox" onClick="setC()"></th>
+			<th width="30" align="left">ID </th>
+			<th width="80" align="left">{lang('a-ast-10')}</th>
+			<th width="130" align="left">{lang('a-ast-11')}</th>
+			<th width="280" align="left">{lang('a-ast-12')}</th>
+			<th align="left">{lang('a-option')}</th>
+		</tr>
+		</thead>
+		<tbody>
+		{loop $data $t}
+		<tr height="25">
+			<td align="right"><input name="ids[]" type="checkbox" value="{$t['id']}" class="deletec"></td>
+			<td align="left">{$t['id']}</td>
+			<td align="left">{$t['name']}</td>
+			<td align="left"><input type="text" style="width:90%;" value="{{php echo 'assetslist(' . $t['id'] . ')';}}" class="input-text"></td>
+			<td align="left"><input type="text" style="width:90%;" value="{{php echo 'assetsform(' . $t['id'] . ', ' . lang('a-mod-95') . ', ' . lang('a-ast-13') . ', ' . lang('a-ast-14') . ')';}}" class="input-text"></td>
+			<td align="left">
+			<a href="{url('member/assets/list',array('keyid'=>$t['id'], 'id'=>$t['id'],'catid'=>$catid))}">{lang('a-ast-0')}</a> | 
+			<a href="{url('member/assets/edit',array('id'=>$t['id'],'catid'=>$catid))}">{lang('a-edit')}</a> 
+			</td>
+		</tr>
+		{/loop}
+		<tr height="25">
+			<td colspan="10" align="left">
+			<input type="submit" class="button" value="{lang('a-del')}" name="submit" onclick="return confirm_del()">&nbsp;</td>
+		</tr>
+		</tbody>
+		</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+function setC() {
+	if($("#deletec").attr('checked')) {
+		$(".deletec").attr("checked",true);
+	} else {
+		$(".deletec").attr("checked",false);
+	}
+}
+
+function confirm_del() {
+    if (confirm('{lang('a-confirm')}')) { 
+	    document.myform.submit();
+		return true; 
+	} else {
+	    return false;
+	}
+}
+</script>
+{template footer}

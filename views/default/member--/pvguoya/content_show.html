@@ -1,0 +1,63 @@
+<style>
+.big-box{display:inline-block;width:136px;height:60px;border:1px solid #403C3C;margin:5px 5px;background:rgba(25,25,25,0.5);text-align:center}
+.box-title{padding:5px 0;text-align:center;}
+.box-group{padding:0 5px;}
+.small-box{display:inline-block;cursor:pointer;width:80px;padding:5px;margin:2px;border:0;background: #104A0D;border-radius: 3px;}
+.small-box:hover{background:rgb(0,0,0);}
+.device_name{padding:10px 15px;}
+.alarm-color{background:#b94a48}
+</style>
+<div class="info">
+	<div class="box-contain">
+		{php $arr=["#1区","#2区","#3区","#4区","#5区","#6区","#7区","#8区","#9区","#10区","#11区","#12区","#13区","#14区","#15区","#16区","#17区","#18区","#19区","#20区","#21区","#22区","#23区"];}
+		{loop $arr $n}
+		<div class="big-box">
+			<div class="box-title">
+				<span>{$n}</span>
+			</div>
+			<div class="box-group">
+				<div class="small-box">
+					<span>pv过压</span>
+				</div>
+			</div>
+		</div>
+		{/loop}
+	</div>
+</div>
+<script>
+$(function(){
+	$(".box-contain").children(".big-box:eq(9)").children(".box-group").children(".small-box:eq(0)").addClass("alarm-color");
+	$(".small-box").click(function(){
+		var device_color=$(this).attr("class");
+		if(device_color=="small-box alarm-color"){
+			var device_name=$(this).children().text();
+			var device_aero=$(this).parent().prev().children().text();
+			var root_node=$(this).parent().parent().parent().parent().parent();
+			root_node.text("");
+			root_node.append(
+							"<div class='device_name'>"+device_aero+device_name+"</div>"+
+							"<table width='80%'><tbody></tbody></table>"
+						);
+			var fault_info={
+							"cpid-1":{"name":"故障显示","content":"散热器过热"},
+							"cpid-2":{"name":"故障信息","content":"散热器过热"},
+							"cpid-3":{"name":"故障恢复条件","content":"温度下降到[“风机停止点”参数以下]"},
+							"cpid-4":{"name":"故障处理","content":"停机，断交流接触器"},
+							"cpid-5":{"name":"故障查询内容","content":"温度采样是否正常，温度传感器是否正常"}
+						};
+			$.each(fault_info,function(cpid,partment){
+				$("tbody").append(
+							"<tr>"+
+							"<th>"+partment.name+"</th>"+
+							"<td>"+partment.content+"</td>"+
+							"</tr>"
+						);
+			});
+			$("tr>th,tr>td").css({"background":"rgba(0,0,0,0.7)","padding":"10px 15px"});
+			var height=$(".station").css("height");
+			$(".equip-tree").css("height",height);
+		}
+		
+	});
+})
+</script>

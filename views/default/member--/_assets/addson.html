@@ -1,0 +1,59 @@
+{template member/header}
+<div class="subnav">
+	<div class="content-menu ib-a blue line-x">
+		<a href="{url('member/assets/list', array('keyid'=>$keyid,'catid'=>$catid))}"><em>{lang('a-ast-0')}</em></a><span>|</span>
+		<a href="javascript:;" class="on"><em>{lang('a-add')}</em></a><span>|</span>
+		<a href="{url('member/assets/cache',array('catid'=>$catid))}"><em>{lang('a-cache')}</em></a>
+	</div>
+	<div class="bk10"></div>
+	<div class="table-list">
+		<form action="" method="post">
+		<table width="100%" class="table_form">
+		<tr>
+			<th width="200">{lang('a-ast-16')}： </th>
+			<td>
+			{$select}
+			</td>
+		</tr>
+		<tr>
+		    <th valign="top">{lang('a-ast-13')}： </th>
+		    <td>
+			{if $edit}
+			<input class="input-text" type="text" name="name" value="{$data['name']}" size="30"/>
+			{else}
+			<textarea style="height:110px;width:150px;" class="inputtext" id="name" cols="20" rows="2" name="name"></textarea>
+			<div class="onShow">{lang('a-ast-17')}</div>
+			{/if}
+			</td>
+		</tr>
+		<tr>
+		    <th valign="top">装机容量： </th>
+		    <td>
+			{if $edit}
+			<input class="inputtext" name="data[info][]" value="{$data['info']['capacity']}">
+			{else}
+			<textarea style="height:310px;width:350px;" class="inputtext" cols="20" rows="5" name="intro"></textarea>
+			<div class="onShow">{lang('a-ast-17')}</div>
+			{/if}
+			</td>
+		</tr>
+		<tr>
+		    <th valign="top">电站说明： </th>
+		    <td>
+			{if $edit}
+			<textarea style="height:310px;width:350px;" class="inputtext" cols="20" rows="5" name="intro">{$data['intro']}</textarea>
+			{else}
+			<textarea style="height:310px;width:350px;" class="inputtext" cols="20" rows="5" name="intro"></textarea>
+			<div class="onShow">{lang('a-ast-17')}</div>
+			{/if}
+			</td>
+		</tr>
+		<tr>
+			<th>&nbsp;</th>
+			<td><input class="button" type="submit" name="submit" value="{lang('a-submit')}" /></td>
+		</tr>
+		</table>
+		</form>
+	</div>
+</div>
+{template member/footer}

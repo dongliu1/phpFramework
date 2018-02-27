@@ -1,0 +1,862 @@
+{template header}
+<body class="skin-blue tabs-body" style="overflow-x:hidden;color:#333">
+<div class="content_table">
+	<form action="" method="post"><input type="hidden" name="data[catid]" value="{$catid}">
+		
+<p style="text-align:center;"><strong>华电维的光伏电站运行日志</strong></p>
+
+<p style="text-align:right;">日期:</p>
+
+<table align="center" border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td colspan="7" style="height:22px; width:136px">
+			<p>电站 负 责 人</p>
+			</td>
+			<td colspan="8" style="height:22px; width:101px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:22px; width:86px">
+			<p>运 行 负 责 人</p>
+			</td>
+			<td colspan="7" style="height:22px; width:116px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="8" style="height:22px; width:122px">
+			<p>运 行 值 班 员</p>
+			</td>
+			<td colspan="4" style="height:22px; width:96px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7" style="height:30px; width:136px">
+			<p>天气情况</p>
+			</td>
+			<td colspan="8" style="height:30px; width:101px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:30px; width:86px">
+			<p>气温</p>
+			</td>
+			<td colspan="7" style="height:30px; width:116px">
+			<p>　　℃～　　　℃</p>
+			</td>
+			<td colspan="8" style="height:30px; width:122px">
+			<p>当年安全运行天数</p>
+			</td>
+			<td colspan="4" style="height:30px; width:96px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7" style="height:31px; width:136px">
+			<p>平均日照强度</p>
+			</td>
+			<td colspan="8" style="height:31px; width:101px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:31px; width:86px">
+			<p>最高日照强度</p>
+
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:31px; width:116px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="8" style="height:31px; width:122px">
+			<p>最低日照强度</p>
+			</td>
+			<td colspan="4" style="height:31px; width:96px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7" style="height:31px; width:136px">
+			<p>逆变器运行时间</p>
+			</td>
+			<td colspan="15" style="height:31px; width:187px">
+			<p>　小时　　　分钟</p>
+			</td>
+			<td colspan="7" style="height:31px; width:116px">
+			<p>能见度</p>
+			</td>
+			<td colspan="12" style="height:31px; width:218px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" rowspan="3" style="height:26px; width:96px">
+			<p>逆变器</p>
+
+			<p>发电量</p>
+			</td>
+			<td colspan="4" style="height:26px; width:40px">
+			<p>单台</p>
+			</td>
+			<td colspan="5" style="height:26px; width:76px">
+			<p>逆变器号</p>
+			</td>
+			<td colspan="6" style="height:26px; width:66px">
+			<p>发电量(kWh)</p>
+			</td>
+			<td colspan="6" rowspan="3" style="height:26px; width:56px">
+			<p>日负荷情况</p>
+			</td>
+			<td colspan="5" style="height:26px; width:105px">
+			<p>永万的线</p>
+			</td>
+			<td colspan="6" style="height:26px; width:91px">
+			<p>有功功率（kW）</p>
+			</td>
+			<td colspan="6" style="height:26px; width:127px">
+			<p>无功功率(kvar)</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="height:29px; width:40px">
+			<p>最高</p>
+			</td>
+			<td colspan="5" style="height:29px; width:76px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="6" style="height:29px; width:66px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:29px; width:105px">
+			<p>最高</p>
+			</td>
+			<td colspan="6" style="height:29px; width:91px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="6" style="height:29px; width:127px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="height:34px; width:40px">
+			<p>最低</p>
+			</td>
+			<td colspan="5" style="height:34px; width:76px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="6" style="height:34px; width:66px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:34px; width:105px">
+			<p>最低</p>
+			</td>
+			<td colspan="6" style="height:34px; width:91px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="6" style="height:34px; width:127px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="41" style="height:30px; width:657px">
+			<p>电气系统运行方式</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="height:36px; width:98px">
+			<p>10kV 开关</p>
+			</td>
+			<td colspan="4" style="height:36px; width:40px">
+			<p>081</p>
+			</td>
+			<td colspan="2" style="height:36px; width:40px">
+			<p>082</p>
+			</td>
+			<td colspan="3" style="height:36px; width:40px">
+			<p>083</p>
+			</td>
+			<td colspan="4" style="height:36px; width:40px">
+			<p>084</p>
+			</td>
+			<td colspan="2" style="height:36px; width:40px">
+			<p>085</p>
+			</td>
+			<td colspan="6" style="height:36px; width:40px">
+			<p>086</p>
+			</td>
+			<td style="height:36px; width:40px">
+			<p>087</p>
+			</td>
+			<td colspan="2" style="height:36px; width:40px">
+			<p>088</p>
+			</td>
+			<td colspan="3" style="height:36px; width:40px">
+			<p>001</p>
+			</td>
+			<td colspan="2" style="height:36px; width:40px">
+			<p>#1站＃＃＃1</p>
+			</td>
+			<td colspan="3" style="height:36px; width:40px">
+			<p>SVG</p>
+			</td>
+			<td colspan="3" style="height:36px; width:40px">
+			<p>092</p>
+			</td>
+			<td style="height:36px; width:40px">
+			<p>093</p>
+			</td>
+			<td style="height:36px; width:40px">
+			<p>#2站</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="height:42px; width:98px">
+			<p>位置</p>
+			</td>
+			<td colspan="4" style="height:42px; width:40px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="2" style="height:42px; width:40px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="3" style="height:42px; width:40px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="4" style="height:42px; width:40px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="2" style="height:42px; width:40px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="6" style="height:42px; width:40px">
+			<p>&nbsp;</p>
+			</td>
+			<td style="height:42px; width:40px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="2" style="height:42px; width:40px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="3" style="height:42px; width:40px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="2" style="height:42px; width:40px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="3" style="height:42px; width:40px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="3" style="height:42px; width:40px">
+			<p>&nbsp;</p>
+			</td>
+			<td style="height:42px; width:40px">
+			<p>&nbsp;</p>
+			</td>
+			<td style="height:42px; width:40px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="41" style="height:32px; width:657px">
+			<p>线路光伏阵列运行情况</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5" style="height:26px; width:103px">
+			<p>线路</p>
+			</td>
+			<td colspan="6" style="height:26px; width:79px">
+			<p>装机阵列数</p>
+			</td>
+			<td colspan="5" style="height:26px; width:65px">
+			<p>运行阵列数</p>
+			</td>
+			<td colspan="5" style="height:26px; width:71px">
+			<p>停机阵列数</p>
+			</td>
+			<td colspan="6" style="height:26px; width:72px">
+			<p>线路</p>
+			</td>
+			<td colspan="5" style="height:26px; width:84px">
+			<p>装机阵列</p>
+			</td>
+			<td colspan="6" style="height:26px; width:96px">
+			<p>运行阵列</p>
+			</td>
+			<td colspan="3" style="height:26px; width:86px">
+			<p>停机阵列</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5" style="height:26px; width:103px">
+			<p>光伏一线</p>
+			</td>
+			<td colspan="6" style="height:26px; width:79px">
+			<p><strong>8</strong></p>
+			</td>
+			<td colspan="5" style="height:26px; width:65px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:26px; width:71px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="6" style="height:26px; width:72px">
+			<p>光伏二线</p>
+			</td>
+			<td colspan="5" style="height:26px; width:84px">
+			<p><strong>8</strong></p>
+			</td>
+			<td colspan="6" style="height:26px; width:96px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="3" style="height:26px; width:86px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5" style="height:26px; width:103px">
+			<p>光伏三线</p>
+			</td>
+			<td colspan="6" style="height:26px; width:79px">
+			<p><strong>9</strong></p>
+			</td>
+			<td colspan="5" style="height:26px; width:65px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:26px; width:71px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="6" style="height:26px; width:72px">
+			<p>光伏四线</p>
+			</td>
+			<td colspan="5" style="height:26px; width:84px">
+			<p><strong>8</strong></p>
+			</td>
+			<td colspan="6" style="height:26px; width:96px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="3" style="height:26px; width:86px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5" style="height:26px; width:103px">
+			<p>光伏五线</p>
+			</td>
+			<td colspan="6" style="height:26px; width:79px">
+			<p><strong>8</strong></p>
+			</td>
+			<td colspan="5" style="height:26px; width:65px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:26px; width:71px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="6" style="height:26px; width:72px">
+			<p>光伏六线</p>
+			</td>
+			<td colspan="5" style="height:26px; width:84px">
+			<p><strong>8</strong></p>
+			</td>
+			<td colspan="6" style="height:26px; width:96px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="3" style="height:26px; width:86px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5" style="height:26px; width:103px">
+			<p>光伏七线</p>
+			</td>
+			<td colspan="6" style="height:26px; width:79px">
+			<p><strong>8</strong></p>
+			</td>
+			<td colspan="5" style="height:26px; width:65px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:26px; width:71px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="6" style="height:26px; width:72px">
+			<p>光伏八线</p>
+			</td>
+			<td colspan="5" style="height:26px; width:84px">
+			<p><strong>8</strong></p>
+			</td>
+			<td colspan="6" style="height:26px; width:96px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="3" style="height:26px; width:86px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5" style="height:26px; width:103px">
+			<p>光伏九线</p>
+			</td>
+			<td colspan="6" style="height:26px; width:79px">
+			<p><strong>8</strong></p>
+			</td>
+			<td colspan="5" style="height:26px; width:65px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:26px; width:71px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="6" style="height:26px; width:72px">
+			<p>光伏十线</p>
+			</td>
+			<td colspan="5" style="height:26px; width:84px">
+			<p><strong>8</strong></p>
+			</td>
+			<td colspan="6" style="height:26px; width:96px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="3" style="height:26px; width:86px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="41" style="height:35px; width:657px">
+			<p>全站总装机___台，运行___台，停___台，全天最多运行台数：___台</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7" style="height:22px; width:136px">
+			<p>首台逆变器并网时间</p>
+			</td>
+			<td colspan="13" style="height:22px; width:164px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="10" style="height:22px; width:141px">
+			<p>尾台逆变器脱网时间</p>
+			</td>
+			<td colspan="11" style="height:22px; width:216px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="6" style="height:42px; width:115px">
+			<p>两票执行情况</p>
+			</td>
+			<td colspan="35" style="height:42px; width:541px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="6" style="height:52px; width:115px">
+			<p>接地线（地刀）</p>
+
+			<p>执行情况</p>
+			</td>
+			<td colspan="35" style="height:52px; width:541px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="41" style="height:26px; width:657px">
+			<p>逆变器故障情况</p>
+
+			<p>&nbsp;</p>
+
+			<p>&nbsp;</p>
+
+			<p>&nbsp;</p>
+
+			<p><strong>风电机故障及处理情况</strong></p>
+
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="height:26px; width:72px">
+			<p>逆变器号</p>
+			</td>
+			<td colspan="7" style="height:26px; width:75px">
+			<p>故障时间</p>
+			</td>
+			<td colspan="5" style="height:26px; width:81px">
+			<p>恢复时间</p>
+			</td>
+			<td colspan="15" style="height:26px; width:210px">
+			<p>故障及处理情况</p>
+			</td>
+			<td colspan="5" style="height:26px; width:87px">
+			<p>停机时数</p>
+			</td>
+			<td colspan="7" style="height:26px; width:131px">
+			<p>损失电量（万kW&middot;h）</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="height:21px; width:72px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:75px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:81px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="15" style="height:21px; width:210px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:87px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:131px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="height:21px; width:72px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:75px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:81px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="15" style="height:21px; width:210px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:87px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:131px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="height:21px; width:72px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:75px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:81px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="15" style="height:21px; width:210px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:87px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:131px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="height:21px; width:72px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:75px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:81px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="15" style="height:21px; width:210px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:87px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:131px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="height:21px; width:72px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:75px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:81px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="15" style="height:21px; width:210px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:87px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:131px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="height:21px; width:72px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:75px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:81px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="15" style="height:21px; width:210px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:87px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:131px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="height:21px; width:72px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:75px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:81px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="15" style="height:21px; width:210px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:87px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:131px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="height:21px; width:72px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:75px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:81px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="15" style="height:21px; width:210px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:87px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:131px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="height:21px; width:72px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:75px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:81px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="15" style="height:21px; width:210px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:87px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:131px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="height:21px; width:72px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:75px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:81px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="15" style="height:21px; width:210px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="5" style="height:21px; width:87px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="7" style="height:21px; width:131px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="41" style="height:44px; width:657px">
+			<p>运行日志</p>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="28" style="height:25px; width:47px">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="40" style="height:25px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="height:145px; width:47px">
+			<p>重要交待</p>
+			</td>
+			<td colspan="40" style="height:145px; width:609px">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="23" style="height:41px; width:328px">
+			<p>交班人：</p>
+			</td>
+			<td colspan="18" style="height:41px; width:328px">
+			<p>接班人：</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+		<table width="100%" class="table_form" border="0" cellpadding="0" cellspacing="0">
+		</table>
+	</form>
+</div>
+</body>
+{template footer}

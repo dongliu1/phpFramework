@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>URL地址教程</title>
+<style type="text/css">
+*{word-break:break-all;font-family:arial,\5b8b\4f53,sans-serif;}
+body{color:#000000;font-size:14px;margin:0;overflow-x:hidden;}
+input,textarea,select,button,td{font-size:14px;}
+img{border:none;}
+a:link,a:visited,a:active{text-decoration:underline;color:#136EC2}
+a:hover{text-decoration:none;}
+.head {border-bottom:#CCCCCC 1px solid;text-align:center;padding:15px;margin:0 10px 0 10px;font-family:黑体;font-size:20px;}
+.text {padding:10px 20px 10px 20px;line-height:150%;}
+.foot {background:#FAFAFA;padding:15px;font-size:12px;}
+.dsn {display:none;}
+.f1 {color:#015D90;padding:0 5px 0 5px;}
+.f2 {color:#FF0000;}
+.code {font-family:Fixedsys,verdana;color:blue;font-size:12px;border:#CAD9EA 1px dotted;padding:5px 10px 5px 10px;background:#F9FCFF;}
+</style>
+</head>
+<body>
+<div class="head">[静态/伪静态]自定义URL地址详细教程</div>
+<div class="text">
+  <p><strong>一、如何开启自定义URL</strong><br />
+  进入后台，“内容管理”-“栏目管理”，选择修改或者添加栏目，“URL配置”，开启“自定义URL规则”，再配置适合自己的规则。</p>
+  <p><strong>二、规则标签说明</strong><br />
+    {dir} ：&nbsp;&nbsp; 表示栏目目录<br />
+    {pdir}：&nbsp; 表示包含父级层次的栏目目录（<span class="f1">不能与{dir}同时出现，两者二选一</span>）<br />
+    {page}：表示分页id<br />
+    {id}：&nbsp;&nbsp;&nbsp;&nbsp; 表示内容或栏目的id<br />
+    {y}：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 表示年（<span class="f1">内容规则中有效</span>）<br />
+    {m}：&nbsp;&nbsp;&nbsp;&nbsp; 表示月（<span class="f1">内容规则中有效</span>）<br />
+  {d}：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 表示日（<span class="f1">内容规则中有效</span>）</p>
+  <p><strong>三、举例说明</strong><br />
+    在添加/修改栏目时候，会发现一个选项“URL设置”。<br />
+    <img src="3-3-1.jpg" tppabs="images/3-3-1.jpg" width="597" height="303" /><br />
+    如上图，URL格式4项必填，填写规则有说明，然后保存之后更新缓存和URL地址。<br />
+    记住一定要更新缓存并且更新URL地址，保障规则url生效。<br />
+    这时你会发现：<br />
+    “新闻（news）”栏目的地址已经变成了：http://localhost/roxsys/news/china/<br />
+  其“内容页面”的地址已经变成了：http://localhost/roxsys/news/china/31.html</p>
+  <p><span class="f2"><strong>问题来了</strong></span>，你点这些地址，会不会发现会出现“404”错误或者是指向首页，这是为什么呢？解决方案有2种。<strong><a name="html" id="html"></a></strong></p>
+  <p><strong>方案1、生成静态页面</strong><br />
+  <img src="3-3-2.jpg" tppabs="images/3-3-2.jpg" width="596" height="312" />  <br />
+  这是静态生成的配置，“静态文件夹”是指静态文件生成的目录，当然也可以不填（留空）表示生成在根目录<br />
+  （如果填写了“静态文件夹”，地址就会变成：http://localhost/roxsys/静态文件夹/news/china/）<br />
+  然后提交保存，再次更新缓存和URL地址，接下来即可生成页面了（不用说了，在“生成静态”中生成~）<br />
+  <strong><span class="f2">注意：如果内容URL没有变化的话请“更新内容地址”</span></strong></p>
+  <strong>方案2、设置伪静态</strong><br />
+  ①、指向地址说明<br />
+  栏目列表指向地址：index.php?c=content&amp;a=list&amp;catdir=栏目目录 或者 index.php?c=content&amp;a=list&amp;catid=栏目ID<br />
+  栏目分页指向地址：index.php?c=content&amp;a=list&amp;catdir=栏目目录&amp;page=分页 或者 index.php?c=content&amp;a=list&amp;catid=栏目ID&amp;page=分页<br />
+  内容页面指向地址：index.php?c=content&amp;a=show&amp;id=文章id<br />
+  内容分页指向地址：index.php?c=content&amp;a=show&amp;id=文章id&amp;page=分页
+  <p>②、举例说明<br />
+    栏目列表：http://www.demo.com/list-news.html （<span class="f1">news是栏目目录</span>）<br />
+    栏目分页：http://www.demo.com/list-news-1.html （<span class="f1">news是栏目目录，1是分页id</span>）<br />
+    内容页面：http://www.demo.com/show-1.html （<span class="f1">1是文章的id</span>）<br />
+  内容分页：http://www.demo.com/show-1-1.html （<span class="f1">前者1是文章的id，后者1是分页id</span>）</p>
+  <p><strong>伪静态方案一：修改服务器伪静态配置文件</strong><br />
+以apache为例，修改.htaccess文件：<div class="code">RewriteEngine On<br />
+RewriteCond %{REQUEST_FILENAME} !-f<br />
+RewriteCond %{REQUEST_FILENAME} !-d<br />
+RewriteRule ^list-([a-z0-9A-Z]+).html$ index.php?c=content&amp;a=list&amp;catdir=$1 [L]<br />
+RewriteRule ^list-([a-z0-9A-Z]+)-([0-9]+).html$ index.php?c=content&amp;a=list&amp;catdir=$1&amp;page=$2 [L]<br />
+RewriteRule ^show-([0-9]+).html$ index.php?c=content&amp;a=show&amp;id=$1 [L]<br />
+RewriteRule ^show-([0-9]+)-([0-9]+).html$ index.php?c=content&amp;a=show&amp;id=$1&amp;page=$2 [L]</div>
+</p>
+<p>
+以iis为例，修改httpd.ini文件：<div class="code">[ISAPI_Rewrite]<br />
+CacheClockRate 3600<br />
+RepeatLimit 32<br />
+RewriteRule ^(.*)/list-([a-z0-9A-Z]+)\.html$ $1/index.php?c=content&a=list&catdir=$2 [L]<br />
+RewriteRule ^(.*)/list-([a-z0-9A-Z]+)-([0-9]+)\.html$ $1/index.php?c=content&a=list&catdir=$2&page=$3 [L]<br />
+RewriteRule ^(.*)/show-([0-9]+)\.html$ $1/index.php?c=content&a=show&id=$2 [L]<br />
+RewriteRule ^(.*)/show-([0-9]+)-([0-9]+)\.html$ $1/index.php?c=content&a=show&id=$2&page=$3 [L]<br />
+</div>
+</p>
+<p>
+以Nginx为例：<div class="code">
+rewrite ^([^\.]*)/list-([a-z0-9A-Z]+)\.html$ $1/index.php?c=content&a=list&catdir=$2 last;<br />
+rewrite ^([^\.]*)/list-([a-z0-9A-Z]+)-([0-9]+)\.html$ $1/index.php?c=content&a=list&catdir=$2&page=$3 last;<br />
+rewrite ^([^\.]*)/show-([0-9]+)\.html$ $1/index.php?c=content&a=show&id=$2 last;<br />
+rewrite ^([^\.]*)/show-([0-9]+)-([0-9]+)\.html$ $1/index.php?c=content&a=show&id=$2&page=$3 last;
+</div>
+</p>
+<p><br />
+
+  <strong>伪静态方案二：修改网站配置文件router.ini.php（Apache推荐）</strong><br />
+  当然这种方案的前提需要服务器开启伪静态并指向index.php，再次说一下方法，<a href="javascript:if(confirm('http://bbs.roxsys.net/forum.php?mod=viewthread&tid=175  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://bbs.roxsys.net/forum.php?mod=viewthread&tid=175'" tppabs="http://bbs.roxsys.net/forum.php?mod=viewthread&tid=175" target="_blank">goooooo</a>。<br />
+  以apache为例，修改.htaccess文件：<br />
+</p>
+<div class="code">RewriteEngine On<br />
+  RewriteCond %{REQUEST_FILENAME} !-f<br />
+  RewriteCond %{REQUEST_FILENAME} !-d<br />
+  RewriteRule !\.(js|ico|gif|jpg|png|css|swf)$ index.php [L]</div>
+<p>然后根据上面你自定义的路由格式来设计伪静态指向（<strong>一定要懂正则表达式</strong>）。<br />
+  规则匹配文件config/router.ini.php （<span class="f2">一定注意不能用记事本之类的工具修改</span>）<br />
+  规则格式图：<br />
+  <img src="3-3-3.jpg" tppabs="images/3-3-3.jpg" width="272" height="171" /> <br />
+  按照上面的例子，我们可以设计成如下匹配规则：<br />
+  <img src="3-3-4.jpg" tppabs="images/3-3-4.jpg" width="698" height="267" /> <br />
+  </p>
+  熟悉正则表达式的朋友应该一眼能看懂，再次强调使用该方法一定要懂正则表达式哦~~</p>
+<p class="f2"><strong>注意：伪静态方案二的指向地址不需要再加index.php了</strong></p>
+</div>
+<div class="foot"><span style="float:right;"><a href="main.html" tppabs="main.html">文档首页</a>&nbsp; | &nbsp;<a href="javascript:window.scrollTo(0,0);">返回顶部</a></span></div>
+<br />
+</body>
+</html>

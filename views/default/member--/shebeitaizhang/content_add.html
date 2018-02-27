@@ -1,0 +1,108 @@
+{template member/header}
+<body class="skin-blue tabs-body" style="overflow-x:hidden;color:#333">
+<style>
+th{width:80px;}
+body{overflow:hidden}
+</style>
+
+<!--Wrapper-->
+<div id="wrapper">
+
+	<div>
+		
+		<form  method="post" id="form_content_add">
+		<input type="hidden" value="{$catid}" name="data[catid]">
+		<table width="100%" class="table_form" border="0" cellpadding="0" cellspacing="0">
+		<tbody>
+		{loop $arr_fields $fieldid=>$field}
+			{if $field['field']==="shebeixinghao"}
+				<tr> 
+					<th width="100px">设备型号</th>
+					<td class="rowtitle">
+						<input type="hidden" value="{$data['shebeixinghao']}" id="fc_shebeixinghao" name="data[shebeixinghao]" >
+						<select id="fc_eqmodelid" name="data[eqmodelid]"><option value="0"> -- </option></select>
+					</td>
+				</tr>
+			{else}
+				<tr> 
+					
+					<th width="100px">
+						{$field['name']}
+						{if $field['not_null']}<span><font color="red">*</font></span>{/if}
+					</th>
+					<td class="rowtitle">
+						{$field['content']}
+					</td>
+				</tr>
+			{/if}
+		{/loop}
+		
+		<tr>
+			<th style="border:none">&nbsp;<input type="hidden" value="1" name="submit"></th>
+			<td style="border:none"><input type="submit" class="button" value="提 交" name="submit"></td>
+		</tr>
+		</tbody>
+		</table>
+		</form>
+	</div>
+        
+</div>
+<!--Wrapper End-->
+<script>
+$(function(){
+	//加载设备型号 fc_shebeixinghao 
+	var modeltype=$("#fc_shebeileibie").val();
+	ajax_eqmodelid(modeltype,"{$data['eqmodelid']}");
+	
+	//绑定设备类型变化
+	init_modeltype_change();
+	
+	//ajax方式提交form
+	init_ajaxform();
+});
+
+function init_ajaxform(){
+	$('#form_content_add').submit(function() {
+		$("#fc_shebeixinghao").val( $('#fc_eqmodelid option:selected').text());
+		$.post(location.href,$(this).serialize(),function(result){
+			console.log(result.id);
+			window.parent.location.reload();
+		},"json");
+		return false; //阻止表单默认提交
+	});
+}
+
+//绑定设备类型变化的操作
+function init_modeltype_change(){
+	$(".rcms-select-shebeileibie").on("change",function(){
+		ajax_eqmodelid($(this).val(),0);
+	});
+	$('#fc_eqmodelid').on("change",function(){
+		$("#fc_shebeixinghao").val( $('option:selected',this).text());
+	});
+}
+
+//动态加载设备型号
+function ajax_eqmodelid(modeltype,eqmodelid){
+	var cat_eqmodel=126;
+	$.post(
+		"{url('member/content/data')}&catid="+cat_eqmodel,
+		{"submit":1,"data":{"shebeileibie=":modeltype}},
+		function(data){
+			$('#fc_eqmodelid').html("");
+			$.each(data,function(i,idata){
+				if(eqmodelid==0){eqmodelid=idata.id; }
+				var isselected=(idata.id==eqmodelid)?" selected ":"";
+				$('#fc_eqmodelid').append("<option value='"+idata.id+"'"+isselected+">"+idata.xinghaomingcheng+"["+idata.shebeichangshang+"]</option>");
+			})
+	},"json")
+
+}
+
+
+
+
+
+</script>
+</body>
+{template member/footer}

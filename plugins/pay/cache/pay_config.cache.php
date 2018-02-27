@@ -1,0 +1,1 @@
+a:2:{s:6:"alipay";a:5:{s:3:"use";s:1:"0";s:4:"name";s:9:"支付宝";s:8:"username";s:0:"";s:7:"partner";s:0:"";s:3:"key";s:0:"";}s:6:"tenpay";a:4:{s:3:"use";s:1:"0";s:4:"name";s:9:"财付通";s:7:"partner";s:0:"";s:3:"key";s:0:"";}}

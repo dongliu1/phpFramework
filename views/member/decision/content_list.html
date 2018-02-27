@@ -1,0 +1,44 @@
+{template header}
+<style>
+.table-query-zone .button-wh{width:128px;height:18px;}
+.table-query-zone .button.easyui-combotree{width:108px;}
+.table-function-zone{padding:0;}
+
+.flex-col{display:flex;flex-direction:column;flex-wrap:wrap;height:100%}
+.flex-row{display:flex;flex-direction:row;flex-wrap:wrap;height:100%}
+.flex-item{padding:0;border:0;flex:1}
+
+.box{padding:5px;border:0}
+
+</style>
+<script src="{JLIB_PATH}highcharts/highcharts.min.js"></script>
+<script src="{JLIB_PATH}highcharts/highcharts-more.js"></script>
+<!-- <script type="text/javascript" src="{JLIB_PATH}highcharts/highcharts.js"></script> -->
+<body class="skin-blue tabs-body" style="overflow-x:hidden">
+<div class="flex-col" >
+	<div class="flex-item flex-row">
+		{template blocks/gridflow/rate}
+		{template blocks/gridflow/trends}
+		{template blocks/gridflow/user10}
+	</div>
+	
+	<div class="flex-item flex-row">
+		{list table=content_1_companygen LIKEcompanycode=YN_% order=month}{/list}
+		<script>var data_companygen={json_encode($return,256)};</script>
+		{template blocks/gridflow/companygen_0}
+		{template blocks/gridflow/companygen_1}
+		{template blocks/gridflow/companygen_2}
+		<!-- <div class="flex-item box" id="chart-companygen0"></div> -->
+		<!-- <div class="flex-item box" id="chart-companygen1"></div> -->
+		<!-- <div class="flex-item box" id="chart-companygen2"></div> -->
+	</div>
+
+</div>
+
+
+
+
+<!--Wrapper End-->
+
+</body>
+{template footer}

@@ -1,0 +1,82 @@
+{template header}
+    <div class="navigation">
+    您当前位置：<a  href="{SITE_PATH}">首页</a> >> 会员空间
+    </div>
+
+	
+	
+    <div class="blank10 clear"></div>
+    <div class="mainpdbox">
+        <div class="left">
+            <!-- begin-->
+			<div class="articlecontent">
+				<div class="explain-col">
+					<form action="" method="post">
+						<input name="form" type="hidden" value="search" />
+						{lang('a-mem-28')}：<input type="text" class="input-text" size="20" name="kw" />
+						<input type="submit" class="button" value="{lang('a-search')}" name="submit" />
+					</form>
+				</div>
+				<div class="bk10"></div>
+				<div class="table-list">
+					<form action="" method="post">
+					<input name="form" id="list_form" type="hidden" value="" />
+					<table width="100%">
+					<thead>
+					<tr>
+						<th width="130" align="left">{lang('a-user')}</th>
+						<th width="70" align="left">{lang('a-mem-29')}</th>
+						<th width="70" align="left">{lang('a-mem-30')}</th>
+						<th width="55" align="left">{lang('a-mem-31')}</th>
+						<th width="120" align="left">{lang('a-mem-32')}</th>
+						<th width="120" align="left">{lang('a-mem-33')}</th>
+					</tr>
+					</thead>
+					<tbody>
+					{loop $list $t}
+					<?php $avatar = ''; if($t['avatar']) { $avatar = image($t['avatar']); } ?>
+					<tr height="25">
+						<td align="left"><a href="{url('member/space/show',array('userid'=>$t['id']))}" title="{$t['nickname']}">{if $t['gongsimingcheng']}$t['gongsimingcheng']{else}{$t['nickname']}{/if}</a></td>
+						<td align="left"><a href="{url('admin/member/index',array('groupid'=>$t['groupid']))}">{$membergroup[$t['groupid']]['name']}</a></td>
+						<td align="left">{$t['credits']}</td>
+						<td align="left">{date(TIME_FORMAT, $t['regdate'])}</td>
+						<td align="left"><a href="http://www.baidu.com/baidu?wd={$t['regip']}" target=_blank>{$t['regip']}</a></td>
+					</tr>
+					{/loop}  
+					</tbody>
+					</table>
+					{$pagelist}
+					</form>
+				</div>
+
+			
+			</div>
+			<!-- end-->
+			
+			
+			
+        </div>
+        <div class="right">
+            <!--right02 begin-->
+	        <div class="right02">
+		        <div class="title"><span>推荐空间</span></div>
+		        <div class="right02box">
+		        <ul>
+				{php $key=0;}
+                {loop $recommend $t}<!--排序方式可以更改，参数order=字段-->
+			    <li><span class="N{$key+1}"></span><a href="{url('member/space/show',array('userid'=>$t['id']))}" title="{$t['nickname']}">{if $t['gongsimingcheng']}$t['gongsimingcheng']{else}{$t['nickname']}{/if}</a></li>
+				{php $key++;}
+				{/loop}
+			    </ul>
+		        </div>
+		    </div> 
+	        <!--right02 end-->
+       </div>
+    </div>
+    <div class="clear blank10"></div>
+{template footer}
+
+<body style="font-weight: normal;">
+
+</body>
+</html>

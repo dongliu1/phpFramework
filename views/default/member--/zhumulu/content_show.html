@@ -1,0 +1,49 @@
+{template member/header}
+<style>
+.contain{background:rgba(0,0,0,0.7);}
+.contain-content{text-align:center;display:block;width:800px;height:600px;margin:20px auto;}
+.ld-block{text-align:center;display:inline-block;padding:15px 0;width:130px;border:1px solid #aaa;background:rgba(25,25,25,0.5);margin:20px 30px;cursor:pointer;}
+#ld-root{width:190px;margin-bottom:60px;margin-top:30px;}
+.ld-block:hover{background:rgba(0,0,0,0.4);}
+.contain>.content-footer{padding:0 10px;text-align:left;}
+</style>
+<div class="contain">
+	<div class="contain-content">
+		<div class="head">
+			<div id="ld-root" class="ld-block">35KV清水河光伏电站</div>
+		</div>
+		<div class="content">
+			<div class="ld-block" onclick="click_link('123')">主接线图</div>
+			<div class="ld-block">通讯一览表</div>
+			<div class="ld-block">牌一览表</div>
+			<div class="ld-block">四遥一览表</div>
+			<div class="ld-block">站用变分图</div>
+			<div class="ld-block">出线分图</div>
+			<div class="ld-block">进线一分图</div>
+			<div class="ld-block">进线二分图</div>
+			<div class="ld-block">进线三分图</div>
+			<div class="ld-block">进线四分图</div>
+			<div class="ld-block">进线五分图</div>
+			<div class="ld-block">低频低压减载分图</div>
+			<div class="ld-block">#1电容器分图</div>
+			<div class="ld-block">母设分图</div>
+			<div class="ld-block">公用分图</div>
+			<div class="ld-block" onclick="click_link('120')">发电系统拓扑图</div>
+		</div>
+		<div class="content-footer">
+			<div class="ld-block">环境检测分图</div>
+		</div>
+	</div>
+</div>
+<script>
+function click_link(cpid){
+	var url;
+	if(cpid=="120"){
+		url="{url('member/content',array('catid'=>120))}";
+	}else{
+		url="{url('member/content',array('catid'=>123))}";
+	}
+	location.href=url;
+}
+</script>
+{template member/footer}

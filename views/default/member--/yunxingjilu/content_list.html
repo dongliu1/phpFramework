@@ -1,0 +1,124 @@
+{template member/header}
+<style>
+select{width:170px;background:transparent;color:#ccc;}
+
+.table-function-zone .button{}
+.skin-blue a.button{border:1px solid #2D9C86;}
+.table-query-zone{float:left;}
+.datatable tr td .selectc{float:right;}
+.table-function-zone .button{margin-right:20px;}
+.table-query-zone select{height:20px;border-color:#666;width:100px;}
+.table-query-zone .button-wh{width:128px;height:18px;}
+.skin-blue .table-above{background:rgba(0,0,0,0.4);}
+.skin-blue .table-content{background:rgba(0,0,0,0.4);}
+.table-function-zone{padding:0;}
+.table-query-zone{padding:0;}
+</style>
+<body class="skin-blue tabs-body" style="overflow-x:hidden">
+<div class="container">
+	<div class="table-above" >
+		<form action="" method="post">
+			<div class="table-query-zone">
+				运行类型：<select><option  value="">--</option></select>
+				记录内容：<select><option  value="">--</option></select>
+				时间段：<input type="text" class="button-wh" value="" name="timefrom" /> 
+						至 <input type="text" class="button-wh" value="" name="timeto" />
+				<input type="submit" class="button" value="查询" name="button" />
+			</div>
+		</form>
+		<div class="table-function-zone">
+			<input type="button" class="button" value="添加" name="button" onclick="dlg_addnew();" />
+		</div>
+	</div>
+	<div class="table-content" >
+	<table class="datatable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<td width="22" align="right"><input name="selectc" id="selectc" type="checkbox" onClick="setC()"></td>
+				{php $arry=["zhibanren","jiluleixing","jilushijian","jiluneirong"];}
+				{loop $arry $n}
+					<td>{$fields[$n]['name']}</td>
+				{/loop}
+				<td>操作</td>
+			</tr>
+		</thead>
+		<tbody>
+			{loop $fields_text $t}
+			<tr>
+				<td><input name="ids[]" type="checkbox" class="selectc" value="{$t['id']}" /></td>
+				{loop $arry $n}
+					<td>{$t[$fields[$n]["field"]]}</td>
+				{/loop}
+
+				<td>
+				<a href="javascript:dlg_detail({$t['id']});">详情</a>
+				{if $t['userid']==$memberinfo['id']}
+				<a href="javascript:dlg_edit({$t['id']});">修改</a>
+				<a href="javascript:;" onClick="dlg_delete({$t['id']})">删除</a>
+				{/if}
+				{if $t['status']==4}{if $group['allowreprint']}
+				<a href="{url('member/content/reprint/', array('id'=>$t['id']))}">转发</a>
+				{/if}{/if}
+				</td>
+			</tr>
+			{/loop}
+		</tbody>
+	</table>
+	</div>
+	
+	<div class="datatablepage">
+		<table width="100%" border="0">
+		  <tr>
+			<td align="right">{$pagelist}</td>
+		  </tr>
+		</table>
+	</div>
+</div>
+<!--Wrapper End-->
+<script language="javascript">
+$(function(){
+	$("[name='timefrom'],[name='timeto']").datetimebox({
+		required: true,
+		showSeconds: false
+	});
+})
+function setC() {
+	if($("#selectc").attr('checked')) {
+		$(".selectc").attr("checked",true);
+	} else {
+		$(".selectc").attr("checked",false);
+	}
+}
+
+function dlg_detail(id){
+	var dlgid="content_detail_"+id;
+	var ddialog=$("body").append("<div id='"+dlgid+"'></div>");
+	//$( "#dialog" ).dialog({
+	console.log()
+	$( "#"+dlgid ).load("{url('member/content/show')}&id="+id,function(){
+		$( "#"+dlgid ).dialog({"title":"详情 - {$catname}",width:700,modal: true,close: function(){ $(this).remove(); },onClose: function(){ $(this).remove(); }});
+	})
+}
+
+function dlg_addnew(){
+	var dlgid="content_add";
+	var ddialog=$("body").append("<div id='"+dlgid+"'><iframe src='{url('member/content/add', array('catid'=>$catid))}' height='400px' style='border:none;width:100%;overflow-x:hidden'></iframe></div>");
+	//$( "#"+dlgid ).load("{url('member/content/add', array('catid'=>$catid))}",function(){
+		$( "#"+dlgid ).dialog({"title":"添加 - {$catname}",width:700,modal: true,close: function(){ $(this).remove(); },onClose: function(){ $(this).remove(); } });
+	//})
+}
+
+function dlg_edit(id){
+	var dlgid="content_add";
+	var ddialog=$("body").append("<div id='"+dlgid+"'><iframe src='{url('member/content/edit')}&id="+id+"' height='400px' style='border:none;width:100%;overflow-x:hidden'></iframe></div>");
+	//$( "#"+dlgid ).load("{url('member/content/add', array('catid'=>$catid))}",function(){
+		$( "#"+dlgid ).dialog({"title":"编辑 - {$catname}",width:700,modal: true,close: function(){ $(this).remove(); },onClose: function(){ $(this).remove(); }});
+	//})
+}
+
+function dlg_delete(id){
+	if(confirm('确认删除吗？')){ window.location.href="{url('member/content/del')}&id"+id; }
+}
+</script>
+</body>
+{template member/footer}

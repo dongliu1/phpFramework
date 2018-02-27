@@ -1,0 +1,49 @@
+<style>
+body{position:relative;background:url({MEMBER_THEME}_rsc/switch/bg.jpg);background-size:100% 100%;text-align:center;min-width:1190px;}
+.contain{margin:-280px 0 0 -512px;position:absolute;top:50%;left:50%;width:1025px;height:475px;text-align:left;}
+.logo{margin-bottom:80px;}
+.top_line,.function_manage{margin-bottom:40px;text-align:center;}
+.function{display:inline-block;cursor:pointer;-webkit-transform:scale(1.0);-moz-transform:scale(1.0);-o-transform:scale(1.0);-webkit-transition-duration: 0.5s;-moz-transition-duration: 0.5s;-o-transition-duration: 0.5s;}
+.static_space{margin-left:60px;}
+.function:hover{-webkit-transform:scale(1.2);-moz-transform:scale(1.2);-o-transform:scale(1.2);}
+</style>
+
+<body>
+	<div class="contain">
+		<div class="logo"><img src="{MEMBER_THEME}_rsc/switch/logo.png"></div>
+		<div class="top_line"><img src="{MEMBER_THEME}_rsc/switch/top_line.png"></div>
+		<div class="function_manage">
+			<div class="function" onclick="link_page('acceptence')"><img src="{MEMBER_THEME}_rsc/switch/power_station_acceptence.png"></div>
+			<div class="function static_space" onclick="link_page('opperation')"><img src="{MEMBER_THEME}_rsc/switch/power_station_opperation.png"></div>
+			<div class="function static_space" onclick="link_page('diagnostics')"><img src="{MEMBER_THEME}_rsc/switch/power_station_diagnostics.png"></div>
+			<div class="function static_space" onclick="link_page('service')"><img src="{MEMBER_THEME}_rsc/switch/finacial_service.png"></div>
+			<div class="function static_space" onclick="link_page('prediction')"><img src="{MEMBER_THEME}_rsc/switch/optical_power_prediction.png"></div>
+		</div>
+		<div class="down_line"><img src="{MEMBER_THEME}_rsc/switch/down_line.png"></div>
+	</div>
+</body>
+<script>
+	function link_page(param){
+		var url;
+		switch(param){
+			case "acceptence":
+				url="#1";
+				break;
+			case "opperation":
+				url='{url("member/Index",array("catid"=>138))}';
+				break;
+			case "diagnostics":
+				url='{url("member/Index",array("catid"=>135))}';
+				break;
+			case "service":
+				url="#4";
+				break;
+			case "prediction":
+				url="#5";
+				break;
+			default:
+				break;
+		}
+		location.href=url;
+	}
+</script>

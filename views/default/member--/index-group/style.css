@@ -1,0 +1,24 @@
+.open-button{display:inline-block;padding:3px 10px;margin:10px 0;cursor:pointer;border:1px solid #2D9C86;color:#2D9C86;border-radius:3px;}
+.open-button:hover{color:#ccc;}
+.float-windows{position:absolute;right:15px;width:250px;top:0}
+.index-show{min-width:1000px;width:100%}
+.index-show-right{position:absolute;right:10px;}
+.map-info{height:400px;margin-top:10px;margin-right:250px;text-align:center;}
+.chart-info{text-align:center;background-color:rgba(187,187,187,0.1)}
+.power_station_info{width:100%;margin:4px 0;color:#DCE8D1;}
+.power_station_info .row{padding: 0 16px;height: 25px;line-height: 25px;overflow: hidden;border-bottom: 1px solid rgba(245, 245, 245, 0.1);}
+.power_station_info_num2{/*width:40%;*/float: left;}
+.power_station_info_num3{width:60%;float: right;text-align:right;}
+.group_info{width:100%;padding:20px 0;background: rgba(255,255,255,0.05);text-align:center;margin:35px 0;}
+.content-title{width:100%;height: 35px;line-height: 35px;overflow: hidden;padding:0 16px;}
+.content-title-left{float:left;}
+.content-title-left>span{margin-right: 20px;}
+.content-title-right{float: left;width:40px;height: 20px;background: #18BB99;border-radius: 5px;margin:8px 5px;}
+.content-title-right>span{float: left;margin: -7px 6px;}
+.knob-label{margin:10px auto;color:#DCE8D1;}
+#return-icon{float:right;margin-right:40px; cursor:pointer;display:none;}
+#return-icon i{margin-right:5px;}
+.ld-block{display:inline-block;}
+.window{background:rgba(0,0,0,0.2);}
+#map{width:820px;}
+svg{width:820px;height:650px;}

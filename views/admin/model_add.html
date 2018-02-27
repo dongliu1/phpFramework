@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="{ADMIN_THEME}images/reset.css" rel="stylesheet" type="text/css" />
+<link href="{ADMIN_THEME}images/system.css" rel="stylesheet" type="text/css" />
+<link href="{ADMIN_THEME}images/dialog.css" rel="stylesheet" type="text/css" />
+<link href="{ADMIN_THEME}images/main.css" rel="stylesheet" type="text/css" />
+<link href="{ADMIN_THEME}images/switchbox.css" rel="stylesheet" type="text/css" />
+<link href="{ADMIN_THEME}images/table_form.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{ADMIN_THEME}js/jquery.min.js"></script>
+<title>admin</title>
+</head>
+<body style="font-weight: normal;">
+<div class="subnav">
+	<div class="content-menu ib-a blue line-x">
+		<a href="{url('admin/model/index',  array('typeid'=>$typeid))}"><em>{lang('a-aut-14')}</em></a><span>|</span>
+		<a href="{url('admin/model/add', array('typeid'=>$typeid))}" class="on"><em>{lang('a-add')}</em></a><span>|</span>
+		{if admin_auth($userinfo['roleid'], 'model-import')}<a href="{url('admin/model/import', array('typeid'=>$typeid))}"><em>{lang('a-import')}</em></a><span>|</span>{/if}
+		{if admin_auth($userinfo['roleid'], 'model-cache')}<a href="{url('admin/model/cache', array('typeid'=>$typeid))}"><em>{lang('a-cache')}</em></a>{/if}
+	</div>
+	<div class="table-list">
+		<form action="" method="post">
+		<input name="modelid" type="hidden" value="{$data['modelid']}" />
+		<div class="pad-10">
+			<div class="col-tab">
+				<ul class="tabBut cu-li">
+					<li onClick="SwapTab('setting','on','',2,1);" class="on" id="tab_setting_1">{lang('a-cat-25')}</li>
+					{if $typeid != 2 && $typeid != 4}<li onClick="SwapTab('setting','on','',2,2);" id="tab_setting_2" class="">{lang('a-mod-134')}</li>{/if}
+				</ul>
+				
+				<div class="contentList pad-10" id="div_setting_1" style="display: block;">
+				<table width="100%" class="table_form">
+				<tr>
+					<th width="200">{lang('a-mod-18')}： </th>
+					<td>{$typename[$typeid]}显示常用字段</td>
+				</tr>
+				<tr>
+					<th><font color="red">*</font> 常用字段： </th>
+					<td><input class="input-text" type="radio" name="setting[isnewsmodel]" value="1" size="30" {if $setting['isnewsmodel']==1} checked{/if} />显示 
+						<input class="input-text" type="radio" name="setting[isnewsmodel]" value="0" size="30" {if $setting['isnewsmodel']==0} checked{/if} />隐藏  
+						<div class="onShow">是否显示 标题/关键字等字段</div>
+					</td>
+				</tr>
+				<tr>
+					<th><font color="red">*</font> {lang('a-name')}： </th>
+					<td><input class="input-text" type="text" name="modelname" value="{$data['modelname']}" size="30" required /></td>
+				</tr>
+				<tr>
+					<th><font color="red">*</font> {lang('a-code')}： </th>
+					<td><input class="input-text" type="text" name="modelcode" value="{$data['modelcode']}" size="30" onblur="ajaxcode()" required /></td>
+				</tr>
+				<tr>
+					<th><font color="red">*</font> {lang('a-mod-19')}： </th>
+					<td><input class="input-text" type="text" name="tablename" value="{$data['tablename']}" size="30" {if $data['modelid']}disabled{/if} required /><div class="onShow">{lang('a-mod-20')}</div></td>
+				</tr>
+				<tr>
+					<th><font color="red">*</font> {lang('list-order')}： </th>
+					<td><input class="input-text" type="text" name="listorder" value="{$data['listorder']}" size="30" required /></td>
+				</tr>
+				{if $typeid != 2}
+					{if $typeid == 1}
+						<tr>
+							<th>{lang('a-mod-21')}：</th>
+							<td>
+							{loop $formmodel $t}
+							<input type="checkbox" value="{$t['modelid']}" name="join[]" {if in_array($t['modelid'], $join)}checked=""{else} {if in_array($t['modelid'], $joindata)}disabled=""{/if}{/if} /> {$t['modelname']}&nbsp;&nbsp;
+							{/loop}
+							<div class="onShow">{lang('a-mod-22')}</div>
+							</td>
+						</tr>
+						<tr>
+							<th><font color="red">*</font> {lang('a-mod-23')}： </th>
+							<td><input class="input-text" type="text" name="categorytpl" value="{$data['categorytpl']}" size="30" /><div class="onShow">{lang('a-mod-28')}：category.html</div></td>
+						</tr>
+					{else if $typeid == 3}
+						<tr>
+							<th><font color="red">*</font> {lang('a-mod-24')}： </th>
+							<td><input class="input-text" type="text" name="categorytpl" value="{$data['categorytpl']}" size="30" /><div class="onShow">{lang('a-mod-28')}：post.html</div></td>
+						</tr>
+					{/if}
+				<tr>
+					<th><font color="red">*</font> {lang('a-mod-25')}： </th>
+					<td><input class="input-text" type="text" name="listtpl" value="{$data['listtpl']}" size="30" /><div class="onShow">{lang('a-mod-28')}：list.html</div></td>
+				</tr>
+				<tr>
+					<th><font color="red">*</font> {lang('a-mod-26')}： </th>
+					<td><input class="input-text" type="text" name="showtpl" value="{$data['showtpl']}" size="30" /><div class="onShow">{lang('a-mod-28')}：show.html</div>
+					</td>
+				</tr>
+				{/if}
+				{if $typeid == 4}
+				<tr>
+					<th><font color="red">*</font> {lang('a-mod-172')}： </th>
+					<td><input class="input-text" type="text" name="posttpl" value="{$data['posttpl']}" size="30" required /><div class="onShow">{lang('a-mod-173')}</div></td>
+				</tr>
+				{/if}
+				</table>
+				</div>
+				
+				{if $typeid != 2}
+				<div class="contentList pad-10 hidden" id="div_setting_2" style="display: none;">
+				<table width="100%" class="table_form">
+				<tr>
+					<th width="200">{lang('a-cat-97')}：</th>
+					<td>
+					<input name="setting[auth][adminpost]" type="radio" value="0"{if $setting['auth']['adminpost']==0} checked{/if} onClick="$('#adminpost').hide()" />&nbsp;{lang('a-cat-51')}
+					&nbsp;&nbsp;&nbsp;
+					<input name="setting[auth][adminpost]" type="radio" value="1"{if $setting['auth']['adminpost']==1} checked{/if} onClick="$('#adminpost').show()" />&nbsp;{lang('a-cat-52')}
+					</td>
+				</tr>
+				<tr id="adminpost" {if !$setting['auth']['adminpost']}style="display:none"{/if}>
+					<th>{lang('a-cat-99')}：</th>
+					<td>
+						{loop $rolemodel $t}
+						<input name="setting[auth][rolepost][]" type="checkbox" value="{$t['roleid']}" {if $t['roleid']==1}disabled{/if} {if @in_array($t['roleid'], $setting['auth']['rolepost'])}checked{/if} />
+						{$t['rolename']}&nbsp;
+						{/loop}
+						<div class="onShow">{lang('a-mod-135')}</div>
+					</td>
+				</tr>
+				
+				<tr><!-- 文档审核 -->
+					<th width="200">{lang('a-mod-215')}：</th>
+					<td>
+					<input name="setting[auth][verifypost]" type="radio" value="0"{if $setting['auth']['verifypost']==0} checked{/if} onClick="$('#verifypost').hide()">&nbsp;{lang('a-mod-216')}
+					&nbsp;&nbsp;&nbsp;
+					<input name="setting[auth][verifypost]" type="radio" value="1"{if $setting['auth']['verifypost']==1} checked{/if} onClick="$('#verifypost').show()">&nbsp;{lang('a-mod-217')}
+					</td>
+				</tr>
+				<tbody id="verifypost" {if !$setting['auth']['verifypost']}style="display:none"{/if} class="sub">
+				<tr>
+					<th>{lang('a-cat-99')}：</th>
+					<td>
+						{loop $rolemodel $t}
+						<input name="setting[auth][verifyrole][]" type="checkbox" value="{$t['roleid']}" {if $t['roleid']==1}disabled{/if} {if @in_array($t['roleid'], $setting['auth']['verifyrole'])}checked{/if} />
+						{$t['rolename']}&nbsp;
+						{/loop}
+						<div class="onShow">{lang('a-mod-218')}</div>
+					</td>
+				</tr>
+				</tbody>
+				<!--
+				<tr><!-- 文档转载 -- >
+					<th width="200">{lang('a-mod-221')}：</th>
+					<td>
+					<input name="setting[auth][reprint]" type="radio" value="0"{if $setting['auth']['reprint']==0} checked{/if} onClick="$('#reprint').hide()">&nbsp;{lang('a-mod-222')}
+					&nbsp;&nbsp;&nbsp;
+					<input name="setting[auth][reprint]" type="radio" value="1"{if $setting['auth']['reprint']==1} checked{/if} onClick="$('#reprint').show()">&nbsp;{lang('a-mod-223')}
+					</td>
+				</tr>					
+				<tbody id="reprint" {if !$setting['auth']['reprint']}style="display:none"{/if} class="sub">
+				<tr>
+					<th>{lang('a-cat-96')}：</th>
+					<td>
+						{loop $membermodel $t}
+						<input name="setting[auth][reprintrole][]" type="checkbox" value="{$t['modelid']}" {if @in_array($t['modelid'], $setting['auth']['reprintrole'])}checked{/if} />
+						{$t['modelname']}&nbsp;
+						{/loop}
+					</td>
+				</tr>
+				<tr>
+					<th>{lang('a-cat-111')}：</th>
+					<td>
+						<input name="setting[auth][reprinttimes]" type="text" size=10 value="{$setting['auth']['reprinttimes']}">
+					</td>
+				</tr>
+				</tbody>
+				
+				<tr>
+					<th width="200">{lang('a-cat-50')}：</th>
+					<td>
+					<input name="setting[auth][memberpost]" type="radio" value="0"{if $setting['auth']['memberpost']==0} checked{/if} onClick="$('#memberpost').hide()" />&nbsp;{lang('a-cat-52')}
+					&nbsp;&nbsp;&nbsp;
+					<input name="setting[auth][memberpost]" type="radio" value="1"{if $setting['auth']['memberpost']==1} checked{/if} onClick="$('#memberpost').show()" />&nbsp;{lang('a-cat-51')}
+					</td>
+				</tr>
+				<tbody id="memberpost" {if !$setting['auth']['memberpost']}style="display:none"{/if} class="sub">
+					<tr>
+						<th>{lang('a-cat-55')}：</th>
+						<td>
+							{loop $membergroup $t}
+							
+							{$t['name']}&nbsp;
+							<input name="setting[auth][grouppost][{$t['id']}][allowpost]" class="setting_grouppost" groupid="{$t['id']}" type="checkbox" value="1" 
+								{if $setting['auth']['grouppost'][$t['id']]['allowpost']}checked{/if} onclick="set_grouppost();" />允许投稿&nbsp; 	
+								
+							<div name="grouppost_{$t['id']}" style="display:inline-block;visibility:none;vertical-align: middle;">
+								<input type="checkbox" name="setting[auth][grouppost][{$t['id']}][needverify]" value="1" 
+									{if $setting['auth']['grouppost'][$t['id']]['allowpost']}checked{/if}  >需审核&nbsp;
+							
+								每日投稿上限：
+								<input name="setting[auth][grouppost][{$t['id']}][daily_limit]" type="text" value="{$setting['auth']['grouppost'][$t['id']]['daily_limit']}" size=3 >
+							</div><br>
+							{/loop}
+							<div class="onShow">{lang('a-cat-56')}</div>
+							<script>
+								function set_grouppost(){
+									$(".setting_grouppost").each(function(index){
+										var toshow=$(this).is(':checked');
+										var groupid=$(this).attr("groupid");
+										
+										var obj=$('[name="grouppost_'+groupid+'"]');
+										if(toshow){
+											$("input",obj).attr("disabled",false);
+											$(obj).show();
+										}else{
+											$("input",obj).attr("disabled",true);
+											$(obj).hide();										
+										}
+									});
+								}
+								set_grouppost();
+							</script>
+						</td>
+					</tr>
+					</tbody>
+					-->
+				</table>
+				</div>
+				{/if}
+				<div class="bk15"></div>
+				<input type="submit" class="button" value="{lang('a-submit')}" name="submit" />
+			</div>
+		</form>
+	</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+function ajaxcode(name,cls_show,cls_hide,cnt,cur){
+	var modelcode=$('[name="modelcode"]').val();
+	if($('[name="tablename"]').val()=="")	$('[name="tablename"]').val(modelcode);
+	if($('[name="categorytpl"]').val()=="")	$('[name="categorytpl"]').val("_"+modelcode+"_category.html");
+	if($('[name="listtpl"]').val()=="")		$('[name="listtpl"]').val("_"+modelcode+"_list.html");
+	if($('[name="showtpl"]').val()=="")		$('[name="showtpl"]').val("_"+modelcode+"_show.html");
+	if($('[name="posttpl"]').val()=="")		$('[name="showtpl"]').val("_"+modelcode+"_post.html");
+	
+}
+function SwapTab(name,cls_show,cls_hide,cnt,cur){
+	for(i=1;i<=cnt;i++){
+		if(i==cur){
+			$('#div_'+name+'_'+i).show();
+			$('#tab_'+name+'_'+i).attr('class',cls_show);
+		}else{
+			$('#div_'+name+'_'+i).hide();
+			$('#tab_'+name+'_'+i).attr('class',cls_hide);
+		}
+	}
+}
+</script>

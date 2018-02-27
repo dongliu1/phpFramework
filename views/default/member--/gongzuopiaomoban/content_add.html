@@ -1,0 +1,81 @@
+{template member/header}
+<body class="skin-blue tabs-body" style="overflow-x:hidden;color:#333">
+
+<!--Wrapper-->
+<div id="wrapper">
+		<form action="" method="post" id="form_content_add">
+		<input type="hidden" value="{$catid}" name="data[catid]">
+		<table width="100%" class="table_form" border="0" cellpadding="0" cellspacing="0">
+		<tbody>
+		{if $data['status']==2}
+		<tr>
+			<th>退回理由：</th>
+			<td>{$data['verify']} </td>
+		</tr>
+		{/if}
+		{if $model['content']['title']['show']}
+		<tr>
+			<th><font color="red">*</font>&nbsp;{$model['content']['title']['name']}：</th>
+			<td><input type="text" class="input-text" size="50" id="title" value="{$data['title']}" name="data[title]"  required />
+			<div class="onShow" id="title_text"></div></td>
+		</tr>
+		{/if}
+		{if $model['content']['keywords']['show']}
+		<tr>
+			<th>{$model['content']['keywords']['name']}：</th>
+			<td><input type="text" class="input-text" size="50" id="keywords" value="{$data['keywords']}" name="data[keywords]">
+			<div class="onShow">{lang('a-con-44')}</div></td>
+		</tr>
+		{/if}
+		{if $model['content']['thumb']['show']}
+		<tr>
+			<th>{$model['content']['thumb']['name']}：</th>
+			<td><input type="text" class="input-text" size="50" value="{$data['thumb']}" name="data[thumb]" id="thumb">
+			<input type="button" style="width:66px;cursor:pointer;" class="button" onClick="preview('thumb')" value="{lang('a-mod-118')}">
+			<input type="button" style="width:66px;cursor:pointer;" class="button" onClick="uploadImage('thumb', 1)" value="{lang('a-mod-119')}">
+			<div id="urlTip" class="onShow">{lang('a-pic')}</div></td>
+		</tr>
+		{/if}
+		{if $model['content']['description']['show']}
+		<tr>
+			<th>{$model['content']['description']['name']}：</th>
+			<td><textarea style="width:490px;height:66px;" id="description" name="data[description]">{$data['description']}</textarea></td>
+		</tr>
+		{/if}
+		{php $arry=["389","388"];}
+		{loop $arr_fields $fieldid=>$field}
+
+					<tr> 
+						<th width="70px">{$field['name']}</th>{if $field['not_null']}<span>(<font color="red">*</font>必填)</span>{/if}
+						<td class="rowtitle">{$field['content']}</td>
+					</tr>
+		{/loop}
+		<tr>
+			<th style="border:none">&nbsp;<input type="hidden" value="1" name="submit"></th>
+			<td style="border:none"><input type="submit" class="button" value="提 交" name="submit"></td>
+		</tr>
+		</tbody>
+		</table>
+		</form>
+        
+</div>
+<!--Wrapper End-->
+
+<script>
+
+$(function(){
+	//ajax方式提交form
+	init_ajaxform();
+})
+
+function init_ajaxform(){
+	$('#form_content_add').submit(function() {
+		$.post(location.href,$(this).serialize(),function(result){
+			window.parent.location.reload();
+		},"json");
+		return false; //阻止表单默认提交
+	});
+}
+</script>
+</body>
+{template member/footer}

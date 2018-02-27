@@ -1,0 +1,107 @@
+<html>  
+  <head>  
+        <meta charset="utf-8">  
+        <title>中国地图</title>  
+  </head> 
+<style>
+
+</style>
+<body>
+<div id="map" style="width:930px;height:700px;border:1px solid #ccc;display:inline-block">
+
+</div>
+<script src="../jquery/jquery.min.js"></script>
+<script src="../d3js/d3.v3.min.js"></script>
+<script>
+	var myinfo={"id":"china","scale":850,"center":[104.3,38],"width":920,"height":675,"parent":null};
+	//var scalenow=850;
+	$(function () {
+		//render_map("map","china.json",850,[930,700]);
+		render_map("map");
+		render_chart("map");
+	});
+	
+	
+	
+	var render_map=function(containerid){
+		$("#"+containerid).html("").width(myinfo.width).height(myinfo.height);
+		var _svg = d3.select("#"+containerid).append("svg").attr("width", myinfo.width).attr("height", myinfo.height);
+		var _g=_svg.append("g").attr("transform", "translate(0,0)");
+		
+		var color = d3.scale.category20();
+		d3.json(myinfo.id+".json", function(error, _root) {
+			if (error) return console.error(error);
+			var _projection = d3.geo.mercator()
+							.center(myinfo.center)//经纬度
+							.scale(myinfo.scale)
+							.translate([myinfo.width/2, myinfo.height/2]);
+		
+			var _path = d3.geo.path().projection(_projection);
+			_svg.selectAll("path")
+				.data( _root.features )
+				.enter()
+				.append("path")
+				.attr("stroke","#000")
+				.attr("stroke-width",1)
+				.attr("fill", function(d,i){
+					return color(i);
+				})
+				.attr("d", _path )
+				.on("mouseover",function(d,i){
+					d3.select(this).attr("fill","yellow");
+					//console.log(_root.features[i]["properties"]["id"]+":"+_root.features[i]["properties"]["size"]);
+				})
+				.on("mouseout",function(d,i){
+					d3.select(this).attr("fill",color(i));
+				})
+				.on("click",function(d,i){
+					/*var postcode=_root.features[i]["properties"]["id"];
+					var _iobj=this.getBoundingClientRect();
+					var _iscale=myinfo.width/_iobj.width*.8;
+					var _scale=myinfo.scale*_iscale;
+					var _height=myinfo.width *(_iobj.height/_iobj.width);
+					var _x=_iobj.left-(-_iobj.width/2);
+					var _y=_iobj.top-(-_iobj.height/2);
+					
+					myinfo={"id":postcode,"scale":_scale,"center":_projection.invert([_x,_y]),"width":myinfo.width,"height":_height,"parent":myinfo}; 
+					console.log(_height)
+					render_map(containerid);
+					*/
+				})
+				;
+				console.log("a");
+			
+			
+		});
+	}
+
+	var render_chart=function(containerid){
+		d3.json(myinfo.id+".json", function(error, _root) {
+			if (error) return console.error(error);
+			var _projection = d3.geo.mercator()
+							.center(myinfo.center)//经纬度
+							.scale(myinfo.scale)
+							.translate([myinfo.width/2, myinfo.height/2]);
+		
+			var _svg = d3.select("#"+containerid+" svg").selectAll("g")
+				.data( _root.features )
+				.enter()
+				.append('rect')
+				.attr('y', function(iobj,i) {
+					return _projection(iobj.properties.cp)[1];
+				  })
+				.attr('x', function(iobj,i) {
+					return _projection(iobj.properties.cp)[0];
+				  })
+				.attr('height', function(root,i) {
+					return 20;
+				  })
+				.attr('width', 5)
+				.attr("fill", "#ff0");
+				;
+		});
+	}
+</script>
+	
+</body>  
+</html>  

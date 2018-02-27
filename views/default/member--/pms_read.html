@@ -1,0 +1,58 @@
+{template member/header}
+<link href="{ADMIN_THEME}images/table_form.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{EXT_PATH}kindeditor/kindeditor.js"></script>
+<script type="text/javascript" src="{LANG_PATH}kindeditor.js"></script>
+<script language="javascript">
+function adduser(id) {
+	$('#err_username').html("");
+	$.get('{SITE_PATH}{ENTRY_SCRIPT_NAME}?s=member&c=roster&a=ajaxadd&ran='+Math.random(), { id:id}, function(data){ 
+	    $('#err_username').html(data);
+	});
+}
+</script>
+<!--Wrapper-->
+<div id="wrapper">
+	<div class="top"></div>
+	<div class="center">
+	    <div class="center_left">
+	        <h3>短消息</h3>
+			<div class="menu_left">
+			<ul>
+            {loop $navigation $n=>$t}
+                <li {if $n=='send'} class="on"{/if}><a href="{$t['url']}">{$t['name']}{if $n=='inbox' && $inbox}({$inbox}){/if}</a></li>
+            {/loop}
+			</ul>
+			</div>
+        </div>
+		<div class="center_right">
+            <div class="title_right1"></div>
+			<div class="content_info">
+               <form action="" method="post">
+			   {loop $list $t}
+					{if $t['sendname']==$memberinfo['username']}	
+						<div style="width:60%;margin:5px;border-radius:10px;min-height:40px;background:#FAFAD2;float:left">	
+						{$t['content']} [{date("y-m-d H:i", $t['sendtime'])}] 
+						</div>
+					{else}
+						<div style="width:60%;margin:5px;border-radius:10px;min-height:40px;background:#D2ECFD;text-align:right;float:right">
+						{$t['content']}[{date("y-m-d H:i", $t['sendtime'])}] 
+						</div>
+					{/if}
+                {/loop}
+               </form>
+		    </div>
+        </div>
+	</div>
+    <div class="bottom"></div>
+</div>
+<!--Wrapper End-->
+<script language="javascript">
+function setC() {
+	if($("#selectc").attr('checked')==true) {
+		$(".selectc").attr("checked",true);
+	} else {
+		$(".selectc").attr("checked",false);
+	}
+}
+</script>
+{template member/footer}

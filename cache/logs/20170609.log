@@ -1,0 +1,5 @@
+[2017-06-09 15:02:20] Error: [member][content][data] SQL execute failed :SELECT * FROM fn_content_1_clientflow WHERE 1=1 AND  ORDER BY updatetime DESC<br/>Error Message:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY updatetime DESC' at line 1<br/>Error Code:1064<br/>Error SQL:SELECT * FROM fn_content_1_clientflow WHERE 1=1 AND  ORDER BY updatetime DESC
+[2017-06-09 15:03:07] Error: [member][content][data] SQL execute failed :SELECT * FROM fn_content_1_clientflow WHERE 1=1 AND  ORDER BY NULL<br/>Error Message:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY NULL' at line 1<br/>Error Code:1064<br/>Error SQL:SELECT * FROM fn_content_1_clientflow WHERE 1=1 AND  ORDER BY NULL
+[2017-06-09 15:55:48] Error: The Model file: Vw_clientflowModel is not exists!
+[2017-06-09 15:55:52] Error: The Model file: Vw_clientflowModel is not exists!
+[2017-06-09 15:57:38] Error: The Model file: Vw_clientflowModel is not exists!

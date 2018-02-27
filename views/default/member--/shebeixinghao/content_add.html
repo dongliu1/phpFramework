@@ -1,0 +1,164 @@
+{template member/header}
+<style>
+th{width:80px;}
+body{color:#000;background:#fff;}
+</style>
+
+<!--Wrapper-->
+<div id="wrapper" style="padding:8px">
+
+	<div>
+		
+		<form method="post"  id="form_content_add">
+		<input type="hidden" value="{$catid}" name="data[catid]">
+		<table width="100%" class="table_form" border="0" cellpadding="0" cellspacing="0">
+		<tbody>
+		
+		{if $data['status']==2}
+		<tr>
+			<th>退回理由：</th>
+			<td>{$data['verify']} </td>
+		</tr>
+		{/if}
+		{if $model['content']['title']['show']}
+		<tr>
+			<th><font color="red">*</font>&nbsp;{$model['content']['title']['name']}：</th>
+			<td><input type="text" class="input-text" size="50" id="title" value="{$data['title']}" name="data[title]"  required />
+			<div class="onShow" id="title_text"></div></td>
+		</tr>
+		{/if}
+		{if $model['content']['keywords']['show']}
+		<tr>
+			<th>{$model['content']['keywords']['name']}：</th>
+			<td><input type="text" class="input-text" size="50" id="keywords" value="{$data['keywords']}" name="data[keywords]">
+			<div class="onShow">{lang('a-con-44')}</div></td>
+		</tr>
+		{/if}
+		{if $model['content']['thumb']['show']}
+		<tr>
+			<th>{$model['content']['thumb']['name']}：</th>
+			<td><input type="text" class="input-text" size="50" value="{$data['thumb']}" name="data[thumb]" id="thumb">
+			<input type="button" style="width:66px;cursor:pointer;" class="button" onClick="preview('thumb')" value="{lang('a-mod-118')}">
+			<input type="button" style="width:66px;cursor:pointer;" class="button" onClick="uploadImage('thumb', 1)" value="{lang('a-mod-119')}">
+			<div id="urlTip" class="onShow">{lang('a-pic')}</div></td>
+		</tr>
+		{/if}
+		{if $model['content']['description']['show']}
+		<tr>
+			<th>{$model['content']['description']['name']}：</th>
+			<td><textarea style="width:490px;height:66px;" id="description" name="data[description]">{$data['description']}</textarea></td>
+		</tr>
+		{/if}
+		{loop $arr_fields $i=>$fld}
+			
+			<tr fgroup="{$fld['fgroup']}">
+			<td>{$fld["name"]}{$fld['value']}</td>
+			<td>
+			{if $fld["field"]=="shebeileibie"}
+				<!--input type="text" value="" class="input-text" id="fc_shebeileibie" name="data[shebeileibie]" style="width:150px;"-->
+				<div id="fc_shebeileibie"></div>
+				
+				{php 
+					$setting_shebeileibie=json_decode($fields['shebeileibie']['setting'],true);
+					$keyid=$setting_shebeileibie['id'];
+					$data_shebeileibie=$data['shebeileibie']?$data['shebeileibie']:$setting_shebeileibie['default'];
+					}
+			{else if $fld["field"]=="shebeidianbiao"}
+				<div id="fc_shebeidianbiao"></div>
+				{php 
+					$setting_shebeidianbiao=json_decode($fields['shebeidianbiao']['setting'],true);
+					$linkageid_shebeidianbiao=$data_shebeileibie;
+					$data_shebeidianbiao=is_null($data['shebeidianbiao'])?0:$data['shebeidianbiao'];
+					}
+			{else}
+				{$fld["content"]}
+			{/if}
+			
+			
+			</td>
+			</tr>
+			
+		
+		{/loop}
+
+		
+		<tr>
+			<th style="border:none">&nbsp;<input type="hidden" value="1" name="submit"></th>
+			<td style="border:none"><input type="submit" class="button" value="提 交" name="submit"></td>
+		</tr>
+		</tbody>
+		</table>
+		</form>
+		<script>
+		
+			$(function() {
+				load_shebeileibie("shebeileibie","{$data_shebeileibie}");		//初始化设备类别
+				load_shebeidianbiao("{$linkageid_shebeidianbiao}","shebeidianbiao",{$data_shebeidianbiao});	//初始化类别点表
+				init_ajaxform("form_content_add");
+			});
+		
+			function init_ajaxform(formid){
+				$('#'+formid).submit(function() {
+					$.post(location.href,$(this).serialize(),function(result){
+						window.parent.location.reload();
+					});
+					return false; //阻止表单默认提交
+				});
+			}
+			
+			//更新类别
+			function load_shebeileibie(objid,value){
+				var obj=$("#fc_"+objid);
+				$(obj).html("");
+					
+				$.post("{url('api/linkagelist',array('id'=>$keyid))}",function(data){
+					//加载类别
+					$.each(data,function(i,idata){
+						var ischecked=(idata.id==value)?'checked="checked"':"";
+						$(obj).append('<input type="radio" id="radio_'+i+'" name="data['+objid+']" '+ischecked+' value="'+idata.id+'" typevalue="'+idata.idx+'"><label for="radio_'+i+'">'+idata.name+'</label>');
+					});
+					$( obj ).buttonset();
+					
+					//点击切换类别的操作
+					$('[name="data['+objid+']"]').off("click").on("click",function(){
+						var parentid=$(this).val();
+						load_shebeidianbiao(parentid,"shebeidianbiao","");
+						
+						//根据设备类别来显示不同的字段
+						var showclass=$(this).attr("typevalue");
+						$("[fgroup]").hide();
+						$("[fgroup='common']").show();
+						$("[fgroup='"+showclass+"']").show();
+					});
+					
+					//根据设备类别来显示不同的字段
+					var showclass=$('#fc_shebeileibie input[type=radio]:checked').attr("typevalue");
+					$("[fgroup]").hide();
+					$("[fgroup='common']").show();
+					$("[fgroup='"+showclass+"']").show();
+				},'json');
+			}
+			
+			//根据设备类别，加载不同的点表，点表设置在linkage(联动菜单)中设置
+			function load_shebeidianbiao(parentid,objid,value){
+				var obj=$("#fc_"+objid);
+				$(obj).html("");
+				$.post("{url('api/linkagelist',array('id'=>$keyid))}&parent_id="+parentid,function(data){
+					$.each(data,function(id,idata){
+						var ischecked=( $.inArray( id, value )>-1)?"checked":"";
+						$(obj).append('<input type="checkbox" id="chkbox_'+id+'" name="data['+objid+'][]" '+ischecked+' value="'+id+'"><label for="chkbox_'+id+'">'+idata.name+'</label>');
+					});
+					$( obj).buttonset();
+				},'json');
+			}
+					
+
+		</script>
+	</div>
+        
+</div>
+<!--Wrapper End-->
+
+
+</body>
+{template member/footer}

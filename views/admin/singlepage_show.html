@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="{ADMIN_THEME}images/reset.css" rel="stylesheet" type="text/css" />
+<link href="{ADMIN_THEME}images/system.css" rel="stylesheet" type="text/css" />
+<link href="{ADMIN_THEME}images/dialog.css" rel="stylesheet" type="text/css" />
+<link href="{ADMIN_THEME}images/switchbox.css" rel="stylesheet" type="text/css" />
+<link href="{ADMIN_THEME}images/table_form.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{ADMIN_THEME}js/jquery.min.js"></script>
+<script type="text/javascript">
+var sitepath = "{SITE_PATH}{ENTRY_SCRIPT_NAME}";
+var rcms_admin_document = "{$setting['document']}";
+</script>
+<script type="text/javascript" src="{LANG_PATH}lang.js"></script>
+<script type="text/javascript" src="{ADMIN_THEME}js/core.js"></script>
+<script type="text/javascript">
+function ajaxdir() {
+	var dir = $('#dir_text').val();
+	if (dir == '') {
+	    $.post(sitepath+'?c=api&a=pinyin&id='+Math.random(), { name:$('#dir').val() }, function(data){ $('#dir_text').val(data); });
+	}
+}
+</script>
+<title>admin</title>
+</head>
+<body style="font-weight: normal;">
+<div class="subnav">
+	<div class="content-menu ib-a blue line-x">
+		<a href="{url('admin/category/')}"><em>{lang('a-cat-12')}</em></a><span>|</span>
+		<a href="{url('admin/category/add')}" class="on"><em>{lang('a-cat-13')}</em></a><span>|</span>
+		{if admin_auth($userinfo['roleid'], 'category-url')}<a href="{url('admin/category/url')}"><em>{lang('a-cat-14')}</em></a><span>|</span>{/if}
+		{if admin_auth($userinfo['roleid'], 'category-cache')}<a href="{url('admin/category/cache')}"><em>{lang('a-cache')}</em></a>{/if}
+	</div>
+	<div class="table-list">
+		<form method="post" action="" id="myform" name="myform">
+		<input type="hidden" value="{$catid}" name="catid" />
+		<input type="hidden" value="{$data['typeid']}" name="typeid" />
+		<div class="pad-10">
+
+					<div class="contentList pad-10" id="div_setting_1" style="display: block;">
+					<table width="100%" class="table_form">
+					<tbody id='_addall'>
+					<tr>
+						<td>{$data['catname']}<input type="hidden" value="{$data['catname']}" name="data[catname]" id="dir" onBlur="ajaxdir()" /></td>
+					</tr>
+
+					<tr class="type_2" style="display:none;">
+						<td>----------------
+						{template 'url_singlepage'}
+						</td>
+					</tr>
+					</tbody>
+					</table>
+					</div>
+
+					<input type="submit" class="button" value="{lang('a-submit')}" name="submit" />
+
+		</div>
+		</form>
+	</div>
+</div>
+</body>
+</html>

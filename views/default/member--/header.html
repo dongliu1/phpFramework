@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$meta_title}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+<link href="{MEMBER_THEME}_rsc/style.css" rel="stylesheet" type="text/css" />
+<link href="{MEMBER_THEME}_rsc/skins.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="{JLIB_PATH}jqueryui/light/jquery-ui.min.css" />
+<!--link href="{JLIB_PATH}dialog/dialog.css" rel="stylesheet" type="text/css" /-->
+<link href="{JLIB_PATH}fonts/shenku/css/sk.css" rel="stylesheet" type="text/css" />
+<!--[if IE 7]><link rel="stylesheet" href="{JLIB_PATH}fonts/shenku/sk-ie7.css"><![endif]-->
+<link href="{JLIB_PATH}fonts/awesome/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="{JLIB_PATH}fonts/ionicons/ionicons.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{JLIB_PATH}jeasyui/themes/rox/easyui.min.css">
+
+<link href="{MEMBER_THEME}_rsc/xjk.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="{JLIB_PATH}jquery/jquery.min.js"></script>
+<script type="text/javascript" src="{JLIB_PATH}momentjs/moment.min.js"></script>
+<script type="text/javascript" src="{JLIB_PATH}jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="{JLIB_PATH}jeasyui/jquery.easyui.min.js"></script>
+<!--script type="text/javascript" src="{JLIB_PATH}dialog/dialog.js"></script-->
+<script type="text/javascript">
+var sitepath = '{SITE_PATH}{ENTRY_SCRIPT_NAME}';
+var rcms_admin_document = "{$cats[$data['catid']]['setting']['document']}";
+
+function init_combotree(id,url){
+	$('#'+id).combotree({
+		url: url,
+		required:true,
+		loadFilter:function(rows){return treedata_convert(rows);}
+	});
+}
+
+function treedata_convert(rows){
+    var nodes = [];
+	//生成根节点
+	$.each(rows,function(id,row){
+		if(!rows.hasOwnProperty(row.parentid)){
+			nodes.push({id:row.id,text:row.name,idx:row.idx});
+		}
+	})
+	//console.log(nodes);
+    var toDo = new Array();
+    for(var i=0; i<nodes.length; i++){toDo.push(nodes[i]);}
+    while(toDo.length){
+        var node = toDo.shift(); 
+		$.each(rows,function(id,row){
+			if (row.parentid == node.id){
+                var child = {id:row.id,text:row.name,idx:row.idx};
+                if (node.children){
+                    node.children.push(child);
+                } else {
+                    node.children = [child];
+                }
+                toDo.push(child);
+            }
+		});
+    }
+    return nodes;
+}
+</script>
+</head>
+<body class="{$memberinfo['theme']}" style="margin:0;overflow:scroll;width:100%">
+

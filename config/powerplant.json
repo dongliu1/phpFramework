@@ -1,0 +1,9 @@
+{
+	"color":{"daily":"#ff0f0f","total":"#9090ff"},
+	"barwidth":5,
+	"data":[
+	  { "id":65,"name":"Good Stock","coordinates":[114.967061,31.136730],"values":{"daily":1300,"total":29883}},
+	  { "id":66,"name":"Bad Stock","coordinates":[110.690981,32.100693],"values":{"daily":3100,"total":32120}},
+	  { "id":67,"name":"Bostock","coordinates":[107.690981,33.100693],"values":{"daily":2500,"total":50098}}
+	]
+}

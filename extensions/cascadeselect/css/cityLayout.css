@@ -1,0 +1,27 @@
+﻿.cascadeSelect{ border:1px solid #d6d6d6; width:180px; height:30px; background:url(../images/ts-indexcity.png) no-repeat right center; line-height:30px; margin-top:5px; text-indent:5px;}
+.cascadeSelectDiv a{text-decoration:none;font-size:12px;color:#000;}
+.cascadeSelectDiv .tabs li a.current,.tabs li a.current:visited{background: #323055;color:#FFF !important}
+.cascadeSelectDiv .pre a{float:left;width:29px;height:109px;}
+.cascadeSelectDiv .next a{float:right;width:29px;height:109px;}
+.cascadeSelectDiv .pre a.cs-enabled,.cascadeSelectDiv .pre a.cs-enabled:visited{background:url(../images/bg_mc_0113_4.png) -87px center no-repeat}
+.cascadeSelectDiv .next a.cs-enabled,.cascadeSelectDiv .next a.cs-enabled:visited{background:url(../images/bg_mc_0113_4.png) -29px center no-repeat}
+.cascadeSelectDiv .list{position: absolute;left: 20px;right: 20px;top: 0;}
+.cascadeSelectDiv .cs-content{height:110px;border-top:none;padding:10px 0}
+.cascadeSelectDiv .invis{position: relative;}
+
+.cascadeSelectDiv{width:366px;position:absolute;background:#FDFBCE;display:none}
+.cascadeSelectDiv ul{list-style-type:none;margin:0;padding:0;}
+.cascadeSelectDiv .tabs{height:28px;border-bottom:1px solid #323055;}
+.cascadeSelectDiv .tabs li{height:28px;float:left;width:76px;list-style-type:none;margin:0;padding:0;}
+.cascadeSelectDiv .tabs li a,.provinceCity .tabs li a:visited{display:block;height:28px;line-height:28px;text-align:center;text-decoration:none;float:left;width:76px;}
+
+.cascadeSelectDiv .list li{float:left;width:75px;text-align:center;overflow:hidden;padding:3px 0;list-style-type:none;margin:0;padding:0;}
+/*.cascadeSelectDiv .list li a,.cascadeSelectDiv .list li a:visited{color:#777777}*/
+.cascadeSelectDiv .list li a.current,.cascadeSelectDiv .list li a.current:visited{color:#ff6c00}
+
+.cs_autocomplete{position:absolute;border:1px solid #d6d6d6;background:#FFF;display:none}
+.cs_autocomplete ul{list-style-type:none;margin:0;padding:0;}
+.cs_autocomplete li{list-style-type:none;margin:0;padding:0;}
+.cs_autocomplete li a,.cs_autocomplete li a:visited{display:block;height:26px;padding:0 15px;line-height:26px;color:#777777;text-decoration:none}
+.cs_autocomplete li.current a,.cs_autocomplete li.current a:visited{background:#ff6c00;color:#FFF}
+.cs_autocomplete li.none{height:26px;padding:0 15px;line-height:26px;color:#777777}
